@@ -10,7 +10,17 @@
       "Bash(npx vercel:*)",
       "Bash(winget install:*)",
       "Bash(export PATH=\"$PATH:/c/Program Files/GitHub CLI:/c/Program Files \\(x86\\)/GitHub CLI\")",
-      "Bash(gh --version)"
+      "Bash(gh --version)",
+      "Bash(export PATH=\"$PATH:/c/Program Files/GitHub CLI\")",
+      "Bash(gh repo:*)",
+      "WebFetch(domain:rotaryband.vercel.app)",
+      "Bash(bash /tmp/download_and_replace.sh)",
+      "Bash(curl -L -s -o /tmp/test_dl.jpg -w \"%{http_code}\" -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" -e \"https://www.dropzone-band.de/\" \"https://www.dropzone-band.de/wp-content/uploads/2016/03/234.jpg\")",
+      "Bash(curl -L -v -o /dev/null \"https://www.dropzone-band.de/wp-content/uploads/2016/03/234.jpg\")",
+      "Bash(curl:*)",
+      "WebFetch(domain:www.dropzone-band.de)",
+      "WebFetch(domain:dropzone2026.vercel.app)",
+      "Bash(npm run:*)"
     ]
   }
 }

@@ -26,11 +26,11 @@ const getCardImage = (p: any) => {
   if (p.featured_image) return p.featured_image;
   const first = p.content_images?.[0];
   if (first) return first.replace(/-150x150/, '');
-  return 'https://www.dropzone-band.de/wp-content/uploads/2024/02/DZ.074.6397-scaled.jpg';
+  return '/images/downloads/DZ.074.6397-scaled.jpg';
 };
 
 // Hero image
-const heroImage = post.featured_image || 'https://www.dropzone-band.de/wp-content/uploads/2015/09/DSC02439.jpg';
+const heroImage = post.featured_image || '/images/downloads/DSC02439.jpg';
 
 // Format date
 const formattedDate = new Date(post.date).toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });

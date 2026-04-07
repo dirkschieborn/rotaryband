@@ -9,7 +9,7 @@ import Hero from '../../components/Hero.astro';
     title="Private Events"
     subtitle="Hochzeit, Geburtstag, Jubiläum – wir machen eure Feier unvergesslich."
     cta={{ label: 'Jetzt anfragen', href: '/booking/' }}
-    backgroundImage="https://www.dropzone-band.de/wp-content/uploads/2016/06/DSC_7487-1.jpg"
+    backgroundImage="/images/downloads/DSC_7487-1-2.jpg"
   />
 
   <!-- ============ EIN HOCH AUF EUCH ============ -->
@@ -32,9 +32,9 @@ import Hero from '../../components/Hero.astro';
           <div class="relative overflow-hidden rounded-2xl shadow-2xl cursor-zoom-in" id="privateCarousel">
             <div class="flex transition-transform duration-700 ease-out" id="privateTrack">
               {[
-                { src: 'https://www.dropzone-band.de/wp-content/uploads/2016/06/0960_D-LIGHT_021211.jpg', alt: 'Private Feier mit Dropzone' },
-                { src: 'https://www.dropzone-band.de/wp-content/uploads/2015/09/DSC02444.jpg', alt: 'Private Party' },
-                { src: 'https://www.dropzone-band.de/wp-content/uploads/2019/02/DSC02439.jpg', alt: 'Feier mit Dropzone' },
+                { src: '/images/downloads/0960_D-LIGHT_021211.jpg', alt: 'Private Feier mit Dropzone' },
+                { src: '/images/downloads/DSC02444.jpg', alt: 'Private Party' },
+                { src: '/images/downloads/DSC02439-2.jpg', alt: 'Feier mit Dropzone' },
               ].map((img) => (
                 <div class="w-full flex-shrink-0">
                   <img src={img.src} alt={img.alt} class="w-full aspect-[16/9] object-cover" loading="lazy" />
@@ -50,9 +50,9 @@ import Hero from '../../components/Hero.astro';
           </div>
           <div class="flex gap-2 mt-3" id="privateThumbs">
             {[
-              { src: 'https://www.dropzone-band.de/wp-content/uploads/2016/06/0960_D-LIGHT_021211.jpg', alt: 'Private Feier mit Dropzone' },
-              { src: 'https://www.dropzone-band.de/wp-content/uploads/2015/09/DSC02444.jpg', alt: 'Private Party' },
-              { src: 'https://www.dropzone-band.de/wp-content/uploads/2019/02/DSC02439.jpg', alt: 'Feier mit Dropzone' },
+              { src: '/images/downloads/0960_D-LIGHT_021211.jpg', alt: 'Private Feier mit Dropzone' },
+              { src: '/images/downloads/DSC02444.jpg', alt: 'Private Party' },
+              { src: '/images/downloads/DSC02439-2.jpg', alt: 'Feier mit Dropzone' },
             ].map((img, i) => (
               <button class={`flex-1 rounded-lg overflow-hidden border-2 transition-all duration-300 cursor-pointer ${i === 0 ? 'border-primary' : 'border-transparent opacity-50 hover:opacity-80'}`} data-thumb={i}>
                 <img src={img.src} alt={img.alt} class="w-full aspect-[16/9] object-cover" loading="lazy" />
