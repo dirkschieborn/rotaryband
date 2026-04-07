@@ -1,0 +1,141 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  backgroundImage?: string;
+  backgroundPosition?: string;
+  videoId?: string;
+  cta?: { label: string; href: string };
+  ctaSecondary?: { label: string; href: string };
+  overlay?: boolean;
+  fullHeight?: boolean;
+  scriptAccent?: string;
+}
+
+const {
+  title,
+  subtitle,
+  backgroundImage,
+  backgroundPosition,
+  videoId,
+  cta,
+  ctaSecondary,
+  overlay = true,
+  fullHeight = false,
+  scriptAccent,
+} = Astro.props;
+---
+
+<section class={`hero ${fullHeight ? 'hero-full' : ''}`}>
+  {backgroundImage && (
+    <div class="hero-bg">
+      <img src={backgroundImage} alt="" loading="eager" style={backgroundPosition ? `object-position: ${backgroundPosition}` : undefined} />
+    </div>
+  )}
+  {videoId && (
+    <div class="hero-video-bg">
+      <iframe
+        src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&modestbranding=1&playsinline=1`}
+        allow="autoplay"
+        loading="lazy"
+      ></iframe>
+    </div>
+  )}
+  {overlay && <div class="hero-overlay"></div>}
+  <div class="hero-content container">
+    {scriptAccent && <span class="script-accent">{scriptAccent}</span>}
+    <h1 class="hero-title">{title}</h1>
+    {subtitle && <p class="hero-subtitle">{subtitle}</p>}
+    {(cta || ctaSecondary) && (
+      <div class="hero-actions">
+        {cta && <a href={cta.href} class="btn btn-primary btn-large">{cta.label}</a>}
+        {ctaSecondary && <a href={ctaSecondary.href} class="btn btn-outline btn-large">{ctaSecondary.label}</a>}
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-full {
+    min-height: calc(100vh - var(--header-height));
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-video-bg {
+    position: absolute;
+    inset: -60px;
+  }
+
+  .hero-video-bg iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    pointer-events: none;
+    transform: scale(1.2);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(10, 10, 10, 0.6) 0%,
+      rgba(10, 10, 10, 0.4) 40%,
+      rgba(10, 10, 10, 1) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 4rem 1.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--color-text-muted);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .script-accent {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+</style>

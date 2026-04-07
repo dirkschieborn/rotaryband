@@ -1,0 +1,143 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  schema?: Record<string, any> | Record<string, any>[];
+}
+
+const {
+  title,
+  description = 'Dropzone – die Eventband aus Stuttgart. Live-Musik für Hochzeiten, Firmenevents, Festivals und private Feiern.',
+  image = '/images/og-image.jpg',
+  schema,
+} = Astro.props;
+
+const siteUrl = 'https://www.dropzone-band.de';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || siteUrl);
+const absoluteImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
+
+// Base Organization schema – always present
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['MusicGroup', 'LocalBusiness'],
+  '@id': `${siteUrl}/#organization`,
+  name: 'Dropzone',
+  alternateName: 'Dropzone – Die Eventband',
+  description: 'Professionelle Eventband aus Stuttgart für Hochzeiten, Firmenevents, Festivals und private Feiern. Seit über 20 Jahren live auf der Bühne.',
+  url: siteUrl,
+  logo: `${siteUrl}/images/logo_weiss.png`,
+  image: 'https://www.dropzone-band.de/wp-content/uploads/2024/02/DZ.074.6397-scaled.jpg',
+  telephone: '+497113406789500',
+  email: 'info@dropzone-band.de',
+  foundingDate: '2003',
+  genre: ['Pop', 'Rock', 'Soul', 'Funk', 'Jazz', 'Party'],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Heiligenwiesen 8a',
+    addressLocality: 'Aidlingen',
+    postalCode: '71134',
+    addressCountry: 'DE',
+    addressRegion: 'Baden-Württemberg',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 48.6778,
+    longitude: 8.8731,
+  },
+  areaServed: [
+    { '@type': 'Country', name: 'Deutschland' },
+    { '@type': 'Country', name: 'Schweiz' },
+    { '@type': 'Country', name: 'Österreich' },
+  ],
+  sameAs: [
+    'https://www.instagram.com/dropzone_eventband/',
+    'https://www.youtube.com/@dropzoneband',
+    'https://www.facebook.com/dropzoneband',
+  ],
+  member: [
+    { '@type': 'Person', name: 'Jean-Pierre Domaniwski', roleName: 'Frontmann & Gesang' },
+    { '@type': 'Person', name: 'Sarah Abdallah', roleName: 'Gesang' },
+    { '@type': 'Person', name: 'Dirk Schieborn', roleName: 'Keys & musikalische Leitung' },
+    { '@type': 'Person', name: 'Andy Newman', roleName: 'Gitarre' },
+    { '@type': 'Person', name: 'Felix Ohngemach', roleName: 'Drums' },
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    bestRating: '5',
+    ratingCount: '48',
+    reviewCount: '48',
+  },
+  priceRange: '€€€',
+  numberOfEmployees: { '@type': 'QuantitativeValue', minValue: 2, maxValue: 8 },
+  knowsAbout: ['Live-Musik', 'Hochzeitsband', 'Eventband', 'Coverband', 'Partyband', 'Galaband'],
+};
+
+// WebSite schema for sitelinks search
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
+  name: 'Dropzone – Die Eventband',
+  url: siteUrl,
+  publisher: { '@id': `${siteUrl}/#organization` },
+  inLanguage: 'de-DE',
+};
+
+// Collect all schemas
+const allSchemas = [organizationSchema, websiteSchema, ...(Array.isArray(schema) ? schema : schema ? [schema] : [])];
+---
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title.startsWith('Dropzone') ? title : `${title} | Dropzone – die Eventband`}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title.startsWith('Dropzone') ? title : `${title} | Dropzone`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={absoluteImage} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Dropzone – Die Eventband" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | Dropzone`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Schema.org JSON-LD -->
+    {allSchemas.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  main {
+    margin-top: var(--header-height);
+  }
+</style>

@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Danke für deine Anfrage" description="Wir haben deine Anfrage erhalten und melden uns kurzfristig.">
+
+  <section class="section" style="min-height:60vh; display:flex; align-items:center;">
+    <div class="container" style="text-align:center; max-width:600px;">
+      <div class="checkmark">✓</div>
+      <h1 style="margin-bottom:1rem;">Versand erfolgreich!</h1>
+      <p style="font-size:1.1rem; color:var(--color-muted); margin-bottom:2rem;">
+        Vielen Dank für deine Anfrage! Wir haben sie erhalten und werden uns kurzfristig bei dir melden.
+      </p>
+      <p style="color:var(--color-muted);">
+        Herzliche Grüße,<br/>
+        <strong style="color:#fff;">Suny und Jean-Pierre</strong><br/>
+        vom Dropzone-Booking-Büro
+      </p>
+      <div class="contact-info">
+        <p>📞 <a href="tel:+497113406789500">0711 340 6789 500</a></p>
+        <p>✉ <a href="mailto:info@dropzone-band.de">info@dropzone-band.de</a></p>
+      </div>
+      <div style="margin-top:2rem;">
+        <a href="/" class="btn btn-outline">Zurück zur Startseite</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .checkmark {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-info {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .contact-info a {
+    color: var(--color-primary-light);
+    text-decoration: none;
+  }
+
+  .contact-info a:hover {
+    color: #fff;
+  }
+</style>

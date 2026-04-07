@@ -1,0 +1,383 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import posts from '../../wp-blog-posts.json';
+
+const excludeSlugs = ['festivals', 'euer-ki-song-live-auf-der-buehne', 'showreel-festivals-video', 'live-im-swr-happy', 'showreel-partyband', 'showreel-firmenevent', 'showreel-festivals', 'gewinnen-feat-cassandra-steen', 'interview', 'showreel-partyband-video', 'showreel-firmenevent-video'];
+
+const videoCutoff = new Date('2024-03-08');
+const allPosts = (posts as any[])
+  .filter((p: any) => !excludeSlugs.includes(p.slug))
+  .filter((p: any) => !(p.category === 'Videos' && new Date(p.date) < videoCutoff))
+  .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+// Include the dedicated page post manually at the top
+const kiPost = {
+  slug: 'euer-ki-song-live-auf-der-buehne',
+  title: 'KI-Special: Once In A Lifetime Songs',
+  date: '2026-01-08',
+  featured_image: '/images/ki-song-hero.jpg',
+  card_image: 'https://www.dropzone-band.de/wp-content/uploads/2025/08/Unbenannt-1-1.jpg',
+  content_images: [],
+  excerpt: 'Kreiert euren persönlichen Hochzeits-Song mit KI – und wir spielen ihn live auf eurer Hochzeitsfeier. Once in a lifetime.',
+  category: 'Rund um Hochzeiten',
+};
+
+const news = [kiPost, ...allPosts];
+
+const categories = ['Alle', 'Gigs', 'News', 'Rund um Hochzeiten', 'Rund um Firmenevents', 'Videos'];
+
+const getImage = (post: any) => {
+  if (post.card_image) return post.card_image;
+  if (post.featured_image) return post.featured_image;
+  const first = post.content_images?.[0];
+  if (first) return first.replace(/-150x150/, '');
+  return 'https://www.dropzone-band.de/wp-content/uploads/2024/02/DZ.074.6397-scaled.jpg';
+};
+
+const formatDate = (dateStr: string) => {
+  return new Date(dateStr).toLocaleDateString('de-DE', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+};
+---
+
+<BaseLayout title="News" description="Aktuelles von Dropzone – Konzerte, Videos, Events und mehr.">
+
+  <Hero
+    title="News"
+    subtitle="Was bei uns gerade los ist."
+    backgroundImage="https://www.dropzone-band.de/wp-content/uploads/2024/02/DZ.074.6397-scaled.jpg"
+  />
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Category Filter -->
+      <div class="category-filter" id="categoryFilter">
+        {categories.map((cat) => (
+          <button
+            class={`filter-btn ${cat === 'Alle' ? 'active' : ''}`}
+            data-category={cat}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <div class="news-grid" id="newsGrid">
+        {news.map((item: any, i: number) => (
+          <a href={`/${item.slug}/`} class={`news-card card ${(item.category === 'Gigs' || item.category === 'News') ? 'news-card--dated' : ''}`} data-category={item.category || ''}>
+            {item.category === 'Gigs' && (
+              <div class="date-badge date-badge--gig">
+                <span class="date-badge-day">{new Date(item.date).toLocaleDateString('de-DE', { day: '2-digit' })}</span>
+                <span class="date-badge-month">{new Date(item.date).toLocaleDateString('de-DE', { month: 'short' }).replace('.', '')}</span>
+                <span class="date-badge-year">{new Date(item.date).getFullYear()}</span>
+              </div>
+            )}
+            {item.category === 'News' && (
+              <div class="date-badge date-badge--news">
+                <span class="date-badge-day">{new Date(item.date).toLocaleDateString('de-DE', { day: '2-digit' })}</span>
+                <span class="date-badge-month">{new Date(item.date).toLocaleDateString('de-DE', { month: 'short' }).replace('.', '')}</span>
+                <span class="date-badge-year">{new Date(item.date).getFullYear()}</span>
+              </div>
+            )}
+            <div class={`news-image-wrap ${item.card_image_style === 'logo' ? 'news-image-wrap--logo' : ''}`}>
+              <img src={getImage(item)} alt={item.title} loading={i === 0 ? 'eager' : 'lazy'} />
+              {(item.category === 'Videos' || item.video_format === 'short') && (
+                <span class="video-badge">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M8 5v14l11-7z"/></svg>
+                  Reel
+                </span>
+              )}
+            </div>
+            <div class="card-body">
+              {item.category && <span class="news-category">{item.category}</span>}
+              <h3 class="card-title">{item.title}</h3>
+              {item.excerpt && <p class="card-text">{item.excerpt}</p>}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .news-card {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .news-card.featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .news-image-wrap {
+    overflow: hidden;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  .featured .news-image-wrap {
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  }
+
+  .news-image-wrap img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .featured .news-image-wrap img {
+    aspect-ratio: auto;
+    height: 100%;
+  }
+
+  .news-card:hover .news-image-wrap img {
+    transform: scale(1.05);
+  }
+
+  .news-date {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--color-primary-light);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .featured .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .featured .card-title {
+    font-size: 1.6rem;
+  }
+
+  @media (max-width: 900px) {
+    .news-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .news-card.featured {
+      grid-column: 1 / -1;
+      grid-template-columns: 1fr;
+    }
+    .featured .news-image-wrap {
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .news-grid {
+      grid-template-columns: 1fr;
+    }
+    .category-filter {
+      flex-wrap: wrap;
+    }
+  }
+
+  .category-filter {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+    justify-content: center;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: transparent;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Rubik', sans-serif;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary-light);
+  }
+
+  .filter-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+  }
+
+  .news-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-primary-light);
+    background: var(--color-primary);
+    background: rgba(var(--color-primary-rgb, 111, 44, 145), 0.15);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+
+  .news-card--dated {
+    overflow: visible;
+    position: relative;
+  }
+
+  .news-card--dated .news-image-wrap {
+    overflow: hidden;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  .news-card.hidden-card {
+    display: none;
+  }
+
+  .date-badge {
+    position: absolute;
+    top: -0.75rem;
+    left: -0.5rem;
+    z-index: 10;
+    border-radius: 12px;
+    padding: 0.5rem 0.65rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+    min-width: 52px;
+  }
+
+  .date-badge--gig {
+    background: var(--color-primary);
+    box-shadow: 0 4px 15px rgba(131, 0, 233, 0.4);
+  }
+
+  .date-badge--gig .date-badge-day,
+  .date-badge--gig .date-badge-month {
+    color: white;
+  }
+
+  .date-badge--gig .date-badge-year {
+    color: rgba(255,255,255,0.85);
+  }
+
+  .date-badge--news {
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  }
+
+  .date-badge--news .date-badge-day,
+  .date-badge--news .date-badge-month {
+    color: var(--color-primary);
+  }
+
+  .date-badge--news .date-badge-year {
+    color: var(--color-primary);
+    opacity: 0.7;
+  }
+
+  .date-badge-day {
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: 'Rubik', sans-serif;
+  }
+
+  .date-badge-month {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 0.2rem;
+  }
+
+  .date-badge-year {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-top: 0.35rem;
+  }
+
+  .news-image-wrap {
+    position: relative;
+  }
+
+  .news-image-wrap--logo {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 10;
+    padding: 2.5rem;
+  }
+
+  .news-image-wrap--logo img {
+    aspect-ratio: auto;
+    object-fit: contain;
+    width: 80%;
+    height: auto;
+  }
+
+  .video-badge {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    color: var(--color-primary);
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: none;
+    letter-spacing: 0;
+    padding: 0.4rem 0.75rem;
+    border-radius: 10px;
+    font-family: 'Rubik', sans-serif;
+    line-height: 1;
+  }
+</style>
+
+<script>
+  (() => {
+    const filter = document.getElementById('categoryFilter');
+    const cards = document.querySelectorAll<HTMLElement>('.news-card');
+    if (!filter) return;
+
+    filter.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest('.filter-btn') as HTMLElement | null;
+      if (!btn) return;
+
+      const cat = btn.dataset.category || 'Alle';
+
+      filter.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      cards.forEach(card => {
+        if (cat === 'Alle' || card.dataset.category === cat) {
+          card.classList.remove('hidden-card');
+        } else {
+          card.classList.add('hidden-card');
+        }
+      });
+    });
+  })();
+</script>

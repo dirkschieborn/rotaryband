@@ -1,0 +1,448 @@
+---
+const navItems = [
+  { label: 'Start', href: '/' },
+  { label: 'Events', href: '#', children: [
+    { label: 'Hochzeiten', href: '/events/hochzeiten/' },
+    { label: 'Firmenevents', href: '/events/firmenevents/' },
+    { label: 'Festivals', href: '/events/festivals/' },
+    { label: 'Private Events', href: '/events/private/' },
+  ]},
+  { label: 'KI-Special', href: '/once-in-a-lifetime-song/' },
+  { label: 'Videos', href: '/videos/' },
+  { label: 'Repertoire', href: '/repertoire/' },
+  { label: 'News', href: '/news/' },
+  { label: 'Band', href: '/wer-wir-sind/' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header" id="header">
+  <div class="header-inner">
+    <!-- Logo -->
+    <a href="/" class="logo" aria-label="Dropzone - Startseite">
+      <img src="/images/logo_weiss.png" alt="Dropzone – Die Eventband" class="logo-img" />
+    </a>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        {navItems.map((item) => (
+          <li class:list={[{ 'has-dropdown': item.children }]}>
+            {item.children ? (
+              <>
+                <button
+                  class:list={['nav-link dropdown-trigger', { active: currentPath.startsWith('/events/') }]}
+                  aria-expanded="false"
+                >
+                  {item.label}
+                  <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <ul class="dropdown">
+                  {item.children.map((child) => (
+                    <li>
+                      <a
+                        href={child.href}
+                        class:list={['dropdown-link', { active: currentPath === child.href }]}
+                      >
+                        {child.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              <a
+                href={item.href}
+                class:list={['nav-link', { active: currentPath === item.href }]}
+              >
+                {item.label}
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- CTA -->
+    <a href="/booking/" class="header-cta">Anfragen</a>
+
+    <!-- Mobile Toggle -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 84px;
+    background: rgba(12, 10, 18, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background 0.3s ease, box-shadow 0.3s ease, height 0s;
+  }
+
+  .header.menu-open {
+    height: 100vh;
+    height: 100dvh;
+    background: #0c0a12;
+    border-bottom: none;
+  }
+
+  .header.scrolled {
+    background: rgba(12, 10, 18, 0.97);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 84px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ---- Logo ---- */
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-img {
+    height: 55px;
+    width: auto;
+  }
+
+  /* ---- Nav ---- */
+  .nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav-link:hover {
+    color: #fff;
+  }
+
+  .nav-link.active {
+    color: #fff;
+  }
+
+  /* ---- Dropdown ---- */
+  .has-dropdown {
+    position: relative;
+  }
+
+  .dropdown-arrow {
+    transition: transform 0.25s ease;
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  .has-dropdown:hover .dropdown-arrow,
+  .has-dropdown.open .dropdown-arrow {
+    opacity: 1;
+    transform: rotate(180deg);
+  }
+
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    min-width: 200px;
+    background: rgba(18, 16, 26, 0.97);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 0.5rem;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .has-dropdown:hover .dropdown,
+  .has-dropdown.open .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .dropdown-link {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: rgba(255, 255, 255, 0.65);
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .dropdown-link:hover {
+    color: #fff;
+    background: rgba(124, 58, 237, 0.15);
+  }
+
+  .dropdown-link.active {
+    color: var(--color-primary-light);
+  }
+
+  /* ---- CTA Button ---- */
+  .header-cta {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 1.6rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 16px rgba(124, 58, 237, 0.3);
+  }
+
+  .header-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 24px rgba(124, 58, 237, 0.5);
+    color: #fff;
+  }
+
+  /* ---- Mobile Toggle ---- */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 10;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  .menu-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* ---- Mobile ---- */
+  @media (max-width: 1100px) {
+    .menu-toggle {
+      display: flex;
+      z-index: 1001;
+      position: relative;
+    }
+
+    .header-cta {
+      display: none;
+    }
+
+    .nav {
+      display: none;
+      position: absolute;
+      top: 84px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: calc(100vh - 84px);
+      height: calc(100dvh - 84px);
+      background: #0c0a12;
+      padding: 1rem 2rem 2rem;
+      justify-content: flex-start;
+      align-items: center;
+      overflow-y: auto;
+    }
+
+    .nav.open {
+      display: flex;
+    }
+
+    .header-inner {
+      justify-content: space-between;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      width: 100%;
+      gap: 0;
+      align-items: stretch;
+    }
+
+    .nav-link {
+      font-size: 1rem;
+      padding: 0.85rem 0;
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.75);
+      justify-content: space-between;
+    }
+
+    .nav-link.active {
+      color: #c084fc;
+    }
+
+    /* Mobile dropdown */
+    .dropdown {
+      position: static;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      background: none;
+      backdrop-filter: none;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 0;
+      margin: 0;
+      min-width: auto;
+      display: none;
+    }
+
+    .has-dropdown.open .dropdown {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding: 0.4rem 0 0.75rem;
+      transform: none;
+    }
+
+    .dropdown li {
+      flex-shrink: 0;
+    }
+
+    .dropdown-link {
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-bottom: none;
+      border-radius: 999px;
+      border: 1px solid rgba(131, 0, 233, 0.3);
+      color: rgba(255, 255, 255, 0.6);
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-link:hover,
+    .dropdown-link.active {
+      color: #fff;
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .header-inner {
+      padding: 0 1rem;
+    }
+  }
+</style>
+
+<script>
+  // Scroll effect
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header?.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Mobile menu
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('nav');
+  toggle?.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    nav?.classList.toggle('open');
+    header?.classList.toggle('menu-open');
+    document.body.style.overflow = nav?.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Dropdown toggle for mobile
+  const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
+  dropdownTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (e) => {
+      const parent = (e.currentTarget as HTMLElement).closest('.has-dropdown');
+      if (!parent) return;
+
+      // On desktop, dropdown works via hover — only toggle on mobile
+      if (window.innerWidth <= 1100) {
+        e.preventDefault();
+        parent.classList.toggle('open');
+      }
+    });
+  });
+
+  // Close on link click
+  nav?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle?.classList.remove('open');
+      nav?.classList.remove('open');
+      header?.classList.remove('menu-open');
+      document.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('open'));
+      document.body.style.overflow = '';
+    });
+  });
+</script>

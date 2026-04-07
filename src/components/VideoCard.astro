@@ -1,0 +1,90 @@
+---
+interface Props {
+  title: string;
+  youtubeId: string;
+  description?: string;
+}
+
+const { title, youtubeId, description } = Astro.props;
+---
+
+<div class="video-card card">
+  <div class="video-thumb" data-youtube-id={youtubeId}>
+    <img
+      src={`https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`}
+      alt={title}
+      loading="lazy"
+    />
+    <button class="play-btn" aria-label={`${title} abspielen`}>
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="24" fill="rgba(124, 58, 237, 0.9)"/>
+        <path d="M19 15L35 24L19 33V15Z" fill="white"/>
+      </svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <h3 class="card-title">{title}</h3>
+    {description && <p class="card-text">{description}</p>}
+  </div>
+</div>
+
+<style>
+  .video-thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+  }
+
+  .video-card:hover .video-thumb img {
+    transform: scale(1.05);
+  }
+
+  .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+  }
+
+  .play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .video-thumb.playing {
+    aspect-ratio: 16 / 9;
+  }
+
+  .video-thumb.playing img,
+  .video-thumb.playing .play-btn {
+    display: none;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.video-thumb').forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      const id = thumb.getAttribute('data-youtube-id');
+      if (!id) return;
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+      iframe.allow = 'autoplay; encrypted-media';
+      iframe.allowFullscreen = true;
+      iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;';
+      thumb.classList.add('playing');
+      thumb.style.position = 'relative';
+      thumb.appendChild(iframe);
+    });
+  });
+</script>

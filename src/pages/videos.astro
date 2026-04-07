@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import VideoCard from '../components/VideoCard.astro';
+
+const siteUrl = 'https://www.dropzone-band.de';
+
+const videoCategories = [
+  {
+    title: 'Showreels',
+    videos: [
+      { title: 'Open Air Showreel 2024', youtubeId: 'Mqqm-WtdVRE', description: 'Das Beste von Dropzone Open Air 2024' },
+      { title: 'Showreel Partyband', youtubeId: 'Ju_I95kOqxU', description: 'Dropzone auf Hochzeiten und Privatevents' },
+      { title: 'Showreel Firmenevent', youtubeId: 'ctPncWWIwvU', description: 'Professionelle Live-Musik für Business Events' },
+      { title: 'Showreel Festivals', youtubeId: 'FHQzYjMm2VQ', description: 'Dropzone auf großen Open-Air-Bühnen' },
+    ],
+  },
+  {
+    title: 'Live-Auftritte',
+    videos: [
+      { title: 'Beautiful Things & Lose Control', youtubeId: 'skMM36st_X4', description: 'Dropzone live auf großer Bühne' },
+      { title: 'Purple Rain – WUAHL 2017', youtubeId: 'dheqrCPrJD4', description: 'Dropzone "Big Stage" bei WUAHL: Purple Rain' },
+      { title: 'Happy (Pharrell Williams)', youtubeId: '9jJ3zdZuyiY', description: 'Dropzone-Cover von Happy – Pharrell Williams' },
+    ],
+  },
+  {
+    title: 'Specials & Kollaborationen',
+    videos: [
+      { title: 'Dropzone live im SWR (feat. Cassandra Steen)', youtubeId: '1eGjj8zN7lY', description: 'Dropzone gemeinsam mit Cassandra Steen live im SWR Fernsehen' },
+      { title: 'Grandma\'s Hands (feat. Sir Waldo Weathers)', youtubeId: 'Xb_1afq1uRk', description: 'Dropzone feat. Sir Waldo Weathers – Grandma\'s Hands' },
+      { title: 'Ready for Love – Duo Gesang/Piano', youtubeId: '_1dgLjs5uGI', description: 'Dropzone-Duo mit Gesang und Piano: Ready for Love' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Videos"
+  description="Seht Dropzone live in Aktion – Showreels, Live-Auftritte und mehr."
+  schema={videoCategories.flatMap((cat) => cat.videos.map((v) => ({
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: v.title,
+    description: v.description,
+    thumbnailUrl: `https://img.youtube.com/vi/${v.youtubeId}/maxresdefault.jpg`,
+    uploadDate: '2024-01-01',
+    contentUrl: `https://www.youtube.com/watch?v=${v.youtubeId}`,
+    embedUrl: `https://www.youtube.com/embed/${v.youtubeId}`,
+    publisher: { '@id': `${siteUrl}/#organization` },
+  })))}
+>
+
+  <Hero
+    title="Videos"
+    subtitle="Seht selbst, was passiert, wenn wir die Bühne betreten."
+    backgroundImage="https://www.dropzone-band.de/wp-content/uploads/2024/02/DZ.074.6397-scaled.jpg"
+  />
+
+  {videoCategories.map((category, i) => (
+    <section class={`section ${i % 2 === 1 ? 'section-dark' : ''}`}>
+      <div class="container">
+        <h2 class="section-title">{category.title}</h2>
+        <div class="divider"></div>
+        <div class:list={[i === 0 ? 'grid-2 video-grid' : 'grid-3 video-grid']}>
+          {category.videos.map((video) => (
+            <VideoCard
+              title={video.title}
+              youtubeId={video.youtubeId}
+              description={video.description}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- ============ SHORTS ============ -->
+  <section class="py-24 md:py-32 bg-surface relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 45% 35% at 50% 50%, rgba(130, 60, 220, 0.12) 0%, transparent 100%);"></div>
+    <div class="max-w-[1400px] mx-auto px-8 relative z-10">
+      <div class="text-center mb-16">
+        <p class="text-primary-light font-semibold text-sm uppercase tracking-widest mb-3">Kurz & knackig</p>
+        <h2 class="text-4xl md:text-5xl font-bold">Shorts</h2>
+      </div>
+
+      <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
+        {[
+          { id: 'Ie4M5hfMXLY', title: 'Am Start beim 1&1 Sommerfest in Karlsruhe' },
+          { id: 'bBiHu_bfiwA', title: 'Hochzeitsfeier auf dem Golfplatz' },
+          { id: 'hVbiyOkQCh0', title: 'Tanz in den Mai in Fellbach' },
+          { id: 'fhMyjYlfbIM', title: 'Proberaumkonzert für unsere Brautpaare' },
+          { id: 'hWXOPs9iAvw', title: 'Dropzone Live' },
+          { id: '0YD2CzAUMa0', title: "That's the way I like it" },
+          { id: 'yZKSI2PMnaE', title: 'Livenacht Stuttgart' },
+          { id: 'DgnFnQovYgA', title: 'XXL Closing Küchenparty Europapark' },
+          { id: 'jmTyeOjf_J8', title: 'Pausenkonzert Gymnasium Rutesheim' },
+          { id: 'ml7T-KdFuqI', title: 'Kinopremiere Konzertfilm 2024' },
+          { id: 'gRJG2rHkT6s', title: 'Hochzeit-Special 2025' },
+          { id: '76cSMM7FYr0', title: 'Silvester 2024 im Europa-Park' },
+        ].map((short) => (
+          <div class="group relative rounded-2xl overflow-hidden bg-surface-card border border-border hover:border-primary/30 transition-all duration-300">
+            <div class="relative aspect-[9/16]">
+              <iframe
+                src={`https://www.youtube.com/embed/${short.id}`}
+                title={short.title}
+                class="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="p-3">
+              <p class="text-white/70 text-sm font-semibold leading-snug">{short.title}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .section-dark {
+    background: var(--color-bg-elevated);
+  }
+
+  .video-grid {
+    margin-top: 2rem;
+  }
+</style>

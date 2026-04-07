@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+
+const partySongs = [
+  "Ain't Nobody (Chaka Khan)", "All About That Bass (Meghan Trainor)", "Angels (Robbie Williams)",
+  "Another Star (Stevie Wonder)", "Bad Girls (Jamiroquai)", "Beautiful Things (Benson Boone)",
+  "Billie Jean (Michael Jackson)", "Blurred Lines (Robin Thicke)", "Brickhouse (Commodores)",
+  "Car Wash (Christina Aguilera)", "Celebration (Kool and the Gang)", "Chasing Cars (Snow Patrol)",
+  "Dani California (Red Hot Chili Peppers)", "Deeper Underground (Jamiroquai)",
+  "Don't Stop The Music (Rihanna)", "Easy (Faith No More)", "Everybody Needs Somebody (Blues Brothers)",
+  "Feel (Robbie Williams)", "Finally (CeCe Peniston)", "Flowers (Miley Cyrus)",
+  "Freed from Desire (Gala)", "Get Down On It (Kool and the Gang)",
+  "Get Down Saturday Night (Oliver Cheatham)", "Get Lucky (Daft Punk)", "Happy (Pharrell)",
+  "Human (Rag'n'Bone Man)", "I Belong To You (Lenny Kravitz)", "I Follow Rivers (Lykke Li)",
+  "I Kissed A Girl (Katy Perry)", "I Will Survive (Gloria Gaynor)", "I Wish (Stevie Wonder)",
+  "I'm Outta Love (Anastacia)", "Just Dance (Lady Gaga)", "Kiss (Prince)",
+  "Ladies' Night (Kool and the Gang)", "Lady Marmalade (Christina Aguilera)", "Le Freak (Chic)",
+  "Let Me Entertain You (Robbie Williams)", "Locked Out Of Heaven (Bruno Mars)",
+  "Long Train Running (Doobie Brothers)", "Lose Control (Teddy Swims)", "Lovely Day (Bill Withers)",
+  "Low (Flo Rida)", "Moves Like Jagger (Maroon 5)", "Mr. Brightside (The Killers)",
+  "No Roots (Alice Merton)", "Play That Funky Music (Wild Cherry)", "Poker Face (Lady Gaga)",
+  "Price Tag (Jessie J)", "Purple Rain (Prince)", "Rather Be (Clean Bandit ft. Jess Glynne)",
+  "Relight My Fire (Take That)", "Seven Nation Army (White Stripes)", "Sex on Fire (Kings of Leon)",
+  "Sing It Back (Moloko)", "Sugar (Maroon 5)", "Superstition (Stevie Wonder)",
+  "That's The Way I Like It (KC and the Sunshine Band)", "This Girl (Kungs vs. Cookin' on 3 Burners)",
+  "Too Close (Alex Clare)", "Umbrella (Rihanna)", "Upside Down (Diana Ross)",
+  "Uptown Funk (Mark Ronson ft. Bruno Mars)", "Use Somebody (Kings of Leon)",
+  "Valerie (Amy Winehouse)", "Walking On Sunshine (Katrina And The Waves)", "Waterfalls (TLC)",
+  "Watermelon Sugar (Harry Styles)", "We Are Family (Sister Sledge)", "What Is Love (Haddaway)",
+  "Word Up (Cameo)", "You Are The Reason (Calum Scott)", "You Can Leave Your Hat On (Joe Cocker)",
+];
+
+const loungeSongs = [
+  "As Time Goes By (Frank Sinatra)", "Autumn Leaves (Joseph Kosma)",
+  "Bésame Mucho (João Gilberto)", "Blue Bossa (Kenny Dorham)", "Don't Know Why (Norah Jones)",
+  "Fly Me To The Moon (Frank Sinatra)", "Get Here (Oleta Adams)",
+  "Girl From Ipanema (Antonio Carlos Jobim)", "Have You Met Miss Jones (Robbie Williams)",
+  "Killing Me Softly (Roberta Flack)", "Misty (Erroll Garner)", "My Way (Frank Sinatra)",
+  "Night And Day (Cole Porter)", "Singing In The Rain (Jamie Cullum)",
+  "Summertime (George Gershwin)", "Sunny (Stevie Wonder)", "Take Five (Dave Brubeck)",
+  "This Masquerade (George Benson)", "Yesterday (Paul McCartney)",
+];
+
+const standardtanzSongs = [
+  "Breakaway (Kelly Clarkson)", "Cherish (Kool and the Gang)", "Come Away With Me (Norah Jones)",
+  "Falling (Alicia Keys)", "Have I Told You Lately (Van Morrison)", "Hijo De La Luna (Loona)",
+  "I Like It Like That (Blackout Allstars)", "If I Ain't Got You (Alicia Keys)",
+  "If You Don't Know Me By Now (Simply Red)", "Jailhouse Rock (Elvis Presley)",
+  "Just A Gigolo (David Lee Roth)", "Let's Twist Again (Chubby Checker)",
+  "Lollipop (The Chordettes)", "Money Money Money (ABBA)", "Moon River (Audrey Hepburn)",
+  "Natural Woman (Carole King)", "Que Sera (Doris Day)", "Smooth Operator (Sade)",
+  "Something Stupid (Frank Sinatra)", "Summer Wind (Frank Sinatra)",
+  "Sway (Dean Martin / Michael Bublé)", "Take Me Back To Then (Bobby Caldwell)",
+  "Tell Her About It (Billy Joel)", "Turn On Tune In (Freak Power)",
+  "You Are So Beautiful (Joe Cocker)", "You Light Up My Life (LeAnn Rimes)",
+];
+---
+
+<BaseLayout title="Repertoire" description="Das Repertoire von Dropzone – von Pop über Soul und Rock bis Lounge und Standardtanz.">
+
+  <Hero
+    title="Repertoire"
+    subtitle="Was macht ihr eigentlich für Mucke?!"
+    backgroundImage="https://www.dropzone-band.de/wp-content/uploads/2024/02/DZ.133.7325-scaled.jpg"
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="repertoire-intro">
+        <p>
+          Ihr habt uns noch nie live gehört und wollt gerne genauer wissen, was wir für Musik machen?
+          Wir haben euch hier für einen schnellen Überblick hübsch sortierte Repertoirelisten zusammengestellt,
+          getrennt nach „Party" und „Dinner & Dance". Schaut euch aber unbedingt auch unsere
+          <a href="/videos/">Videos</a> an, um ein Gefühl zu bekommen, wie sich die Songs bei uns anhören,
+          denn eine Live-Band ist kein MP3-Player.
+        </p>
+      </div>
+
+      <div class="repertoire-list">
+        <div class="repertoire-category">
+          <h2 class="category-title">Rock, Pop, Soul, Funk</h2>
+          <div class="songs-grid">
+            {partySongs.map((song) => (
+              <div class="song-item">{song}</div>
+            ))}
+          </div>
+        </div>
+
+        <div class="repertoire-category">
+          <h2 class="category-title">Lounge & Smooth Jazz</h2>
+          <div class="songs-grid">
+            {loungeSongs.map((song) => (
+              <div class="song-item">{song}</div>
+            ))}
+          </div>
+        </div>
+
+        <div class="repertoire-category">
+          <h2 class="category-title">Standardtanz</h2>
+          <div class="songs-grid">
+            {standardtanzSongs.map((song) => (
+              <div class="song-item">{song}</div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="repertoire-note">
+        <p>Euer Wunschsong ist nicht dabei? Sprecht uns an, wir sind für (fast) alles zu haben!</p>
+        <a href="/booking/" class="btn btn-primary">Song anfragen</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .repertoire-intro {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+
+  .repertoire-intro p {
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+
+  .repertoire-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .category-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-primary);
+    display: inline-block;
+  }
+
+  .songs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .song-item {
+    padding: 0.6rem 1rem;
+    background: var(--color-bg-card);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+  }
+
+  .song-item:hover {
+    background: var(--color-bg-card-hover);
+    color: var(--color-text);
+    border-color: var(--color-primary);
+  }
+
+  .repertoire-note {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: var(--color-bg-card);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
+  }
+
+  .repertoire-note p {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+</style>

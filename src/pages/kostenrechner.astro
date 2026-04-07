@@ -1,0 +1,1196 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout
+  title="Band-Kostenrechner"
+  description="Kalkuliere die Kosten für deine Hochzeitsband oder Partyband. Konfiguriere deine Band maßgeschneidert für deine Veranstaltung."
+>
+
+  <Hero
+    title="Band-Kostenrechner"
+    subtitle="Kalkuliere die Kosten für deine Band und konfiguriere sie maßgeschneidert für deine Veranstaltung."
+    backgroundImage="https://www.dropzone-band.de/wp-content/uploads/2024/02/DZ.074.6397-scaled.jpg"
+  />
+
+  <section class="section">
+    <div class="container" style="max-width:860px;">
+
+      <p class="intro-text">
+        Ob Hochzeitsfeier, Geburtstagsparty oder Sommerfest: Kalkuliere präzise die Kosten
+        für deine Hochzeits- oder Partyband und konfiguriere deine Band maßgeschneidert
+        für deine Veranstaltung!
+      </p>
+      <p class="intro-text-sub">
+        Außerdem kannst du unverbindlich unsere Verfügbarkeit an deinem Wunschtermin checken.
+      </p>
+
+      <!-- Info-Banner -->
+      <div class="info-banner">
+        <div class="info-banner-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        </div>
+        <div class="info-banner-text">
+          <p>Dieser Kostenrechner gilt für <strong>private Events</strong> wie Hochzeiten, Geburtstage, Jubiläen und private Feiern. Die Kalkulation bezieht sich auf unsere <strong>fünfköpfige Standardbesetzung</strong> (Gesang, Keys, Gitarre, Bass, Drums).</p>
+          <p style="margin-top:0.4rem;">Bei <strong>Firmenevents</strong> und öffentlichen Veranstaltungen erstellen wir euch gerne ein individuelles Angebot – <a href="/booking/">schreibt uns einfach</a>.</p>
+        </div>
+      </div>
+
+      <div class="calc-wrapper">
+
+        <!-- Step 1: Datum -->
+        <div class="calc-step">
+          <div class="step-header">
+            <span class="step-number">1</span>
+            <h3>Wann findet euer Event statt?</h3>
+          </div>
+          <div class="datepicker-wrap">
+            <button type="button" class="datepicker-trigger" id="datepickerTrigger">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span id="datepickerLabel">Datum wählen</span>
+            </button>
+            <div class="datepicker-dropdown" id="datepickerDropdown">
+              <div class="dp-header">
+                <button type="button" class="dp-nav" id="dpPrev">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <span class="dp-month-year" id="dpMonthYear"></span>
+                <button type="button" class="dp-nav" id="dpNext">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+              </div>
+              <div class="dp-weekdays">
+                <span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span>
+              </div>
+              <div class="dp-days" id="dpDays"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Musikstile -->
+        <div class="calc-step">
+          <div class="step-header">
+            <span class="step-number">2</span>
+            <h3>Welche Musikstile wünscht ihr euch?</h3>
+          </div>
+          <p class="step-hint">Mehrfachauswahl möglich. Pro Stil könnt ihr die Anzahl der Sets (je 45 Min.) wählen.</p>
+
+          <div class="style-grid">
+            <!-- Party -->
+            <div class="style-card" data-style="party">
+              <button type="button" class="style-toggle" data-style-btn="party">
+                <div class="style-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                </div>
+                <span class="style-name">Party</span>
+                <span class="style-price">950 € / Set</span>
+              </button>
+              <div class="set-selector" data-sets="party">
+                <label>Anzahl Sets:</label>
+                <div class="set-counter">
+                  <button type="button" class="counter-btn" data-action="decrease" data-target="party">−</button>
+                  <span class="counter-value" data-count="party">1</span>
+                  <button type="button" class="counter-btn" data-action="increase" data-target="party">+</button>
+                </div>
+                <span class="set-duration" data-duration="party">45 Min.</span>
+              </div>
+            </div>
+
+            <!-- Standardtanz -->
+            <div class="style-card" data-style="standardtanz">
+              <button type="button" class="style-toggle" data-style-btn="standardtanz">
+                <div class="style-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="4" r="2"/><path d="M15 22V13.5l2.5-4.5L15 7H9L6.5 9l2.5 4.5V22"/><path d="M9 13l-3 9"/><path d="M15 13l3 9"/></svg>
+                </div>
+                <span class="style-name">Standardtanz</span>
+                <span class="style-price">700 € / Set</span>
+              </button>
+              <div class="set-selector" data-sets="standardtanz">
+                <label>Anzahl Sets:</label>
+                <div class="set-counter">
+                  <button type="button" class="counter-btn" data-action="decrease" data-target="standardtanz">−</button>
+                  <span class="counter-value" data-count="standardtanz">1</span>
+                  <button type="button" class="counter-btn" data-action="increase" data-target="standardtanz">+</button>
+                </div>
+                <span class="set-duration" data-duration="standardtanz">45 Min.</span>
+              </div>
+            </div>
+
+            <!-- Dinner / Lounge -->
+            <div class="style-card" data-style="dinner">
+              <button type="button" class="style-toggle" data-style-btn="dinner">
+                <div class="style-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                </div>
+                <span class="style-name">Dinner / Lounge</span>
+                <span class="style-price">500 € / Set</span>
+              </button>
+              <div class="set-selector" data-sets="dinner">
+                <label>Anzahl Sets:</label>
+                <div class="set-counter">
+                  <button type="button" class="counter-btn" data-action="decrease" data-target="dinner">−</button>
+                  <span class="counter-value" data-count="dinner">1</span>
+                  <button type="button" class="counter-btn" data-action="increase" data-target="dinner">+</button>
+                </div>
+                <span class="set-duration" data-duration="dinner">45 Min.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Add-ons -->
+        <div class="calc-step">
+          <div class="step-header">
+            <span class="step-number">3</span>
+            <h3>Zusätzliche Leistungen</h3>
+          </div>
+
+          <div class="addon-grid">
+            <label class="addon-card" data-addon="trauung">
+              <input type="checkbox" id="addonTrauung" />
+              <div class="addon-content">
+                <div class="addon-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </div>
+                <div>
+                  <span class="addon-name">Begleitung Trauungsfeier</span>
+                  <span class="addon-desc">Musikalische Begleitung eurer Trauung</span>
+                </div>
+                <span class="addon-price">+ 400 €</span>
+              </div>
+            </label>
+
+            <label class="addon-card" data-addon="dj">
+              <input type="checkbox" id="addonDJ" />
+              <div class="addon-content">
+                <div class="addon-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/></svg>
+                </div>
+                <div>
+                  <span class="addon-name">DJ-Service</span>
+                  <span class="addon-desc">Professioneller DJ vor, zwischen und nach den Live-Sets</span>
+                </div>
+                <span class="addon-price">+ 750 €</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Kalkulation -->
+        <div class="calc-result" id="calcResult" style="display:none;">
+          <h3>Eure Kalkulation</h3>
+          <div class="result-table-wrap">
+            <table class="result-table">
+              <thead>
+                <tr>
+                  <th>Leistung</th>
+                  <th class="col-qty">Sets</th>
+                  <th class="col-price">Preis</th>
+                </tr>
+              </thead>
+              <tbody id="resultBody"></tbody>
+              <tfoot id="resultFoot"></tfoot>
+            </table>
+          </div>
+
+          <p class="result-hint">Alle Preise verstehen sich zzgl. Anfahrt. Die Kalkulation dient als Orientierung – euer individuelles Angebot erstellen wir nach eurer Anfrage.</p>
+
+          <!-- CTA: Verfügbarkeit prüfen -->
+          <div class="cta-section">
+            <div class="cta-glow"></div>
+            <h3 class="cta-title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Prüfe unsere Verfügbarkeit
+            </h3>
+            <p class="cta-subtitle">Sichert euch euren Wunschtermin – unverbindlich und kostenlos.</p>
+
+            <div id="inquirySuccess" class="inquiry-success" style="display:none;">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <h4>Anfrage erfolgreich gesendet!</h4>
+              <p>Vielen Dank für euer Interesse. Wir prüfen die Verfügbarkeit und melden uns innerhalb von 24 Stunden bei euch.</p>
+            </div>
+
+            <form class="inquiry-form" id="inquiryForm">
+              <div class="inquiry-row">
+                <div class="inquiry-field">
+                  <label for="inquiryName">Name *</label>
+                  <input type="text" id="inquiryName" name="name" required placeholder="Euer Name" />
+                </div>
+                <div class="inquiry-field">
+                  <label for="inquiryEmail">E-Mail *</label>
+                  <input type="email" id="inquiryEmail" name="email" required placeholder="email@beispiel.de" />
+                </div>
+              </div>
+              <div class="inquiry-field">
+                <label for="inquiryPhone">Telefon <span class="optional">(optional)</span></label>
+                <input type="tel" id="inquiryPhone" name="phone" placeholder="Eure Telefonnummer" />
+              </div>
+              <div class="inquiry-field">
+                <label for="inquiryMessage">Nachricht <span class="optional">(optional)</span></label>
+                <textarea id="inquiryMessage" name="message" rows="3" placeholder="Erzählt uns kurz von eurem Event..."></textarea>
+              </div>
+
+              <!-- Hidden fields for calculation data -->
+              <input type="hidden" id="hiddenDate" name="wunschtermin" />
+              <input type="hidden" id="hiddenCalc" name="kalkulation" />
+
+              <div class="inquiry-field">
+                <label class="privacy-label">
+                  <input type="checkbox" name="privacy" required />
+                  <span>Ich habe die <a href="/datenschutz/">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu. *</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-large inquiry-submit" id="inquirySubmit">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Jetzt unverbindlich Verfügbarkeit prüfen
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* Intro Text */
+  .intro-text {
+    text-align: center;
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 0.5rem;
+  }
+  .intro-text-sub {
+    text-align: center;
+    color: var(--color-primary-light);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 auto 2.5rem;
+  }
+
+  /* Info Banner */
+  .info-banner {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(124, 58, 237, 0.08);
+    border: 1px solid rgba(124, 58, 237, 0.25);
+    border-radius: var(--radius-card);
+    margin-bottom: 2.5rem;
+  }
+  .info-banner-icon {
+    color: var(--color-primary-light);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .info-banner-text p {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .info-banner-text strong {
+    color: #ddd;
+  }
+
+  /* Calculator Wrapper */
+  .calc-wrapper {
+    background: var(--color-surface-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+  }
+
+  /* Steps */
+  .calc-step {
+    margin-bottom: 2.5rem;
+  }
+  .calc-step:last-of-type {
+    margin-bottom: 0;
+  }
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+  .step-header h3 {
+    font-size: 1.15rem;
+    margin: 0;
+  }
+  .step-number {
+    width: 32px;
+    height: 32px;
+    background: var(--color-primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    font-family: var(--font-heading);
+    flex-shrink: 0;
+  }
+  .step-hint {
+    color: var(--color-muted);
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+    padding-left: calc(32px + 0.85rem);
+  }
+
+  /* Datepicker (reused from booking) */
+  .datepicker-wrap {
+    position: relative;
+    max-width: 320px;
+    margin-left: calc(32px + 0.85rem);
+  }
+  .datepicker-trigger {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    color: var(--color-muted);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: border-color 0.2s;
+  }
+  .datepicker-trigger:hover { border-color: var(--color-primary); }
+  .datepicker-trigger.has-value { color: #e0e0e0; }
+
+  .datepicker-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    z-index: 100;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 16px;
+    padding: 1rem;
+    width: 300px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  }
+  .datepicker-dropdown.open { display: block; }
+  .dp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+  }
+  .dp-month-year { font-weight: 700; font-size: 0.95rem; color: #fff; }
+  .dp-nav {
+    background: transparent;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+  }
+  .dp-nav:hover { background: #333; color: var(--color-primary-light); }
+  .dp-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    margin-bottom: 0.4rem;
+  }
+  .dp-weekdays span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.25rem 0;
+  }
+  .dp-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+  }
+
+  /* Style Cards */
+  .style-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding-left: calc(32px + 0.85rem);
+  }
+  .style-card {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .style-toggle {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-card);
+    color: var(--color-muted);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    transition: all 0.25s ease;
+    font-family: var(--font-body);
+  }
+  .style-toggle:hover {
+    border-color: var(--color-primary);
+    color: #e0e0e0;
+  }
+  .style-card.active .style-toggle {
+    border-color: var(--color-primary);
+    background: rgba(124, 58, 237, 0.12);
+    color: #fff;
+  }
+  .style-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(124, 58, 237, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary-light);
+    transition: all 0.25s ease;
+  }
+  .style-card.active .style-icon {
+    background: var(--color-primary);
+    color: #fff;
+  }
+  .style-name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .style-price {
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+
+  /* Set Selector */
+  .set-selector {
+    display: none;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    background: rgba(124, 58, 237, 0.06);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-top: none;
+    border-radius: 0 0 var(--radius-card) var(--radius-card);
+    margin-top: -14px;
+    padding-top: calc(0.85rem + 14px);
+  }
+  .style-card.active .set-selector {
+    display: flex;
+  }
+  .style-card.active .style-toggle {
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+  }
+  .set-selector label {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    white-space: nowrap;
+  }
+  .set-counter {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--color-surface);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+  .counter-btn {
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: none;
+    color: var(--color-primary-light);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+    font-family: var(--font-heading);
+  }
+  .counter-btn:hover { background: rgba(124, 58, 237, 0.15); }
+  .counter-value {
+    width: 32px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #fff;
+    font-family: var(--font-heading);
+  }
+  .set-duration {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin-left: auto;
+  }
+
+  /* Add-ons */
+  .addon-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-left: calc(32px + 0.85rem);
+  }
+  .addon-card {
+    cursor: pointer;
+    display: block;
+  }
+  .addon-card input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .addon-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-card);
+    transition: all 0.25s ease;
+  }
+  .addon-content:hover {
+    border-color: var(--color-primary);
+  }
+  .addon-card input:checked + .addon-content {
+    border-color: var(--color-primary);
+    background: rgba(124, 58, 237, 0.1);
+  }
+  .addon-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(124, 58, 237, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary-light);
+    flex-shrink: 0;
+  }
+  .addon-card input:checked + .addon-content .addon-icon {
+    background: var(--color-primary);
+    color: #fff;
+  }
+  .addon-name {
+    display: block;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    font-family: var(--font-heading);
+  }
+  .addon-desc {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin-top: 0.15rem;
+  }
+  .addon-price {
+    margin-left: auto;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--color-primary-light);
+    font-family: var(--font-heading);
+    white-space: nowrap;
+  }
+
+  /* Result */
+  .calc-result {
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--color-border);
+    animation: fadeSlideIn 0.4s ease-out;
+  }
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .calc-result h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+  }
+  .result-table-wrap {
+    overflow-x: auto;
+  }
+  .result-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .result-table th {
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .result-table td {
+    padding: 0.75rem 0;
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .col-qty, .col-price {
+    text-align: right;
+  }
+  .result-table td.col-qty,
+  .result-table td.col-price {
+    text-align: right;
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+  .result-table tfoot td {
+    font-weight: 700;
+    font-family: var(--font-heading);
+    border-bottom: none;
+  }
+  .result-table .row-subtotal td {
+    border-top: 1px solid var(--color-border);
+    color: #ccc;
+    padding-top: 1rem;
+  }
+  .result-table .row-basis td {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+  .result-table .row-addon td {
+    color: #ccc;
+  }
+  .result-table .row-total td {
+    border-top: 2px solid var(--color-primary);
+    padding-top: 1rem;
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  .result-table .row-total .col-price {
+    color: var(--color-primary-light);
+    font-size: 1.3rem;
+  }
+
+  .result-hint {
+    color: var(--color-muted);
+    font-size: 0.8rem;
+    margin-top: 1.25rem;
+    text-align: center;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    position: relative;
+    margin-top: 2.5rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.12) 0%, rgba(168, 85, 247, 0.06) 100%);
+    border: 2px solid rgba(124, 58, 237, 0.35);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+  }
+  .cta-glow {
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(ellipse, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    position: relative;
+  }
+  .cta-title svg {
+    color: var(--color-primary-light);
+    flex-shrink: 0;
+  }
+  .cta-subtitle {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.75rem;
+    position: relative;
+  }
+
+  /* Inquiry Form */
+  .inquiry-form {
+    position: relative;
+  }
+  .inquiry-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .inquiry-field {
+    margin-bottom: 1rem;
+  }
+  .inquiry-field label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #ddd;
+    margin-bottom: 0.4rem;
+  }
+  .inquiry-field .optional {
+    font-weight: 400;
+    color: var(--color-muted);
+    font-size: 0.8rem;
+  }
+  .inquiry-field input:not([type="checkbox"]),
+  .inquiry-field textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    color: #e0e0e0;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+  }
+  .inquiry-field input:focus,
+  .inquiry-field textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+  }
+  .inquiry-field input::placeholder,
+  .inquiry-field textarea::placeholder {
+    color: var(--color-muted);
+    opacity: 0.6;
+  }
+
+  .privacy-label {
+    display: flex !important;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-weight: 400 !important;
+  }
+  .privacy-label input {
+    width: 18px;
+    min-width: 18px;
+    height: 18px;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 2px solid #555;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    padding: 0;
+  }
+  .privacy-label input:checked {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+  .privacy-label input:checked::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 6px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .privacy-label span {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+  .privacy-label span a {
+    color: var(--color-primary-light);
+  }
+
+  .inquiry-submit {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+    font-size: 1.05rem;
+    padding: 1.15rem 2rem;
+  }
+
+  /* Success Message */
+  .inquiry-success {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    position: relative;
+    animation: fadeSlideIn 0.4s ease-out;
+  }
+  .inquiry-success svg {
+    color: #22c55e;
+    margin-bottom: 1rem;
+  }
+  .inquiry-success h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: #fff;
+  }
+  .inquiry-success p {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    max-width: 420px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .calc-wrapper { padding: 1.5rem; }
+    .style-grid { grid-template-columns: 1fr; padding-left: 0; }
+    .step-hint { padding-left: 0; }
+    .datepicker-wrap { margin-left: 0; }
+    .addon-grid { padding-left: 0; }
+    .addon-content { flex-wrap: wrap; }
+    .addon-price { width: 100%; margin-left: calc(44px + 1rem); margin-top: 0.25rem; }
+    .inquiry-row { grid-template-columns: 1fr; }
+    .cta-section { padding: 1.5rem; }
+  }
+</style>
+
+<style is:global>
+  .dp-day {
+    background: transparent; border: 2px solid transparent; color: #ccc; font-size: 0.85rem;
+    font-family: 'Rubik', sans-serif; width: 100%; aspect-ratio: 1;
+    border-radius: 10px; cursor: pointer; font-weight: 500;
+    transition: all 0.15s ease;
+  }
+  .dp-day:hover { background: #333; color: #fff; }
+  .dp-day.today { border-color: #7c3aed; color: #a855f7; }
+  .dp-day.selected { background: #7c3aed; border-color: #7c3aed; color: #fff; font-weight: 700; }
+  .dp-day.other-month { color: #333; }
+  .dp-day.past { color: #444; cursor: default; }
+  .dp-day.past:hover { background: transparent; color: #444; }
+</style>
+
+<script>
+  // ===== State =====
+  const state = {
+    styles: {
+      party: { active: false, sets: 1, price: 950, label: 'Party' },
+      standardtanz: { active: false, sets: 1, price: 700, label: 'Standardtanz' },
+      dinner: { active: false, sets: 1, price: 500, label: 'Dinner / Lounge' },
+    } as Record<string, { active: boolean; sets: number; price: number; label: string }>,
+    addons: {
+      trauung: { active: false, price: 400, label: 'Begleitung Trauungsfeier' },
+      dj: { active: false, price: 750, label: 'DJ-Service' },
+    } as Record<string, { active: boolean; price: number; label: string }>,
+  };
+
+  const BASIS_PRICE = 3000;
+
+  // ===== Datepicker =====
+  (() => {
+    const trigger = document.getElementById("datepickerTrigger")!;
+    const dropdown = document.getElementById("datepickerDropdown")!;
+    const label = document.getElementById("datepickerLabel")!;
+    const grid = document.getElementById("dpDays")!;
+    const monthYear = document.getElementById("dpMonthYear")!;
+    const prevBtn = document.getElementById("dpPrev")!;
+    const nextBtn = document.getElementById("dpNext")!;
+
+    const months = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+    const now = new Date();
+    const todayKey = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
+    let currentMonth = now.getMonth();
+    let currentYear = now.getFullYear();
+    let selectedKey = "";
+
+    function toKey(y: number, m: number, d: number) { return `${y}-${m}-${d}`; }
+
+    function render() {
+      monthYear.textContent = `${months[currentMonth]} ${currentYear}`;
+      grid.innerHTML = "";
+      const first = new Date(currentYear, currentMonth, 1);
+      let startDay = first.getDay() - 1; if (startDay < 0) startDay = 6;
+      const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+      const prevDays = new Date(currentYear, currentMonth, 0).getDate();
+
+      for (let i = startDay - 1; i >= 0; i--) {
+        const btn = document.createElement("button");
+        btn.type = "button"; btn.className = "dp-day other-month past";
+        btn.textContent = String(prevDays - i);
+        grid.appendChild(btn);
+      }
+      for (let d = 1; d <= daysInMonth; d++) {
+        const key = toKey(currentYear, currentMonth, d);
+        const date = new Date(currentYear, currentMonth, d, 12, 0, 0);
+        const isPast = date < new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0, 0);
+        const btn = document.createElement("button");
+        btn.type = "button"; btn.className = "dp-day";
+        btn.textContent = String(d);
+        if (key === todayKey) btn.classList.add("today");
+        if (isPast) btn.classList.add("past");
+        if (key === selectedKey) btn.classList.add("selected");
+        if (!isPast) {
+          btn.addEventListener("click", () => {
+            selectedKey = key;
+            label.textContent = `${d}. ${months[currentMonth]} ${currentYear}`;
+            trigger.classList.add("has-value");
+            dropdown.classList.remove("open");
+            render();
+          });
+        }
+        grid.appendChild(btn);
+      }
+      const totalCells = startDay + daysInMonth;
+      const remaining = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+      for (let i = 1; i <= remaining; i++) {
+        const btn = document.createElement("button");
+        btn.type = "button"; btn.className = "dp-day other-month past";
+        btn.textContent = String(i);
+        grid.appendChild(btn);
+      }
+    }
+
+    trigger.addEventListener("click", () => dropdown.classList.toggle("open"));
+    prevBtn.addEventListener("click", () => { currentMonth--; if (currentMonth < 0) { currentMonth = 11; currentYear--; } render(); });
+    nextBtn.addEventListener("click", () => { currentMonth++; if (currentMonth > 11) { currentMonth = 0; currentYear++; } render(); });
+    document.addEventListener("click", (e) => {
+      if (!(e.target as Element).closest(".datepicker-wrap")) dropdown.classList.remove("open");
+    });
+    render();
+  })();
+
+  // ===== Style Toggle Buttons =====
+  document.querySelectorAll<HTMLButtonElement>('[data-style-btn]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const style = btn.dataset.styleBtn!;
+      state.styles[style].active = !state.styles[style].active;
+      btn.closest('.style-card')!.classList.toggle('active', state.styles[style].active);
+      updateCalculation();
+    });
+  });
+
+  // ===== Set Counters =====
+  document.querySelectorAll<HTMLButtonElement>('.counter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.target!;
+      const action = btn.dataset.action!;
+      const s = state.styles[target];
+      if (action === 'increase' && s.sets < 6) s.sets++;
+      if (action === 'decrease' && s.sets > 1) s.sets--;
+      document.querySelector<HTMLSpanElement>(`[data-count="${target}"]`)!.textContent = String(s.sets);
+      document.querySelector<HTMLSpanElement>(`[data-duration="${target}"]`)!.textContent = `${s.sets * 45} Min.`;
+      updateCalculation();
+    });
+  });
+
+  // ===== Add-on Checkboxes =====
+  document.getElementById('addonTrauung')!.addEventListener('change', (e) => {
+    state.addons.trauung.active = (e.target as HTMLInputElement).checked;
+    updateCalculation();
+  });
+  document.getElementById('addonDJ')!.addEventListener('change', (e) => {
+    state.addons.dj.active = (e.target as HTMLInputElement).checked;
+    updateCalculation();
+  });
+
+  // ===== Calculation =====
+  function formatEur(n: number) {
+    return n.toLocaleString('de-DE') + ' €';
+  }
+
+  function updateCalculation() {
+    const resultEl = document.getElementById('calcResult')!;
+    const tbody = document.getElementById('resultBody')!;
+    const tfoot = document.getElementById('resultFoot')!;
+
+    const activeStyles = Object.entries(state.styles).filter(([, v]) => v.active);
+
+    if (activeStyles.length === 0) {
+      resultEl.style.display = 'none';
+      return;
+    }
+
+    resultEl.style.display = 'block';
+
+    // Build table body
+    let html = '';
+    let setsTotal = 0;
+
+    for (const [, s] of activeStyles) {
+      const lineTotal = s.sets * s.price;
+      setsTotal += lineTotal;
+      html += `<tr>
+        <td>${s.label} <span style="color:var(--color-muted);font-size:0.8rem;">(${s.sets} × ${formatEur(s.price)})</span></td>
+        <td class="col-qty">${s.sets}</td>
+        <td class="col-price">${formatEur(lineTotal)}</td>
+      </tr>`;
+    }
+
+    tbody.innerHTML = html;
+
+    // Build footer
+    let footHtml = '';
+
+    // Subtotal sets
+    footHtml += `<tr class="row-subtotal">
+      <td colspan="2">Gesamtsumme Sets</td>
+      <td class="col-price">${formatEur(setsTotal)}</td>
+    </tr>`;
+
+    // Basis price logic
+    const bandPrice = Math.max(setsTotal, BASIS_PRICE);
+    if (setsTotal < BASIS_PRICE) {
+      footHtml += `<tr class="row-basis">
+        <td colspan="3" style="text-align:left;">
+          Der Mindestpreis für einen Auftritt unserer Band beträgt ${formatEur(BASIS_PRICE)}.
+        </td>
+      </tr>`;
+    }
+
+    footHtml += `<tr class="row-subtotal">
+      <td colspan="2">Gesamtpreis Band</td>
+      <td class="col-price">${formatEur(bandPrice)}</td>
+    </tr>`;
+
+    // Add-ons
+    let addonsTotal = 0;
+    for (const [, a] of Object.entries(state.addons)) {
+      if (a.active) {
+        addonsTotal += a.price;
+        footHtml += `<tr class="row-addon">
+          <td colspan="2">${a.label}</td>
+          <td class="col-price">+ ${formatEur(a.price)}</td>
+        </tr>`;
+      }
+    }
+
+    // Final price
+    const endPrice = bandPrice + addonsTotal;
+    footHtml += `<tr class="row-total">
+      <td colspan="2">Endpreis</td>
+      <td class="col-price">${formatEur(endPrice)}</td>
+    </tr>`;
+
+    tfoot.innerHTML = footHtml;
+
+    // Update hidden field for form submission
+    updateHiddenCalc();
+  }
+
+  // ===== Build calculation text for email =====
+  function buildCalcText(): string {
+    const activeStyles = Object.entries(state.styles).filter(([, v]) => v.active);
+    if (activeStyles.length === 0) return '(keine Auswahl)';
+
+    let lines: string[] = [];
+    let setsTotal = 0;
+
+    for (const [, s] of activeStyles) {
+      const lineTotal = s.sets * s.price;
+      setsTotal += lineTotal;
+      lines.push(`${s.label}: ${s.sets} Set(s) × ${s.price} € = ${lineTotal.toLocaleString('de-DE')} €`);
+    }
+
+    lines.push(`---`);
+    lines.push(`Gesamtsumme Sets: ${setsTotal.toLocaleString('de-DE')} €`);
+
+    const bandPrice = Math.max(setsTotal, BASIS_PRICE);
+    if (setsTotal < BASIS_PRICE) {
+      lines.push(`(Mindestpreis greift: ${BASIS_PRICE.toLocaleString('de-DE')} €)`);
+    }
+    lines.push(`Gesamtpreis Band: ${bandPrice.toLocaleString('de-DE')} €`);
+
+    let addonsTotal = 0;
+    for (const [, a] of Object.entries(state.addons)) {
+      if (a.active) {
+        addonsTotal += a.price;
+        lines.push(`+ ${a.label}: ${a.price.toLocaleString('de-DE')} €`);
+      }
+    }
+
+    const endPrice = bandPrice + addonsTotal;
+    lines.push(`---`);
+    lines.push(`ENDPREIS: ${endPrice.toLocaleString('de-DE')} €`);
+
+    return lines.join('\n');
+  }
+
+  function updateHiddenCalc() {
+    const el = document.getElementById('hiddenCalc') as HTMLInputElement | null;
+    if (el) el.value = buildCalcText();
+
+    const dateEl = document.getElementById('hiddenDate') as HTMLInputElement | null;
+    const dateLabel = document.getElementById('datepickerLabel');
+    if (dateEl && dateLabel && dateLabel.textContent !== 'Datum wählen') {
+      dateEl.value = dateLabel.textContent || '';
+    }
+  }
+
+  // ===== Inquiry Form Submission =====
+  const inquiryForm = document.getElementById('inquiryForm') as HTMLFormElement;
+  const inquirySuccess = document.getElementById('inquirySuccess');
+
+  inquiryForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    updateHiddenCalc();
+
+    const btn = document.getElementById('inquirySubmit') as HTMLButtonElement;
+    if (btn) { btn.disabled = true; btn.textContent = 'Wird gesendet...'; }
+
+    try {
+      const data = new FormData(inquiryForm);
+      const res = await fetch('/api/send-kostenrechner', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name'),
+          email: data.get('email'),
+          phone: data.get('phone'),
+          message: data.get('message'),
+          wunschtermin: data.get('wunschtermin'),
+          kalkulation: data.get('kalkulation'),
+        }),
+      });
+
+      if (res.ok) {
+        inquiryForm.style.display = 'none';
+        if (inquirySuccess) inquirySuccess.style.display = 'block';
+      } else {
+        alert('Fehler beim Senden. Bitte versucht es erneut oder schreibt uns direkt an info@dropzone-band.de');
+        if (btn) { btn.disabled = false; btn.textContent = 'Jetzt unverbindlich Verfügbarkeit prüfen'; }
+      }
+    } catch {
+      alert('Verbindungsfehler. Bitte versucht es erneut oder schreibt uns direkt an info@dropzone-band.de');
+      if (btn) { btn.disabled = false; btn.textContent = 'Jetzt unverbindlich Verfügbarkeit prüfen'; }
+    }
+  });
+</script>

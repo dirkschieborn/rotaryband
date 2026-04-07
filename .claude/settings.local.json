@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp -r \"C:/Users/Dirk/Coding/dropzone2026/\"* \"C:/Users/Dirk/Coding/rotaryband/\")",
+      "Bash(cp \"C:/Users/Dirk/Coding/dropzone2026/.gitignore\" \"C:/Users/Dirk/Coding/rotaryband/\")",
+      "Bash(rm -rf \"C:/Users/Dirk/Coding/rotaryband/node_modules\")",
+      "Bash(npm install:*)",
+      "Bash(gh auth:*)",
+      "Bash(git:*)",
+      "Bash(npx vercel:*)",
+      "Bash(winget install:*)",
+      "Bash(export PATH=\"$PATH:/c/Program Files/GitHub CLI:/c/Program Files \\(x86\\)/GitHub CLI\")",
+      "Bash(gh --version)"
+    ]
+  }
+}

@@ -1,0 +1,338 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import posts from '../../wp-blog-posts.json';
+
+export function getStaticPaths() {
+  const allPosts = posts as any[];
+  return allPosts
+    .filter((p: any) => !['festivals', 'euer-ki-song-live-auf-der-buehne'].includes(p.slug))
+    .map((post: any) => ({
+      params: { slug: post.slug },
+      props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const allPosts = posts as any[];
+
+// Recent posts for sidebar
+const recentPosts = allPosts
+  .filter((p: any) => p.slug !== post.slug && !['festivals', 'euer-ki-song-live-auf-der-buehne'].includes(p.slug))
+  .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 6);
+
+const getCardImage = (p: any) => {
+  if (p.card_image) return p.card_image;
+  if (p.featured_image) return p.featured_image;
+  const first = p.content_images?.[0];
+  if (first) return first.replace(/-150x150/, '');
+  return 'https://www.dropzone-band.de/wp-content/uploads/2024/02/DZ.074.6397-scaled.jpg';
+};
+
+// Hero image
+const heroImage = post.featured_image || 'https://www.dropzone-band.de/wp-content/uploads/2015/09/DSC02439.jpg';
+
+// Format date
+const formattedDate = new Date(post.date).toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
+
+// Full-size images
+const fullImages = (post.content_images || []).map((img: string) => img.replace(/-150x150/, ''));
+
+// Parse content: prefer raw_content (has proper HTML structure), fallback to text_content
+let subtitle = '';
+type ContentBlock = { type: 'heading' | 'paragraph'; text: string; html?: string };
+const contentBlocks: ContentBlock[] = [];
+
+if (post.raw_content) {
+  // Strip Divi shortcodes, extract h2/h3/p tags with inner HTML
+  const stripped = post.raw_content
+    .replace(/\[\/et_pb_[^\]]+\]/g, '')
+    .replace(/\[et_pb_[^\]]*\]/g, '')
+    .replace(/\[digr_[^\]]*\]/g, '');
+  const tagRegex = /<(h[2-4]|p)(?:\s[^>]*)?>[\s\S]*?<\/\1>/gi;
+  let match;
+  let firstHeadingSkipped = false;
+  while ((match = tagRegex.exec(stripped)) !== null) {
+    const tag = match[1].toLowerCase();
+    const inner = match[0]
+      .replace(/^<[^>]+>/, '')
+      .replace(/<\/[^>]+>$/, '')
+      .replace(/<span\s[^>]*>/gi, '').replace(/<\/span>/gi, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (!inner || inner.startsWith('[') || inner.startsWith('@ET-DC@') || inner.startsWith('<div')) continue;
+    // Skip sidebar/widget content (contains img thumbnails, lists)
+    if (inner.includes('wp-block-latest-posts') || inner.includes('et_pb_widget') || inner.includes('150x150')) continue;
+    // Remove img tags and their wrapping links first
+    const noImages = inner.replace(/<a[^>]*>\s*<img[^>]*>\s*<\/a>/gi, '').replace(/<img[^>]*>/gi, '');
+    // Clean inner HTML: keep <a> and <strong>/<em>, strip everything else
+    const cleanHtml = noImages
+      .replace(/<(?!\/?(?:a|strong|em|b|i)\b)[^>]+>/gi, '')
+      .trim();
+    const plainText = cleanHtml.replace(/<[^>]+>/g, '').trim();
+    if (!plainText) continue;
+    if (tag.startsWith('h')) {
+      // Skip first h2 if it matches the title
+      if (!firstHeadingSkipped && plainText.toLowerCase() === post.title.toLowerCase()) {
+        firstHeadingSkipped = true;
+        continue;
+      }
+      firstHeadingSkipped = true;
+      if (!subtitle) {
+        subtitle = plainText;
+      } else {
+        contentBlocks.push({ type: 'heading', text: plainText, html: cleanHtml });
+      }
+    } else {
+      contentBlocks.push({ type: 'paragraph', text: plainText, html: cleanHtml });
+    }
+  }
+} else if (post.text_content) {
+  const lines = post.text_content.split('\n').filter((l: string) => l.trim());
+  if (lines.length === 1) {
+    contentBlocks.push({ type: 'paragraph', text: lines[0] });
+  } else {
+    let subtitleSet = false;
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (i === 0 && line.toLowerCase() === post.title.toLowerCase()) continue;
+      if (!subtitleSet) {
+        subtitle = line;
+        subtitleSet = true;
+      } else {
+        const isHeading = line.length < 50 && !line.endsWith('.') && !line.endsWith('!') && !line.endsWith(')');
+        contentBlocks.push({ type: isHeading ? 'heading' : 'paragraph', text: line });
+      }
+    }
+  }
+}
+---
+
+<BaseLayout title={post.title} description={post.excerpt || post.text_content?.substring(0, 160) || ''}>
+
+  <!-- Hero -->
+  <section class="relative h-[35vh] flex items-end overflow-hidden">
+    <div class="absolute inset-0">
+      <img src={heroImage} alt="" loading="eager" class="w-full h-full object-cover" style="object-position: center top" />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/5 via-[#0a0a0a]/35 to-[#0a0a0a]"></div>
+    <div class="relative z-10 max-w-[1400px] mx-auto px-8 pb-14 w-full">
+      {post.category && <span class="text-[0.7rem] font-bold uppercase tracking-wider text-primary-light bg-primary/15 px-2.5 py-1 rounded inline-block mb-3">{post.category}</span>}
+      <div class="flex items-center gap-5">
+        {(post.category === 'Gigs' || post.category === 'News') && (
+          <div class="flex-shrink-0 bg-primary rounded-2xl px-5 py-3 flex flex-col items-center leading-none min-w-[80px]">
+            <span class="text-white font-extrabold text-4xl font-[Rubik]">{new Date(post.date).toLocaleDateString('de-DE', { day: '2-digit' })}</span>
+            <span class="text-white font-extrabold text-xl uppercase tracking-wide">{new Date(post.date).toLocaleDateString('de-DE', { month: 'short' }).replace('.', '')}</span>
+            <span class="text-white font-extrabold text-lg">{new Date(post.date).getFullYear()}</span>
+          </div>
+        )}
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight max-w-[800px]">{post.title}</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content + Sidebar -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="max-w-[1400px] mx-auto px-8">
+      <div class="grid lg:grid-cols-[1fr_340px] gap-12 lg:gap-16">
+
+        <!-- Main Content -->
+        <article>
+
+          {/* Shorts: Video links, Text rechts */}
+          {post.video_format === 'short' && post.youtube_ids?.length > 0 ? (
+            <div class="grid md:grid-cols-[280px_1fr] gap-8 mb-10 items-start">
+              <div class="flex flex-col gap-4">
+                {post.youtube_ids.map((id: string) => (
+                  <div class="rounded-2xl shadow-xl overflow-hidden aspect-[9/16]">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${id}`}
+                      title={post.title}
+                      class="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                      loading="lazy"
+                    ></iframe>
+                  </div>
+                ))}
+              </div>
+              <div>
+                {subtitle && (
+                  <h2 class="text-white text-2xl md:text-[1.7rem] font-bold leading-snug font-[Rubik] mb-6">{subtitle}</h2>
+                )}
+                {contentBlocks.length > 0 && (
+                  <div class="blog-content flex flex-col gap-5">
+                    {contentBlocks.map((block: ContentBlock) => (
+                      block.type === 'heading'
+                        ? <h3 class="text-white text-xl font-bold font-[Rubik] mt-8 mb-1 pl-5 border-l-4 border-primary" set:html={block.html || block.text} />
+                        : <p class="text-white/70 text-[1.05rem] leading-[1.85]" set:html={block.html || block.text} />
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          ) : (
+            <>
+              {/* Single image + text side by side */}
+              {fullImages.length === 1 && !post.featured_image && !(post.youtube_ids?.length > 0) ? (
+                <div class="grid md:grid-cols-[250px_1fr] gap-8 mb-10 items-start">
+                  <img src={fullImages[0]} alt={post.title} class="w-full rounded-2xl" loading="lazy" />
+                  <div>
+                    {subtitle && (
+                      <h2 class="text-white text-2xl md:text-[1.7rem] font-bold leading-snug font-[Rubik] mb-6">{subtitle}</h2>
+                    )}
+                    {contentBlocks.length > 0 && (
+                      <div class="blog-content flex flex-col gap-5">
+                        {contentBlocks.map((block: ContentBlock) => (
+                          block.type === 'heading'
+                            ? <h3 class="text-white text-xl font-bold font-[Rubik] mt-8 mb-1 pl-5 border-l-4 border-primary" set:html={block.html || block.text} />
+                            : <p class="text-white/70 text-[1.05rem] leading-[1.85]" set:html={block.html || block.text} />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ) : (
+                <>
+                  {/* Subtitle as content heading */}
+                  {subtitle && (
+                    <h2 class="text-white text-2xl md:text-[1.7rem] font-bold leading-snug font-[Rubik] mb-6">{subtitle}</h2>
+                  )}
+
+                  {/* Text */}
+                  {contentBlocks.length > 0 && (
+                    <div class="blog-content flex flex-col gap-5 mb-10">
+                      {contentBlocks.map((block: ContentBlock) => (
+                        block.type === 'heading'
+                          ? <h3 class="text-white text-xl font-bold font-[Rubik] mt-8 mb-1 pl-5 border-l-4 border-primary" set:html={block.html || block.text} />
+                          : <p class="text-white/70 text-[1.05rem] leading-[1.85]" set:html={block.html || block.text} />
+                      ))}
+                    </div>
+                  )}
+                </>
+              )}
+
+              {/* Regular Video */}
+              {post.youtube_ids && post.youtube_ids.length > 0 && (
+                <div class="mb-10 flex flex-col gap-6">
+                  {post.youtube_ids.map((id: string) => (
+                    <div class="video-wrapper !rounded-2xl shadow-xl overflow-hidden">
+                      <iframe
+                        src={`https://www.youtube.com/embed/${id}`}
+                        title={post.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        loading="lazy"
+                      ></iframe>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </>
+          )}
+
+          {/* Instagram Embeds */}
+          {post.instagram_embeds && post.instagram_embeds.length > 0 && (
+            <div class="mb-10 flex flex-col gap-6 items-center">
+              {post.instagram_embeds.map((url: string) => (
+                <blockquote
+                  class="instagram-media"
+                  data-instgrm-permalink={url}
+                  data-instgrm-version="14"
+                  style="max-width:540px; width:100%; background:#0a0a0a; border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:0;"
+                ></blockquote>
+              ))}
+            </div>
+          )}
+
+          {/* External Link */}
+          {post.external_link && post.external_link.url && (
+            <div class="mb-10">
+              <a href={post.external_link.url} target="_blank" rel="noopener noreferrer" class="block bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/25 rounded-2xl p-8 text-center hover:border-primary/50 transition-all duration-300 group no-underline">
+                <p class="text-white text-xl font-bold font-[Rubik] mb-2 group-hover:text-primary-light transition-colors">{post.external_link.label}</p>
+                <span class="text-primary-light text-sm font-semibold group-hover:translate-x-1 transition-transform inline-block">{post.external_link.url.replace('https://', '')} →</span>
+              </a>
+            </div>
+          )}
+
+          {/* Image gallery */}
+          {fullImages.length > 1 && (
+            <div class={`mt-10 grid gap-3 ${fullImages.length === 2 ? 'grid-cols-2' : fullImages.length === 3 ? 'grid-cols-3' : 'grid-cols-2 md:grid-cols-3'}`}>
+              {fullImages.map((img: string, i: number) => (
+                <img src={img} alt={`${post.title} – Bild ${i + 1}`} class="w-full aspect-[4/3] object-cover rounded-2xl hover:scale-[1.02] transition-transform duration-300" loading="lazy" />
+              ))}
+            </div>
+          )}
+
+
+          <!-- Inline CTA -->
+          <div class="mt-12 p-8 bg-gradient-to-br from-primary/12 to-primary/4 border border-primary/20 rounded-2xl flex items-center justify-between gap-6 flex-wrap">
+            <p class="text-white text-xl font-bold font-[Rubik] m-0">Klingt gut?</p>
+            <a href="/booking/" class="btn btn-primary">Jetzt anfragen</a>
+          </div>
+
+          <!-- Back -->
+          <div class="mt-10 pt-8 border-t border-border">
+            <a href="/news/" class="btn btn-outline text-sm !py-2.5 !px-5">← Zurück zu News</a>
+          </div>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="lg:sticky lg:top-24 lg:self-start">
+          <div class="bg-surface-card border border-border rounded-2xl p-6">
+            <h3 class="text-white font-bold text-lg mb-5 font-[Rubik]">Weitere Beiträge</h3>
+            <div class="flex flex-col gap-3">
+              {recentPosts.map((p: any) => {
+                const thumb = getCardImage(p);
+                const pDate = new Date(p.date).toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+                return (
+                  <a href={`/${p.slug}/`} class="group flex gap-3 items-center hover:bg-white/5 rounded-xl p-2 -mx-2 transition-colors no-underline">
+                    <img src={thumb} alt={p.title} class={`w-11 h-11 aspect-square rounded-lg flex-shrink-0 ${p.card_image_style === 'logo' ? 'object-contain bg-white p-1.5' : 'object-cover'}`} loading="lazy" />
+                    <div class="flex-1 min-w-0">
+                      <p class="text-white font-semibold text-sm leading-snug group-hover:text-primary-light transition-colors line-clamp-2 m-0">{p.title}</p>
+                      <time class="text-muted text-xs mt-0.5 block">{pDate}</time>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 mt-6">
+            <h3 class="text-white font-bold mb-2 font-[Rubik]">Interesse geweckt?</h3>
+            <p class="text-white/45 text-sm leading-relaxed mb-4">Wir freuen uns auf eure Anfrage für euer nächstes Event.</p>
+            <a href="/booking/" class="btn btn-primary text-sm w-full text-center">Jetzt anfragen</a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+{post.instagram_embeds && post.instagram_embeds.length > 0 && (
+  <script async src="//www.instagram.com/embed.js"></script>
+)}
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .blog-content :global(a) {
+    color: #c084fc;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .blog-content :global(a:hover) {
+    color: #e9d5ff;
+  }
+  .blog-content :global(strong),
+  .blog-content :global(b) {
+    color: #e2e8f0;
+    font-weight: 600;
+  }
+</style>
