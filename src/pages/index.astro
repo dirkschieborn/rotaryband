@@ -28,12 +28,12 @@ const songs = [
 
   <!-- ============ HERO ============ -->
   <section class="relative min-h-[100svh] flex flex-col overflow-hidden">
-    <!-- Background Image: 70svh on mobile, full on desktop -->
-    <div class="relative h-[70svh] md:absolute md:inset-0 md:h-auto">
+    <!-- Background Image: 70svh on mobile, shifted down; full on desktop -->
+    <div class="relative h-[70svh] mt-[15svh] md:mt-0 md:absolute md:inset-0 md:h-auto">
       <img
         src="/images/rotaryband-hero.jpg"
         alt="2R2B – Die Rotary Band live"
-        class="w-full h-full object-cover object-[center_75%] md:object-[center_30%]"
+        class="w-full h-full object-cover object-center md:object-[center_30%]"
         style="height: 100%; max-width: none;"
       />
       <!-- Gradient bottom fade -->
@@ -41,7 +41,7 @@ const songs = [
     </div>
 
     <!-- Content -->
-    <div class="relative z-10 text-center px-4 md:px-6 max-w-4xl mx-auto flex flex-col items-center justify-center flex-1 -mt-20 md:mt-0 md:pb-24">
+    <div class="relative z-10 text-center px-4 md:px-6 max-w-4xl mx-auto flex flex-col items-center justify-center flex-1 -mt-[35svh] md:mt-0 md:pb-24">
       <!-- Logo -->
       <img
         src="/images/logo_weiss.png"
