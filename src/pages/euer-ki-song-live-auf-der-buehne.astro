@@ -77,12 +77,12 @@ const heroImage = '/images/ki-song-hero.jpg';
 
             <div class="audio-player mb-8">
               <audio controls class="w-full">
-                <source src="/audio/Ride-With-Me-final.mp3" type="audio/mpeg" />
+                <source src="/images/wp/2025-08-Ride-With-Me-final.mp3" type="audio/mpeg" />
                 Dein Browser unterstützt kein Audio.
               </audio>
             </div>
 
-            <img src="/images/downloads/Design-ohne-Titel-2.jpg" alt="Michelle und Daniel – Ride With Me" class="w-full rounded-2xl mb-12" loading="lazy" />
+            <img src="/images/wp/2025-08-Design-ohne-Titel-2.webp" alt="Michelle und Daniel – Ride With Me" class="w-full rounded-2xl mb-12" loading="lazy" />
 
             <!-- Beispiel 2 -->
             <div class="mt-12 mb-6">
@@ -99,12 +99,12 @@ const heroImage = '/images/ki-song-hero.jpg';
 
             <div class="audio-player mb-8">
               <audio controls class="w-full">
-                <source src="/audio/Ein-Blick-ein-Jahr-fuer-immer-final.mp3" type="audio/mpeg" />
+                <source src="/images/wp/2025-08-Ein-Blick-ein-Jahr-fuer-immer-final.mp3" type="audio/mpeg" />
                 Dein Browser unterstützt kein Audio.
               </audio>
             </div>
 
-            <img src="/images/downloads/Unbenannt-1-1-2.jpg" alt="Emily und Jakob – Ein Blick, ein Jahr, für immer" class="w-full rounded-2xl mb-8" loading="lazy" />
+            <img src="/images/wp/2025-08-Unbenannt-1-1.webp" alt="Emily und Jakob – Ein Blick, ein Jahr, für immer" class="w-full rounded-2xl mb-8" loading="lazy" />
 
           </div>
 
@@ -120,7 +120,7 @@ const heroImage = '/images/ki-song-hero.jpg';
             <h3 class="text-white font-bold text-lg mb-5 font-[Rubik]">Weitere Beiträge</h3>
             <div class="flex flex-col gap-4">
               {recentPosts.map((p: any) => {
-                const thumb = p.content_images?.[0] || '/images/downloads/DZ.074.6397-scaled.jpg';
+                const thumb = p.content_images?.[0] || '/images/wp/2024-02-DZ.074.6397-scaled.webp';
                 const pDate = new Date(p.date).toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
                 return (
                   <a href={`/${p.slug}/`} class="group flex gap-3 items-center hover:bg-white/5 rounded-xl p-2 -mx-2 transition-colors">

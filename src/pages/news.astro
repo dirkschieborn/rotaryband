@@ -17,7 +17,7 @@ const kiPost = {
   title: 'KI-Special: Once In A Lifetime Songs',
   date: '2026-01-08',
   featured_image: '/images/ki-song-hero.jpg',
-  card_image: '/images/downloads/Unbenannt-1-1-2.jpg',
+  card_image: '/images/wp/2025-08-Unbenannt-1-1.webp',
   content_images: [],
   excerpt: 'Kreiert euren persönlichen Hochzeits-Song mit KI – und wir spielen ihn live auf eurer Hochzeitsfeier. Once in a lifetime.',
   category: 'Rund um Hochzeiten',
@@ -32,7 +32,7 @@ const getImage = (post: any) => {
   if (post.featured_image) return post.featured_image;
   const first = post.content_images?.[0];
   if (first) return first.replace(/-150x150/, '');
-  return '/images/downloads/DZ.074.6397-scaled.jpg';
+  return '/images/wp/2024-02-DZ.074.6397-scaled.webp';
 };
 
 const formatDate = (dateStr: string) => {
@@ -49,7 +49,7 @@ const formatDate = (dateStr: string) => {
   <Hero
     title="News"
     subtitle="Was bei uns gerade los ist."
-    backgroundImage="/images/downloads/DZ.074.6397-scaled.jpg"
+    backgroundImage="/images/wp/2024-02-DZ.074.6397-scaled.webp"
   />
 
   <section class="section">

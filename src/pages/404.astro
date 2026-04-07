@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Seite nicht gefunden" description="Die gewünschte Seite existiert leider nicht.">
+  <section class="py-32 md:py-48 bg-surface">
+    <div class="max-w-[600px] mx-auto px-8 text-center">
+      <p class="text-primary-light font-semibold text-sm uppercase tracking-widest mb-4">Fehler 404</p>
+      <h1 class="text-5xl md:text-6xl font-bold mb-6">Seite nicht gefunden</h1>
+      <p class="text-white/60 leading-relaxed mb-10">
+        Die Seite, die ihr sucht, existiert leider nicht mehr oder wurde verschoben.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/" class="btn btn-primary">Zur Startseite</a>
+        <a href="/news/" class="btn btn-outline">Neuigkeiten</a>
+        <a href="/booking/" class="btn btn-outline">Anfrage stellen</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

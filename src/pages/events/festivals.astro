@@ -9,7 +9,7 @@ import Hero from '../../components/Hero.astro';
     title="Festivals und Stadtfeste"
     subtitle="Let's rock! Dropzone ist der Garant für energiegeladene Auftritte auf Stadtfesten, Open Airs und Festivals!"
     cta={{ label: 'Booking anfragen', href: '/booking/' }}
-    backgroundImage="/images/downloads/DSC_5450.jpg"
+    backgroundImage="https://www.dropzone-band.de/wp-content/uploads/2014/07/DSC_5450.jpg"
     backgroundPosition="center 20%"
   />
 
@@ -34,9 +34,9 @@ import Hero from '../../components/Hero.astro';
           <div class="relative overflow-hidden rounded-2xl shadow-2xl cursor-zoom-in" id="festivalCarousel">
             <div class="flex transition-transform duration-700 ease-out" id="festivalTrack">
               {[
-                { src: '/images/downloads/DZ-043.7934.jpg', alt: 'Dropzone auf Festival' },
-                { src: '/images/downloads/DZ-136.8300.jpg', alt: 'Dropzone Live' },
-                { src: '/images/downloads/DZ.001.6293-scaled.jpg', alt: 'Dropzone Stadtfest' },
+                { src: 'https://www.dropzone-band.de/wp-content/uploads/2024/08/DZ-043.7934.jpg', alt: 'Dropzone auf Festival' },
+                { src: 'https://www.dropzone-band.de/wp-content/uploads/2024/08/DZ-136.8300.jpg', alt: 'Dropzone Live' },
+                { src: 'https://www.dropzone-band.de/wp-content/uploads/2024/02/DZ.001.6293-scaled.jpg', alt: 'Dropzone Stadtfest' },
               ].map((img) => (
                 <div class="w-full flex-shrink-0">
                   <img src={img.src} alt={img.alt} class="w-full aspect-[16/9] object-cover" loading="lazy" />
@@ -53,9 +53,9 @@ import Hero from '../../components/Hero.astro';
           {/* Thumbs */}
           <div class="flex gap-2 mt-3" id="festivalThumbs">
             {[
-              { src: '/images/downloads/DZ-043.7934.jpg', alt: 'Dropzone auf Festival' },
-              { src: '/images/downloads/DZ-136.8300.jpg', alt: 'Dropzone Live' },
-              { src: '/images/downloads/DZ.001.6293-scaled.jpg', alt: 'Dropzone Stadtfest' },
+              { src: 'https://www.dropzone-band.de/wp-content/uploads/2024/08/DZ-043.7934.jpg', alt: 'Dropzone auf Festival' },
+              { src: 'https://www.dropzone-band.de/wp-content/uploads/2024/08/DZ-136.8300.jpg', alt: 'Dropzone Live' },
+              { src: 'https://www.dropzone-band.de/wp-content/uploads/2024/02/DZ.001.6293-scaled.jpg', alt: 'Dropzone Stadtfest' },
             ].map((img, i) => (
               <button class={`flex-1 rounded-lg overflow-hidden border-2 transition-all duration-300 cursor-pointer ${i === 0 ? 'border-primary' : 'border-transparent opacity-50 hover:opacity-80'}`} data-thumb={i}>
                 <img src={img.src} alt={img.alt} class="w-full aspect-[16/9] object-cover" loading="lazy" />
@@ -88,7 +88,7 @@ import Hero from '../../components/Hero.astro';
       <div class="grid md:grid-cols-[3fr_2fr] gap-12 md:gap-16 items-center">
         <div>
           <div class="video-wrapper !rounded-2xl shadow-2xl overflow-hidden">
-            <iframe src="https://www.youtube.com/embed/FHQzYjMm2VQ" title="Dropzone Showreel Festivals" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/FHQzYjMm2VQ" title="Dropzone Showreel Festivals" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
         <div>
@@ -117,8 +117,8 @@ import Hero from '../../components/Hero.astro';
 
       <div class="grid md:grid-cols-2 gap-5 relative z-10">
         {[
-          { title: 'City Event', label: 'Standardbesetzung', desc: 'Sechsköpfige Besetzung für Stadtfeste normaler Größe. Bei Bedarf mit eigenem Tontechniker und Technik über unseren Partner DOSONI VT.', image: '/images/downloads/DSC_5450.webp' },
-          { title: 'Fat Festival', label: 'Große Besetzung', desc: 'Das große Line-Up für Festival-Bühnen mit Bläser-Section, Percussion, Background-Vocals und mehr. Für das ganz große Konzerterlebnis.', image: '/images/downloads/DZ.001.6293-980x653.webp' },
+          { title: 'City Event', label: 'Standardbesetzung', desc: 'Sechsköpfige Besetzung für Stadtfeste normaler Größe. Bei Bedarf mit eigenem Tontechniker und Technik über unseren Partner DOSONI VT.', image: 'https://www.dropzone-band.de/wp-content/uploads/2014/07/DSC_5450.webp' },
+          { title: 'Fat Festival', label: 'Große Besetzung', desc: 'Das große Line-Up für Festival-Bühnen mit Bläser-Section, Percussion, Background-Vocals und mehr. Für das ganz große Konzerterlebnis.', image: 'https://www.dropzone-band.de/wp-content/uploads/2024/02/DZ.001.6293-980x653.webp' },
         ].map((pkg) => (
           <div class="bg-surface-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300">
             <img src={pkg.image} alt={pkg.title} class="w-full aspect-[16/9] object-cover" loading="lazy" />
@@ -159,7 +159,7 @@ import Hero from '../../components/Hero.astro';
       <!-- Dosoni-VT Partner Block -->
       <div class="bg-surface-card border border-border rounded-2xl p-8 md:p-10 max-w-[800px] mx-auto text-center">
         <p class="text-primary-light/70 text-xs font-semibold uppercase tracking-widest mb-4">Unser Technik-Partner: Dosoni-VT</p>
-        <img src="/images/downloads/dosoni-vt-logo_x2-300x50-3.png" alt="Dosoni-VT Logo" class="h-16 mx-auto mb-6 object-contain" loading="lazy" />
+        <img src="https://www.dropzone-band.de/wp-content/uploads/2024/02/dosoni-vt-logo_x2-300x50-3.png" alt="Dosoni-VT Logo" class="h-16 mx-auto mb-6 object-contain" loading="lazy" />
         <p class="text-white/60 leading-relaxed mb-6">Wir arbeiten mit dem Veranstaltungstechnik-Dienstleister DOSONI-VT aus Remseck am Neckar zusammen.</p>
         <blockquote class="border-l-2 border-primary/40 pl-5 text-left">
           <p class="text-white/70 italic leading-relaxed mb-3">„Ihr Unternehmen, Ihre Veranstaltung und Ihre Gäste sind für uns das Wichtigste: Wir engagieren uns persönlich dafür, dass Ihr Event technisch perfekt und sicher abläuft. Und dafür, dass Sie und Ihre Besucher und Teilnehmer begeistert sind. Die passende Veranstaltungstechnik ist für uns dabei ein wichtiges Mittel zum Zweck."</p>

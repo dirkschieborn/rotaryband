@@ -19,7 +19,7 @@ const contactSchema = {
   <Hero
     title="Booking"
     subtitle="Haben wir dein Interesse geweckt? Lass von dir hören!"
-    backgroundImage="/images/downloads/jeanpierre-mit-mikro-1.jpg"
+    backgroundImage="/images/wp/2016-03-jeanpierre-mit-mikro-1.webp"
   />
 
   <section class="section">
@@ -213,12 +213,12 @@ const contactSchema = {
           <div class="sidebar-card card">
             <div class="card-body" style="padding:0;">
               <div class="video-wrapper" style="border-radius:var(--radius-lg) var(--radius-lg) 0 0;">
-                <iframe src="https://www.youtube.com/embed/fhMyjYlfbIM" title="Proberaumkonzert für unsere Brautpaare" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube-nocookie.com/embed/fhMyjYlfbIM" title="Proberaumkonzert für unsere Brautpaare" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
               </div>
               <div style="padding:1.25rem;">
                 <h3 style="font-size:1.1rem;margin-bottom:0.6rem;">Proberaumkonzert</h3>
                 <p class="sidebar-text">Lernt uns persönlich kennen! In entspannter Atmosphäre spielen wir ein paar Songs für euch und beantworten alle eure Fragen. Völlig unverbindlich.</p>
-                <a href="/events/hochzeiten/#proberaumkonzert" class="btn btn-outline" style="width:100%;justify-content:center;">Nächster Termin</a>
+                <a href="/die-band-fur-eure-hochzeit/#proberaumkonzert" class="btn btn-outline" style="width:100%;justify-content:center;">Nächster Termin</a>
               </div>
             </div>
           </div>
@@ -546,7 +546,10 @@ const contactSchema = {
       });
       if (res.ok) {
         form.style.display = "none";
-        if (success) success.style.display = "block";
+        if (success) {
+          success.style.display = "block";
+          success.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
       } else {
         alert("Fehler beim Senden. Bitte versucht es erneut oder schreibt uns direkt an info@dropzone-band.de");
         if (btn) { btn.disabled = false; btn.textContent = "Anfrage absenden"; }

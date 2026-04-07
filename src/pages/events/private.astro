@@ -9,7 +9,7 @@ import Hero from '../../components/Hero.astro';
     title="Private Events"
     subtitle="Hochzeit, Geburtstag, Jubiläum – wir machen eure Feier unvergesslich."
     cta={{ label: 'Jetzt anfragen', href: '/booking/' }}
-    backgroundImage="/images/downloads/DSC_7487-1-2.jpg"
+    backgroundImage="/images/wp/2016-06-DSC_7487-1.webp"
   />
 
   <!-- ============ EIN HOCH AUF EUCH ============ -->
@@ -32,9 +32,10 @@ import Hero from '../../components/Hero.astro';
           <div class="relative overflow-hidden rounded-2xl shadow-2xl cursor-zoom-in" id="privateCarousel">
             <div class="flex transition-transform duration-700 ease-out" id="privateTrack">
               {[
-                { src: '/images/downloads/0960_D-LIGHT_021211.jpg', alt: 'Private Feier mit Dropzone' },
-                { src: '/images/downloads/DSC02444.jpg', alt: 'Private Party' },
-                { src: '/images/downloads/DSC02439-2.jpg', alt: 'Feier mit Dropzone' },
+                { src: '/images/wp/2024-08-1143E238-5DC3-4DDE-AF52-91B7332EFCD7.webp', alt: 'Private Feier mit Dropzone' },
+                { src: '/images/wp/2024-08-DZ-172.3099.webp', alt: 'Dropzone Live' },
+                { src: '/images/wp/2024-06-beitrag1.webp', alt: 'Dropzone auf einer Feier' },
+                { src: '/images/wp/2024-04-125Jahre-Wuerttembergischer-Automobilclub-Foto_AndreasMartin_com-205.webp', alt: '125 Jahre Württembergischer Automobilclub' },
               ].map((img) => (
                 <div class="w-full flex-shrink-0">
                   <img src={img.src} alt={img.alt} class="w-full aspect-[16/9] object-cover" loading="lazy" />
@@ -50,9 +51,10 @@ import Hero from '../../components/Hero.astro';
           </div>
           <div class="flex gap-2 mt-3" id="privateThumbs">
             {[
-              { src: '/images/downloads/0960_D-LIGHT_021211.jpg', alt: 'Private Feier mit Dropzone' },
-              { src: '/images/downloads/DSC02444.jpg', alt: 'Private Party' },
-              { src: '/images/downloads/DSC02439-2.jpg', alt: 'Feier mit Dropzone' },
+              { src: '/images/wp/2024-08-1143E238-5DC3-4DDE-AF52-91B7332EFCD7.webp', alt: 'Private Feier mit Dropzone' },
+              { src: '/images/wp/2024-08-DZ-172.3099.webp', alt: 'Dropzone Live' },
+              { src: '/images/wp/2024-06-beitrag1.webp', alt: 'Dropzone auf einer Feier' },
+              { src: '/images/wp/2024-04-125Jahre-Wuerttembergischer-Automobilclub-Foto_AndreasMartin_com-205.webp', alt: '125 Jahre Württembergischer Automobilclub' },
             ].map((img, i) => (
               <button class={`flex-1 rounded-lg overflow-hidden border-2 transition-all duration-300 cursor-pointer ${i === 0 ? 'border-primary' : 'border-transparent opacity-50 hover:opacity-80'}`} data-thumb={i}>
                 <img src={img.src} alt={img.alt} class="w-full aspect-[16/9] object-cover" loading="lazy" />
@@ -83,7 +85,7 @@ import Hero from '../../components/Hero.astro';
       <div class="grid md:grid-cols-[3fr_2fr] gap-12 md:gap-16 items-center">
         <div>
           <div class="video-wrapper !rounded-2xl shadow-2xl overflow-hidden">
-            <iframe src="https://www.youtube.com/embed/5Mfx85R0AiE" title="Proberaumkonzert" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/5Mfx85R0AiE" title="Proberaumkonzert" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
         <div>
@@ -92,9 +94,10 @@ import Hero from '../../components/Hero.astro';
           <p class="text-white/60 leading-relaxed mb-4">
             Ihr möchtet wissen, mit wem ihr es zu tun habt? Wie wir singen und klingen? Wir laden euch herzlich ein, uns live zu treffen und ein paar Kostproben unserer Livemusik zu erleben.
           </p>
-          <p class="text-white/50 leading-relaxed">
+          <p class="text-white/50 leading-relaxed mb-8">
             In regelmäßigen Abständen veranstalten wir Proberaumkonzerte in entspannter Atmosphäre. Völlig unverbindlich natürlich. Und was zu Trinken gibt's auch.
           </p>
+          <a href="/die-band-fur-eure-hochzeit/#proberaumkonzert" class="btn btn-outline text-sm !py-2.5 !px-5">Zum Proberaumkonzert</a>
         </div>
       </div>
     </div>
@@ -117,7 +120,7 @@ import Hero from '../../components/Hero.astro';
         </div>
         <div>
           <div class="video-wrapper !rounded-2xl shadow-2xl overflow-hidden">
-            <iframe src="https://www.youtube.com/embed/Ju_I95kOqxU" title="Dropzone Partyband Showreel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/Ju_I95kOqxU" title="Dropzone Partyband Showreel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
       </div>

@@ -22,8 +22,8 @@ export default async function handler(req, res) {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        from: 'Dropzone Kostenrechner <onboarding@resend.dev>',
-        to: 'dirkschieborn@googlemail.com',
+        from: 'Dropzone Kostenrechner <kostenrechner@dropzone-band.de>',
+        to: 'info@dropzone-band.de',
         subject: `Kostenrechner – Verfügbarkeitsanfrage${wunschtermin ? ` am ${wunschtermin}` : ''}`,
         text:
           `Neue Verfügbarkeitsanfrage über den Kostenrechner\n` +

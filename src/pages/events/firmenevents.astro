@@ -11,7 +11,7 @@ import Hero from '../../components/Hero.astro';
     subtitle="Wir machen euer Corporate zum Event."
     cta={{ label: 'Jetzt anfragen', href: '/booking/' }}
     ctaSecondary={{ label: 'Kostenrechner', href: '/kostenrechner/' }}
-    backgroundImage="/images/downloads/11034_Mercedes-Benz-Tech-Motion_Schrittmacher_FotografieEbinger_JPEG_Webresolution_1920Pix__852_5263.jpg"
+    backgroundImage="https://www.dropzone-band.de/wp-content/uploads/2023/11/10834_Mercedes-Benz-Tech-Motion_Schrittmacher_FotografieEbinger_JPEG_Webresolution_1920Pix__852_4886.jpg"
     backgroundPosition="center 5%"
   />
 
@@ -39,11 +39,9 @@ import Hero from '../../components/Hero.astro';
           <div class="relative overflow-hidden rounded-2xl shadow-2xl cursor-zoom-in" id="firmenCarousel">
             <div class="flex transition-transform duration-700 ease-out" id="firmenTrack">
               {[
-                { src: '/images/downloads/test-1.jpg', alt: 'Dropzone auf Firmenevent' },
-                { src: '/images/downloads/Suedpack_Tag2_109.jpg', alt: 'Dropzone Live Firmenevent' },
-                { src: '/images/downloads/DSC_2332-scaled.jpg', alt: 'Dropzone Firmenfeier' },
-                { src: '/images/downloads/DZ.016.6990.jpg', alt: 'Dropzone Live Performance' },
-                { src: '/images/downloads/Suedpack_Tag2_158.jpg', alt: 'Dropzone Firmenevent Bühne' },
+                { src: 'https://www.dropzone-band.de/wp-content/uploads/2023/11/test-1.jpg', alt: 'Dropzone auf Firmenevent' },
+                { src: 'https://www.dropzone-band.de/wp-content/uploads/2024/02/DZ.074.6397-scaled.jpg', alt: 'Dropzone Live Firmenevent' },
+                { src: 'https://www.dropzone-band.de/wp-content/uploads/2024/02/DZ.136.7344-scaled.jpg', alt: 'Dropzone Firmenfeier' },
               ].map((img) => (
                 <div class="w-full flex-shrink-0">
                   <img src={img.src} alt={img.alt} class="w-full aspect-[16/9] object-cover" loading="lazy" />
@@ -60,11 +58,9 @@ import Hero from '../../components/Hero.astro';
           {/* Thumbs */}
           <div class="flex gap-2 mt-3" id="firmenThumbs">
             {[
-              { src: '/images/downloads/test-1.jpg', alt: 'Dropzone auf Firmenevent' },
-              { src: '/images/downloads/Suedpack_Tag2_109.jpg', alt: 'Dropzone Live Firmenevent' },
-              { src: '/images/downloads/DSC_2332-scaled.jpg', alt: 'Dropzone Firmenfeier' },
-              { src: '/images/downloads/DZ.016.6990.jpg', alt: 'Dropzone Live Performance' },
-              { src: '/images/downloads/Suedpack_Tag2_158.jpg', alt: 'Dropzone Firmenevent Bühne' },
+              { src: 'https://www.dropzone-band.de/wp-content/uploads/2023/11/test-1.jpg', alt: 'Dropzone auf Firmenevent' },
+              { src: 'https://www.dropzone-band.de/wp-content/uploads/2024/02/DZ.074.6397-scaled.jpg', alt: 'Dropzone Live Firmenevent' },
+              { src: 'https://www.dropzone-band.de/wp-content/uploads/2024/02/DZ.136.7344-scaled.jpg', alt: 'Dropzone Firmenfeier' },
             ].map((img, i) => (
               <button class={`flex-1 rounded-lg overflow-hidden border-2 transition-all duration-300 cursor-pointer ${i === 0 ? 'border-primary' : 'border-transparent opacity-50 hover:opacity-80'}`} data-thumb={i}>
                 <img src={img.src} alt={img.alt} class="w-full aspect-[16/9] object-cover" loading="lazy" />
@@ -154,7 +150,7 @@ import Hero from '../../components/Hero.astro';
       <div class="grid md:grid-cols-[3fr_2fr] gap-12 md:gap-16 items-center">
         <div>
           <div class="video-wrapper !rounded-2xl shadow-2xl overflow-hidden">
-            <iframe src="https://www.youtube.com/embed/zlIuCknvd30" title="Dropzone Interview – Wir begeistern Events" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/zlIuCknvd30" title="Dropzone Interview – Wir begeistern Events" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
         <div>
@@ -181,7 +177,7 @@ import Hero from '../../components/Hero.astro';
       </div>
       <div class="max-w-[800px] mx-auto">
         <div class="video-wrapper !rounded-2xl shadow-xl overflow-hidden">
-          <iframe src="https://www.youtube.com/embed/ctPncWWIwvU" title="Showreel Firmenevent" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          <iframe src="https://www.youtube-nocookie.com/embed/ctPncWWIwvU" title="Showreel Firmenevent" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
     </div>
@@ -199,9 +195,9 @@ import Hero from '../../components/Hero.astro';
 
       <div class="grid md:grid-cols-3 gap-5 relative z-10">
         {[
-          { title: 'Small', label: 'Kleine Besetzung', image: '/images/downloads/DSC02444.jpg', desc: 'Duo bis Quartett für Lounges, Sektempfänge und kleine, feine Anlässe. Auf Wunsch mit Licht- und Tontechnik.' },
-          { title: 'Medium', label: 'Mittlere Besetzung', badge: 'Top Seller', image: '/images/downloads/DSC02439-2.jpg', desc: 'Unsere 5- bis 6-köpfige Standardbesetzung für Firmenjubiläen, Sommerfeste, Weihnachtsfeiern und Kick-Off-Events. Echtes Live-Club-Feeling.' },
-          { title: 'Big', label: 'Große Besetzung', image: '/images/downloads/Unbenannt-1-1.jpg', desc: 'Das große Line-Up für Open Airs und Firmenjubiläen mit großer Bühne. Mit Bläser-Section, Percussion, Background-Vocals und mehr.' },
+          { title: 'Small', label: 'Kleine Besetzung', image: 'https://www.dropzone-band.de/wp-content/uploads/2015/09/DSC02444.jpg', desc: 'Duo bis Quartett für Lounges, Sektempfänge und kleine, feine Anlässe. Auf Wunsch mit Licht- und Tontechnik.' },
+          { title: 'Medium', label: 'Mittlere Besetzung', badge: 'Top Seller', image: 'https://www.dropzone-band.de/wp-content/uploads/2019/02/DSC02439.jpg', desc: 'Unsere 5- bis 6-köpfige Standardbesetzung für Firmenjubiläen, Sommerfeste, Weihnachtsfeiern und Kick-Off-Events. Echtes Live-Club-Feeling.' },
+          { title: 'Big', label: 'Große Besetzung', image: 'https://www.dropzone-band.de/wp-content/uploads/2024/01/Unbenannt-1-1.jpg', desc: 'Das große Line-Up für Open Airs und Firmenjubiläen mit großer Bühne. Mit Bläser-Section, Percussion, Background-Vocals und mehr.' },
         ].map((pkg) => (
           <div class="bg-surface-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300">
             {pkg.image && <img src={pkg.image} alt={pkg.title} class="w-full aspect-[4/3] object-cover block" loading="lazy" />}
@@ -265,7 +261,7 @@ import Hero from '../../components/Hero.astro';
       <!-- Dosoni-VT Partner Block -->
       <div class="bg-surface-card border border-border rounded-2xl p-8 md:p-10 max-w-[800px] mx-auto text-center">
         <p class="text-primary-light/70 text-xs font-semibold uppercase tracking-widest mb-4">Unser Technik-Partner: Dosoni-VT</p>
-        <img src="/images/downloads/dosoni-vt-logo_x2-300x50-3.png" alt="Dosoni-VT Logo" class="h-16 mx-auto mb-6 object-contain" loading="lazy" />
+        <img src="https://www.dropzone-band.de/wp-content/uploads/2024/02/dosoni-vt-logo_x2-300x50-3.png" alt="Dosoni-VT Logo" class="h-16 mx-auto mb-6 object-contain" loading="lazy" />
         <p class="text-white/60 leading-relaxed mb-6">Wir arbeiten mit dem Veranstaltungstechnik-Dienstleister DOSONI-VT aus Remseck am Neckar zusammen.</p>
         <blockquote class="border-l-2 border-primary/40 pl-5 text-left">
           <p class="text-white/70 italic leading-relaxed mb-3">„Ihr Unternehmen, Ihre Veranstaltung und Ihre Gäste sind für uns das Wichtigste: Wir engagieren uns persönlich dafür, dass Ihr Event technisch perfekt und sicher abläuft. Und dafür, dass Sie und Ihre Besucher und Teilnehmer begeistert sind. Die passende Veranstaltungstechnik ist für uns dabei ein wichtiges Mittel zum Zweck."</p>
@@ -293,7 +289,7 @@ import Hero from '../../components/Hero.astro';
         </div>
         <div>
           <div class="video-wrapper !rounded-2xl shadow-2xl overflow-hidden">
-            <iframe src="https://www.youtube.com/embed/ykHXCQP1LOw" title="Dropzone feat. Cassandra Steen" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/FHQzYjMm2VQ" title="Dropzone feat. Cassandra Steen" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
       </div>

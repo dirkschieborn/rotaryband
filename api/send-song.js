@@ -22,8 +22,8 @@ export default async function handler(req, res) {
         'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        from: 'Once In A Lifetime Song <onboarding@resend.dev>',
-        to: 'dirkschieborn@googlemail.com',
+        from: 'Once In A Lifetime Song <song@dropzone-band.de>',
+        to: 'info@dropzone-band.de',
         subject: `Once In A Lifetime Song – ${bride} & ${groom}`,
         text: `Neue Song-Anfrage über den Lyrics Generator\n\n` +
               `Namen: ${bride} & ${groom}\n` +

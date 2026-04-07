@@ -31,7 +31,7 @@ const organizationSchema = {
   description: 'Professionelle Eventband aus Stuttgart für Hochzeiten, Firmenevents, Festivals und private Feiern. Seit über 20 Jahren live auf der Bühne.',
   url: siteUrl,
   logo: `${siteUrl}/images/logo_weiss.png`,
-  image: '/images/downloads/DZ.074.6397-scaled.jpg',
+  image: '/images/wp/2024-02-DZ.074.6397-scaled.webp',
   telephone: '+497113406789500',
   email: 'info@dropzone-band.de',
   foundingDate: '2003',
@@ -39,8 +39,8 @@ const organizationSchema = {
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Heiligenwiesen 8a',
-    addressLocality: 'Aidlingen',
-    postalCode: '71134',
+    addressLocality: 'Stuttgart',
+    postalCode: '70327',
     addressCountry: 'DE',
     addressRegion: 'Baden-Württemberg',
   },
@@ -120,7 +120,9 @@ const allSchemas = [organizationSchema, websiteSchema, ...(Array.isArray(schema)
     <meta name="twitter:image" content={absoluteImage} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon-32x32.webp" sizes="32x32" type="image/webp" />
+    <link rel="icon" href="/favicon-192x192.webp" sizes="192x192" type="image/webp" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.webp" />
 
     <!-- Schema.org JSON-LD -->
     {allSchemas.map((s) => (

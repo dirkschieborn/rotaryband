@@ -30,8 +30,8 @@ export default async function handler(req, res) {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        from: 'Dropzone Booking <onboarding@resend.dev>',
-        to: 'dirkschieborn@googlemail.com',
+        from: 'Dropzone Booking <booking@dropzone-band.de>',
+        to: 'info@dropzone-band.de',
         subject: `Neue Booking-Anfrage: ${eventLabels[eventType] || eventType} am ${date}`,
         text:
           `Neue Booking-Anfrage über dropzone-band.de\n` +

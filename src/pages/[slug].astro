@@ -15,6 +15,67 @@ export function getStaticPaths() {
 const { post } = Astro.props;
 const allPosts = posts as any[];
 
+const siteUrl = 'https://www.dropzone-band.de';
+const postImage = post.featured_image || post.card_image || `${siteUrl}/images/og-image.jpg`;
+const blogPostingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.excerpt || post.text_content?.substring(0, 160) || '',
+  image: postImage,
+  datePublished: post.date,
+  dateModified: post.date,
+  url: `${siteUrl}/${post.slug}/`,
+  author: {
+    '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
+    name: 'Dropzone',
+  },
+  publisher: {
+    '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
+    name: 'Dropzone',
+    logo: { '@type': 'ImageObject', url: `${siteUrl}/images/logo_weiss.png` },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/${post.slug}/` },
+  ...(post.category && { articleSection: post.category }),
+  inLanguage: 'de-DE',
+};
+
+// FAQPage schema for FAQ posts
+const faqSchema = post.faq ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: post.faq.map((item: { question: string; answer: string }) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+} : null;
+
+// Service schema for service-related posts
+const serviceSchema = post.service_schema ? {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: post.service_schema.name,
+  description: post.service_schema.description,
+  provider: { '@id': `${siteUrl}/#organization` },
+  areaServed: [
+    { '@type': 'State', name: 'Baden-Württemberg' },
+    { '@type': 'City', name: 'Stuttgart' },
+    { '@type': 'Country', name: 'Deutschland' },
+  ],
+  serviceType: post.service_schema.serviceType,
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'EUR',
+    lowPrice: post.service_schema.lowPrice,
+    highPrice: post.service_schema.highPrice,
+  },
+} : null;
+
+const allPageSchemas = [blogPostingSchema, ...(faqSchema ? [faqSchema] : []), ...(serviceSchema ? [serviceSchema] : [])];
+
 // Recent posts for sidebar
 const recentPosts = allPosts
   .filter((p: any) => p.slug !== post.slug && !['festivals', 'euer-ki-song-live-auf-der-buehne'].includes(p.slug))
@@ -26,11 +87,11 @@ const getCardImage = (p: any) => {
   if (p.featured_image) return p.featured_image;
   const first = p.content_images?.[0];
   if (first) return first.replace(/-150x150/, '');
-  return '/images/downloads/DZ.074.6397-scaled.jpg';
+  return '/images/wp/2024-02-DZ.074.6397-scaled.webp';
 };
 
 // Hero image
-const heroImage = post.featured_image || '/images/downloads/DSC02439.jpg';
+const heroImage = post.featured_image || '/images/wp/2015-09-DSC02439.webp';
 
 // Format date
 const formattedDate = new Date(post.date).toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
@@ -108,7 +169,7 @@ if (post.raw_content) {
 }
 ---
 
-<BaseLayout title={post.title} description={post.excerpt || post.text_content?.substring(0, 160) || ''}>
+<BaseLayout title={post.title} description={post.excerpt || post.text_content?.substring(0, 160) || ''} image={postImage} schema={allPageSchemas}>
 
   <!-- Hero -->
   <section class="relative h-[35vh] flex items-end overflow-hidden">
@@ -146,7 +207,7 @@ if (post.raw_content) {
                 {post.youtube_ids.map((id: string) => (
                   <div class="rounded-2xl shadow-xl overflow-hidden aspect-[9/16]">
                     <iframe
-                      src={`https://www.youtube.com/embed/${id}`}
+                      src={`https://www.youtube-nocookie.com/embed/${id}`}
                       title={post.title}
                       class="w-full h-full"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -218,7 +279,7 @@ if (post.raw_content) {
                   {post.youtube_ids.map((id: string) => (
                     <div class="video-wrapper !rounded-2xl shadow-xl overflow-hidden">
                       <iframe
-                        src={`https://www.youtube.com/embed/${id}`}
+                        src={`https://www.youtube-nocookie.com/embed/${id}`}
                         title={post.title}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen

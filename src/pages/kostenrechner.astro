@@ -11,7 +11,7 @@ import Hero from '../components/Hero.astro';
   <Hero
     title="Band-Kostenrechner"
     subtitle="Kalkuliere die Kosten für deine Band und konfiguriere sie maßgeschneidert für deine Veranstaltung."
-    backgroundImage="/images/downloads/DZ.074.6397-scaled.jpg"
+    backgroundImage="/images/wp/2024-02-DZ.074.6397-scaled.webp"
   />
 
   <section class="section">
@@ -32,7 +32,7 @@ import Hero from '../components/Hero.astro';
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
         </div>
         <div class="info-banner-text">
-          <p>Dieser Kostenrechner gilt für <strong>private Events</strong> wie Hochzeiten, Geburtstage, Jubiläen und private Feiern. Die Kalkulation bezieht sich auf unsere <strong>fünfköpfige Standardbesetzung</strong> (Gesang, Keys, Gitarre, Bass, Drums).</p>
+          <p>Dieser Kostenrechner gilt für <strong>private Events</strong> wie Hochzeiten, Geburtstage, Jubiläen und private Feiern. Die Kalkulation bezieht sich auf unsere <strong>fünfköpfige Standardbesetzung</strong> (Sängerin, Sänger, Keys, Gitarre, Drums).</p>
           <p style="margin-top:0.4rem;">Bei <strong>Firmenevents</strong> und öffentlichen Veranstaltungen erstellen wir euch gerne ein individuelles Angebot – <a href="/booking/">schreibt uns einfach</a>.</p>
         </div>
       </div>
@@ -1183,7 +1183,10 @@ import Hero from '../components/Hero.astro';
 
       if (res.ok) {
         inquiryForm.style.display = 'none';
-        if (inquirySuccess) inquirySuccess.style.display = 'block';
+        if (inquirySuccess) {
+          inquirySuccess.style.display = 'block';
+          inquirySuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
       } else {
         alert('Fehler beim Senden. Bitte versucht es erneut oder schreibt uns direkt an info@dropzone-band.de');
         if (btn) { btn.disabled = false; btn.textContent = 'Jetzt unverbindlich Verfügbarkeit prüfen'; }

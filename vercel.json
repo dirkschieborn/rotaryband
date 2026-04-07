@@ -1,13 +1,13 @@
 {
   "redirects": [
-    {"source": "/firmenevents/", "destination": "/events/firmenevents/", "statusCode": 301},
-    {"source": "/firmenevents", "destination": "/events/firmenevents/", "statusCode": 301},
+    {"source": "/events/hochzeiten/", "destination": "/die-band-fur-eure-hochzeit/", "statusCode": 301},
+    {"source": "/events/hochzeiten", "destination": "/die-band-fur-eure-hochzeit/", "statusCode": 301},
+    {"source": "/events/firmenevents/", "destination": "/firmenevents/", "statusCode": 301},
+    {"source": "/events/firmenevents", "destination": "/firmenevents/", "statusCode": 301},
+    {"source": "/events/festivals/", "destination": "/festivals/", "statusCode": 301},
+    {"source": "/events/festivals", "destination": "/festivals/", "statusCode": 301},
     {"source": "/privatevents/", "destination": "/events/private/", "statusCode": 301},
     {"source": "/privatevents", "destination": "/events/private/", "statusCode": 301},
-    {"source": "/festivals/", "destination": "/events/festivals/", "statusCode": 301},
-    {"source": "/festivals", "destination": "/events/festivals/", "statusCode": 301},
-    {"source": "/die-band-fur-eure-hochzeit/", "destination": "/events/hochzeiten/", "statusCode": 301},
-    {"source": "/die-band-fur-eure-hochzeit", "destination": "/events/hochzeiten/", "statusCode": 301},
     {"source": "/testimonials/:path*", "destination": "/feedback/", "statusCode": 301},
 
     {"source": "/datenschutz-2/", "destination": "/datenschutz/", "statusCode": 301},
@@ -27,16 +27,16 @@
     {"source": "/solitude-gymnasium-2/", "destination": "/pausenkonzert-rutesheim/", "statusCode": 301},
     {"source": "/solitude-gymnasium-2", "destination": "/pausenkonzert-rutesheim/", "statusCode": 301},
 
-    {"source": "/die-band-fuer-ihre-firmenfeier", "destination": "/events/firmenevents/", "statusCode": 301},
-    {"source": "/die-band-fuer-ihre-firmenfeier/", "destination": "/events/firmenevents/", "statusCode": 301},
+    {"source": "/die-band-fuer-ihre-firmenfeier", "destination": "/firmenevents/", "statusCode": 301},
+    {"source": "/die-band-fuer-ihre-firmenfeier/", "destination": "/firmenevents/", "statusCode": 301},
     {"source": "/videoclips", "destination": "/videos/", "statusCode": 301},
     {"source": "/videoclips/", "destination": "/videos/", "statusCode": 301},
     {"source": "/hoerproben", "destination": "/videos/", "statusCode": 301},
     {"source": "/hoerproben/", "destination": "/videos/", "statusCode": 301},
-    {"source": "/kundenempfehlungen-dropzone-als-band-fuer-firmenfeiern", "destination": "/events/firmenevents/", "statusCode": 301},
-    {"source": "/kundenempfehlungen-dropzone-als-band-fuer-firmenfeiern/", "destination": "/events/firmenevents/", "statusCode": 301},
-    {"source": "/band-fuer-ihre-hochzeit", "destination": "/events/hochzeiten/", "statusCode": 301},
-    {"source": "/band-fuer-ihre-hochzeit/", "destination": "/events/hochzeiten/", "statusCode": 301},
+    {"source": "/kundenempfehlungen-dropzone-als-band-fuer-firmenfeiern", "destination": "/firmenevents/", "statusCode": 301},
+    {"source": "/kundenempfehlungen-dropzone-als-band-fuer-firmenfeiern/", "destination": "/firmenevents/", "statusCode": 301},
+    {"source": "/band-fuer-ihre-hochzeit", "destination": "/die-band-fur-eure-hochzeit/", "statusCode": 301},
+    {"source": "/band-fuer-ihre-hochzeit/", "destination": "/die-band-fur-eure-hochzeit/", "statusCode": 301},
     {"source": "/anfragen-fuer-privatveranstaltungen", "destination": "/booking/", "statusCode": 301},
     {"source": "/anfragen-fuer-privatveranstaltungen/", "destination": "/booking/", "statusCode": 301},
     {"source": "/dropzone-showreel-2016/", "destination": "/showreel-festivals/", "statusCode": 301},
@@ -81,10 +81,10 @@
     {"source": "/13-12-2019-ey-mannheim/", "destination": "/news/", "statusCode": 301},
     {"source": "/13-12-2019-ey-mannheim", "destination": "/news/", "statusCode": 301},
 
-    {"source": "/category/firmenfeier/", "destination": "/events/firmenevents/", "statusCode": 301},
-    {"source": "/category/firmenfeier", "destination": "/events/firmenevents/", "statusCode": 301},
-    {"source": "/category/hochzeit/", "destination": "/events/hochzeiten/", "statusCode": 301},
-    {"source": "/category/hochzeit", "destination": "/events/hochzeiten/", "statusCode": 301},
+    {"source": "/category/firmenfeier/", "destination": "/firmenevents/", "statusCode": 301},
+    {"source": "/category/firmenfeier", "destination": "/firmenevents/", "statusCode": 301},
+    {"source": "/category/hochzeit/", "destination": "/die-band-fur-eure-hochzeit/", "statusCode": 301},
+    {"source": "/category/hochzeit", "destination": "/die-band-fur-eure-hochzeit/", "statusCode": 301},
     {"source": "/category/neuigkeiten/:path*", "destination": "/news/", "statusCode": 301},
     {"source": "/category/showtermine/:path*", "destination": "/news/", "statusCode": 301},
     {"source": "/category/top-videos/", "destination": "/videos/", "statusCode": 301},
@@ -97,7 +97,7 @@
 
     {"source": "/b3m_testimonial_category/:path*", "destination": "/feedback/", "statusCode": 301},
 
-    {"source": "/2025", "destination": "/events/hochzeiten/", "statusCode": 301},
-    {"source": "/2025/", "destination": "/events/hochzeiten/", "statusCode": 301}
+    {"source": "/2025", "destination": "/die-band-fur-eure-hochzeit/", "statusCode": 301},
+    {"source": "/2025/", "destination": "/die-band-fur-eure-hochzeit/", "statusCode": 301}
   ]
 }
