@@ -24,7 +24,8 @@
       "Bash(grep -v -E \"^\\(\\\\.git|\\\\.claude\\)$\")",
       "Bash(xargs rm:*)",
       "Bash(cp -r api astro.config.mjs package.json package-lock.json public src tsconfig.json vercel.json wp-blog-posts.json README.md \"C:/Users/Dirk/Coding/rotaryband/\")",
-      "Bash(cp .gitignore \"C:/Users/Dirk/Coding/rotaryband/\")"
+      "Bash(cp .gitignore \"C:/Users/Dirk/Coding/rotaryband/\")",
+      "WebFetch(domain:www.dierotaryband.de)"
     ]
   }
 }

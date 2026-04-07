@@ -1,18 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const reviews = [
-  { text: 'Nur Liebe für diese Band! Auf der Bühne liefern sie alle richtig ab und egal ob 5 oder 50 oder 500 Leute drumherum stehen, sie geben jedem das Gefühl extra für dich zu spielen. 11/10 highly recommend!', author: 'Janina', date: '17.12.2025' },
-  { text: 'Dropzone hat unsere Hochzeitsfeier zu etwas Besonderem gemacht. Vielen Dank für Euren reibungslosen und unkomplizierten Ablauf und für die geniale Stimmung an diesem Abend.', author: 'Friederike Kugler', date: '29.04.2025' },
-  { text: 'Wir haben unser 25. Jubiläum mit Dropzone gefeiert und sind begeistert! Wir konnten uns blind auf die Band verlassen. Vielen Dank und immer gerne wieder!', author: 'Regina Faller', date: '17.10.2024' },
-  { text: 'Tolle Band, phantastisches Entertainment und einfach super sympathische Bandmitglieder. Buchen mit Begeisterungsgarantie. Jederzeit gerne wieder!', author: 'David Pricking', date: '30.07.2024' },
-  { text: 'Wir hatten schon 2 tolle Anlässe mit Dropzone: zur Hochzeit auf 2222 m ü.M. in der Schweiz und eine Kongressparty in Amsterdam. Auch diesmal wieder ein Volltreffer.', author: 'Nicola Zitzmann', date: '30.06.2024' },
-  { text: 'Einzigartige Band mit breitem Repertoire und einer Leadsängerin, deren Stimme unter die Haut geht. Absolut empfehlenswert!', author: 'Anna Gasché', date: '11.06.2024' },
+const reviews: any[] = [];
+
+const members = [
+  { name: 'Eckhard Burling', instruments: 'Guitar, Vocals & Ukulele' },
+  { name: 'Rainer Grosse', instruments: 'Bass & Vocals' },
+  { name: 'Oliver Boese', instruments: 'Saxophone, Vocals & Percussion' },
+  { name: 'Dirk Schieborn', instruments: 'Keys & Cello' },
+  { name: 'Carl-Philipp Clarenbach', instruments: 'Drums & Cajón' },
+];
+
+const songs = [
+  'Old Time Rock\'n\'Roll',
+  'Mustang Sally',
+  'Long Train Running',
+  'Midnight Hour',
+  'The Heat Is On',
+  'Everybody Needs Somebody to Love',
+  'Jailhouse Rock',
+  'Lay Down Sally',
 ];
 
 ---
 
-<BaseLayout title="Dropzone – die Eventband für Firmenfeiern, Hochzeiten, Festivals" description="Willkommen bei der Band Dropzone aus Stuttgart: Wir rocken Firmenfeiern, Hochzeiten, Festivals und private Feiern – mit Energie, Spielfreude und über 20 Jahren Bühnenerfahrung.">
+<BaseLayout title="2R2B – Die Rotary Band | Musik für den guten Zweck" description="2R2B – die Rotary Remstal Besen Band. 5 Rotarier aus dem Remstal spielen Rock'n'Roll Klassiker. 100% der Gage gehen an die Kinderstiftung Funke.">
 
   <!-- ============ HERO ============ -->
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -20,7 +32,7 @@ const reviews = [
     <div class="absolute inset-0">
       <img
         src="/images/rotaryband-hero.jpg"
-        alt="Rotary-Band"
+        alt="2R2B – Die Rotary Band live"
         class="w-full h-full object-cover"
       />
     </div>
@@ -29,18 +41,16 @@ const reviews = [
 
     <!-- Content -->
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto flex flex-col items-center">
-      <!-- Logo -->
-      <img
-        src="/images/logo_weiss.png"
-        alt="Dropzone – Die Eventband"
-        class="w-64 md:w-80 lg:w-96 mb-8 opacity-0 animate-[fadeIn_1s_0.3s_forwards]"
-      />
+      <!-- Text Logo -->
+      <p class="text-primary-light font-bold text-2xl md:text-3xl tracking-widest mb-4 opacity-0 animate-[fadeIn_1s_0.3s_forwards]">
+        2R2B
+      </p>
 
       <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 opacity-0 animate-[fadeIn_1s_0.6s_forwards]">
-        Eventband für Firmenfeiern, Hochzeiten, Festivals.
+        Musik für den guten Zweck
       </h1>
       <p class="text-lg md:text-xl text-white/60 mb-10 opacity-0 animate-[fadeIn_1s_0.8s_forwards]">
-        Wir rocken eure Hütte – mit Energie und Spielfreude.
+        Rock'n'Roll Klassiker – gespielt von 5 Rotariern aus dem Remstal
       </p>
 
     </div>
@@ -61,372 +71,209 @@ const reviews = [
     <div class="max-w-[1400px] mx-auto px-8">
       <div class="grid md:grid-cols-[2fr_3fr] gap-12 md:gap-16 items-center">
         <div data-reveal>
-          <p class="text-primary-light font-semibold text-sm uppercase tracking-widest mb-3">Coverband und Eventband aus Stuttgart</p>
-          <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Wir sind<br/><span class="text-primary-light">Dropzone</span></h2>
+          <p class="text-primary-light font-semibold text-sm uppercase tracking-widest mb-3">Rotary Club Stuttgart-Remstal</p>
+          <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Wir sind<br/><span class="text-primary-light">2R2B</span></h2>
           <p class="text-white/60 text-lg leading-relaxed mb-4">
-            Eure Liveband für Events jeder Art und Größe. Ob als Coverband für eine Geburtstagsfeier, Galaband für das gediegene Ambiente, Partyband für euer Firmenevent oder als Hochzeitsband – wir liefern beste Live-Musik auf Firmenevents, Privatevents und Festivalbühnen.
+            Die Rotary Remstal Besen Band – fünf Rotarier, die seit 2015 ihre Leidenschaft für Musik mit dem Engagement für einen guten Zweck verbinden. Wir spielen Rock'n'Roll Klassiker auf Firmenfeiern, Hochzeiten, privaten Feiern und Charity Events.
           </p>
           <p class="text-white/50 leading-relaxed mb-8">
-            Mit erstklassigen, professionellen Musikern mit langjähriger Bühnenerfahrung bieten wir ein vielseitiges Repertoire und schaffen seit über zwanzig Jahren unvergessliche Livemusik-Momente. Dazu passende Veranstaltungstechnik, DJ-Service und professionelles Eventmanagement – alles aus einer Hand.
+            Das Besondere: 100% unserer Gage gehen an die Kinderstiftung Funke – eine Kinderstiftung im Rems-Murr-Kreis unter dem Dach der Caritas Stiftung Lebenswerk Zukunft. Wer uns bucht, feiert nicht nur gut, sondern tut auch Gutes.
           </p>
           <div class="flex flex-wrap gap-3">
-            <a href="/wer-wir-sind/" class="btn btn-outline text-sm !py-2.5 !px-5">Die Band kennenlernen</a>
+            <a href="mailto:2r2b@dierotaryband.de" class="btn btn-outline text-sm !py-2.5 !px-5">Kontakt aufnehmen</a>
           </div>
         </div>
         <div data-reveal data-reveal-delay="2" class="relative">
-          <!-- Image Carousel -->
-          <div class="relative overflow-hidden rounded-2xl shadow-2xl cursor-zoom-in" id="introCarousel">
-            <div class="flex transition-transform duration-700 ease-out" id="introTrack">
-              {[
-                { src: '/images/wp/2016-03-234.webp', alt: 'Dropzone – Coverband live auf der Bühne' },
-                { src: '/images/wp/2024-08-DZ-136.8300.webp', alt: 'Dropzone Sänger auf der Bühne' },
-                { src: '/images/wp/2024-02-DZ.136.7344-scaled.webp', alt: 'Dropzone Liveband Performance' },
-              ].map((img) => (
-                <div class="w-full flex-shrink-0">
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    class="w-full aspect-[16/9] object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-            <!-- Nav Arrows -->
-            <button id="introPrev" class="absolute top-1/2 left-3 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white/80 hover:text-white hover:bg-black/60 transition-all cursor-pointer z-10" aria-label="Vorheriges Bild">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <button id="introNext" class="absolute top-1/2 right-3 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white/80 hover:text-white hover:bg-black/60 transition-all cursor-pointer z-10" aria-label="Nächstes Bild">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
-          </div>
-          {/* Thumbs */}
-          <div class="flex gap-2 mt-3" id="introThumbs">
-            {[
-              { src: '/images/wp/2016-03-234.webp', alt: 'Dropzone – Coverband live auf der Bühne' },
-              { src: '/images/wp/2024-08-DZ-136.8300.webp', alt: 'Dropzone Sänger auf der Bühne' },
-              { src: '/images/wp/2024-02-DZ.136.7344-scaled.webp', alt: 'Dropzone Liveband Performance' },
-            ].map((img, i) => (
-              <button class={`flex-1 rounded-lg overflow-hidden border-2 transition-all duration-300 cursor-pointer ${i === 0 ? 'border-primary' : 'border-transparent opacity-50 hover:opacity-80'}`} data-thumb={i}>
-                <img src={img.src} alt={img.alt} class="w-full aspect-[16/9] object-cover" loading="lazy" />
-              </button>
-            ))}
-          </div>
-          {/* Lightbox */}
-          <div id="introLightbox" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black">
-            <button id="introLbClose" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors cursor-pointer z-10" aria-label="Schließen">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
-            <button id="introLbPrev" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors cursor-pointer z-10" aria-label="Zurück">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <button id="introLbNext" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors cursor-pointer z-10" aria-label="Weiter">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
-            <img id="introLbImage" src="" alt="" class="max-w-[95vw] max-h-[95vh] object-contain" />
+          <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+            <img
+              src="/images/rotaryband-hero.jpg"
+              alt="2R2B – Die Rotary Band"
+              class="w-full aspect-[16/9] object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ EVENTS ============ -->
+  <!-- ============ WAS WIR BIETEN ============ -->
   <section class="py-24 md:py-32 bg-surface relative overflow-hidden ">
     <!-- Ambilight: teal/green accent, centered to avoid edge cuts -->
     <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 50% 35% at 55% 50%, rgba(40, 180, 130, 0.18) 0%, transparent 100%);"></div>
     <div class="max-w-[1400px] mx-auto px-8">
       <div class="text-center mb-16" data-reveal>
-        <p class="text-primary-light font-semibold text-sm uppercase tracking-widest mb-3">Was wir machen</p>
-        <h2 class="text-4xl md:text-5xl font-bold">Euer Event, unser Sound</h2>
+        <p class="text-primary-light font-semibold text-sm uppercase tracking-widest mb-3">Was wir bieten</p>
+        <h2 class="text-4xl md:text-5xl font-bold">Bucht uns für euer Event</h2>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 relative z-10">
-        <a href="/die-band-fur-eure-hochzeit/" class="group flex flex-col rounded-2xl overflow-hidden bg-surface-card border border-border hover:border-primary/30 transition-all duration-300" data-reveal data-reveal-delay="1">
+        <div class="group flex flex-col rounded-2xl overflow-hidden bg-surface-card border border-border hover:border-primary/30 transition-all duration-300" data-reveal data-reveal-delay="1">
+          <div class="relative overflow-hidden">
+            <img src="/images/wp/2025-07-Bildschirmfoto-2025-07-18-um-22.22.24.webp" alt="Firmenfeiern" class="w-full aspect-[4/3] object-cover block transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#161616] to-transparent pointer-events-none"></div>
+          </div>
+          <div class="px-5 pb-5 pt-0 -mt-10 relative z-10 flex flex-col flex-1">
+            <h3 class="text-lg font-bold text-white mb-1">Firmenfeiern</h3>
+            <p class="text-white/50 text-sm mb-3 flex-1">Jubiläum, Kick-Off oder Weihnachtsfeier – wir sorgen für Stimmung</p>
+          </div>
+        </div>
+
+        <div class="group flex flex-col rounded-2xl overflow-hidden bg-surface-card border border-border hover:border-primary/30 transition-all duration-300" data-reveal data-reveal-delay="2">
           <div class="relative overflow-hidden">
             <img src="/images/wp/2016-03-DSC_7487-1-1.webp" alt="Hochzeiten" class="w-full aspect-[4/3] object-cover block transition-transform duration-700 group-hover:scale-110" loading="lazy" />
             <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#161616] to-transparent pointer-events-none"></div>
           </div>
           <div class="px-5 pb-5 pt-0 -mt-10 relative z-10 flex flex-col flex-1">
             <h3 class="text-lg font-bold text-white mb-1">Hochzeiten</h3>
-            <p class="text-white/50 text-sm mb-3 flex-1">Eure Hochzeitsband mit Stil, Eleganz und jeder Menge guter Musik</p>
-            <span class="text-primary-light text-sm font-semibold group-hover:translate-x-1 transition-transform inline-block">Mehr erfahren →</span>
+            <p class="text-white/50 text-sm mb-3 flex-1">Live-Musik für euren besonderen Tag – mit Herz und Rock'n'Roll</p>
           </div>
-        </a>
+        </div>
 
-        <a href="/firmenevents/" class="group flex flex-col rounded-2xl overflow-hidden bg-surface-card border border-border hover:border-primary/30 transition-all duration-300" data-reveal data-reveal-delay="2">
+        <div class="group flex flex-col rounded-2xl overflow-hidden bg-surface-card border border-border hover:border-primary/30 transition-all duration-300" data-reveal data-reveal-delay="3">
           <div class="relative overflow-hidden">
-            <img src="/images/wp/2025-07-Bildschirmfoto-2025-07-18-um-22.22.24.webp" alt="Firmenevents" class="w-full aspect-[4/3] object-cover block transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-            <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#161616] to-transparent pointer-events-none"></div>
-          </div>
-          <div class="px-5 pb-5 pt-0 -mt-10 relative z-10 flex flex-col flex-1">
-            <h3 class="text-lg font-bold text-white mb-1">Firmenevents</h3>
-            <p class="text-white/50 text-sm mb-3 flex-1">Jubiläum, Kick-Off, Weihnachtsfeier – maßgeschneidert mit Rundum-Sorglos-Paket</p>
-            <span class="text-primary-light text-sm font-semibold group-hover:translate-x-1 transition-transform inline-block">Mehr erfahren →</span>
-          </div>
-        </a>
-
-        <a href="/festivals/" class="group flex flex-col rounded-2xl overflow-hidden bg-surface-card border border-border hover:border-primary/30 transition-all duration-300" data-reveal data-reveal-delay="3">
-          <div class="relative overflow-hidden">
-            <img src="/images/wp/2024-08-DZ-124.8240.webp" alt="Festivals" class="w-full aspect-[4/3] object-cover block transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-            <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#161616] to-transparent pointer-events-none"></div>
-          </div>
-          <div class="px-5 pb-5 pt-0 -mt-10 relative z-10 flex flex-col flex-1">
-            <h3 class="text-lg font-bold text-white mb-1">Festivals &amp; Stadtfeste</h3>
-            <p class="text-white/50 text-sm mb-3 flex-1">Energiegeladene Auftritte auf Stadtfesten, Open Airs und Festivals</p>
-            <span class="text-primary-light text-sm font-semibold group-hover:translate-x-1 transition-transform inline-block">Mehr erfahren →</span>
-          </div>
-        </a>
-
-        <a href="/events/private/" class="group flex flex-col rounded-2xl overflow-hidden bg-surface-card border border-border hover:border-primary/30 transition-all duration-300" data-reveal data-reveal-delay="4">
-          <div class="relative overflow-hidden">
-            <img src="/images/wp/2024-06-Beitragsbild.webp" alt="Private Events" class="w-full aspect-[4/3] object-cover block transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+            <img src="/images/wp/2024-06-Beitragsbild.webp" alt="Private Feiern" class="w-full aspect-[4/3] object-cover block transition-transform duration-700 group-hover:scale-110" loading="lazy" />
             <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#161616] to-transparent pointer-events-none"></div>
           </div>
           <div class="px-5 pb-5 pt-0 -mt-10 relative z-10 flex flex-col flex-1">
             <h3 class="text-lg font-bold text-white mb-1">Private Feiern</h3>
-            <p class="text-white/50 text-sm mb-3 flex-1">Geburtstag, Jubiläum oder einfach feiern – wir machen's unvergesslich</p>
-            <span class="text-primary-light text-sm font-semibold group-hover:translate-x-1 transition-transform inline-block">Mehr erfahren →</span>
+            <p class="text-white/50 text-sm mb-3 flex-1">Geburtstag, Jubiläum oder einfach feiern – wir sind dabei</p>
           </div>
-        </a>
+        </div>
+
+        <div class="group flex flex-col rounded-2xl overflow-hidden bg-surface-card border border-border hover:border-primary/30 transition-all duration-300" data-reveal data-reveal-delay="4">
+          <div class="relative overflow-hidden">
+            <img src="/images/wp/2024-08-DZ-124.8240.webp" alt="Charity Events" class="w-full aspect-[4/3] object-cover block transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+            <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#161616] to-transparent pointer-events-none"></div>
+          </div>
+          <div class="px-5 pb-5 pt-0 -mt-10 relative z-10 flex flex-col flex-1">
+            <h3 class="text-lg font-bold text-white mb-1">Charity Events</h3>
+            <p class="text-white/50 text-sm mb-3 flex-1">Benefiz-Veranstaltungen sind unsere Herzensangelegenheit</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ FIRMENEVENTS DETAIL ============ -->
+  <!-- ============ UNSER GUTER ZWECK ============ -->
   <section class="py-24 md:py-32 bg-surface relative overflow-hidden">
-    <!-- Ambilight: warm orange/gold accent from stage lighting, centered vertically -->
+    <!-- Ambilight: warm orange/gold accent, centered vertically -->
     <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 45% 35% at 70% 50%, rgba(220, 140, 40, 0.14) 0%, transparent 100%);"></div>
     <div class="max-w-[1400px] mx-auto px-8">
       <div class="grid md:grid-cols-[2fr_3fr] gap-12 md:gap-16 items-center" data-reveal>
         <div>
-          <p class="text-primary-light font-semibold text-sm uppercase tracking-widest mb-3">Firmenevents</p>
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Get boosted!</h2>
+          <p class="text-primary-light font-semibold text-sm uppercase tracking-widest mb-3">Unser guter Zweck</p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Kinderstiftung Funke</h2>
           <p class="text-white/60 leading-relaxed mb-4">
-            Feiert euren Erfolg beim Firmenjubiläum, startet mit Schwung gemeinsam in ein neues Geschäftsjahr beim Kick-Off-Event oder lasst das Jahr ausklingen bei der Weihnachtsfeier – Dropzone liefert den maßgeschneiderten Live-Soundtrack für jeden Anlass.
+            Jeder Cent unserer Gage geht an die Kinderstiftung Funke im Rems-Murr-Kreis, eine Stiftung unter dem Dach der Caritas Stiftung Lebenswerk Zukunft. Die Stiftung setzt sich für Kinder und Jugendliche in der Region ein.
           </p>
-          <p class="text-white/50 leading-relaxed mb-6">
-            Mit passenden Rundum-Sorglos-Paketen inklusive professioneller Licht- und Soundtechnik und einem vielseitigen Repertoire schaffen wir unvergessliche Momente für eure Firmenevents.
+          <p class="text-white/50 leading-relaxed mb-8">
+            Seit unserer Gründung 2015 haben wir so bei zahlreichen Auftritten einen beachtlichen Betrag zusammenspielen können. Wer uns bucht, feiert nicht nur gut – sondern hilft Kindern in der Region.
           </p>
-          <a href="/firmenevents/" class="btn btn-outline text-sm !py-2.5 !px-5">Mehr Infos</a>
+
+          <!-- Stats -->
+          <div class="grid grid-cols-3 gap-6">
+            <div class="text-center">
+              <p class="text-3xl md:text-4xl font-bold text-primary-light">13</p>
+              <p class="text-white/50 text-sm mt-1">Events</p>
+            </div>
+            <div class="text-center">
+              <p class="text-3xl md:text-4xl font-bold text-primary-light">&euro;56.000</p>
+              <p class="text-white/50 text-sm mt-1">gespendet</p>
+            </div>
+            <div class="text-center">
+              <p class="text-3xl md:text-4xl font-bold text-primary-light">5</p>
+              <p class="text-white/50 text-sm mt-1">Rotarier</p>
+            </div>
+          </div>
         </div>
         <div>
-          <img src="/images/wp/2023-11-test-1.webp" alt="Dropzone live auf einem Firmenevent" class="w-full rounded-3xl shadow-2xl aspect-[16/9] object-cover" loading="lazy" />
+          <img src="/images/wp/2023-11-test-1.webp" alt="2R2B spielt für den guten Zweck" class="w-full rounded-3xl shadow-2xl aspect-[16/9] object-cover" loading="lazy" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ HOCHZEITEN DETAIL ============ -->
+  <!-- ============ DIE BAND ============ -->
   <section class="py-24 md:py-32 bg-surface relative overflow-hidden">
-    <!-- Ambilight: soft rose/pink accent from warm wedding ambiance, centered vertically -->
+    <!-- Ambilight: soft rose/pink accent, centered vertically -->
     <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 45% 35% at 30% 50%, rgba(200, 100, 140, 0.15) 0%, transparent 100%);"></div>
     <div class="max-w-[1400px] mx-auto px-8">
-      <div class="grid md:grid-cols-[3fr_2fr] gap-12 md:gap-16 items-center" data-reveal>
-        <div>
-          <img src="/images/wp/2016-03-DSC_7487-1-1.webp" alt="Dropzone als Hochzeitsband" class="w-full rounded-3xl shadow-2xl aspect-[16/9] object-cover" loading="lazy" />
-        </div>
-        <div>
-          <p class="text-primary-light font-semibold text-sm uppercase tracking-widest mb-3">Privatevents</p>
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Eure Hochzeitsband</h2>
-          <p class="text-white/60 leading-relaxed mb-4">
-            Wir sind eure Hochzeitsband! Lasst uns gemeinsam die perfekten musikalischen Vibes für euren besonderen Tag kreieren – mit Stil, Eleganz und jeder Menge guter Musik. Mit mehr als zwanzig Jahren Erfahrung machen wir eure Hochzeits- oder Geburtstagsfeier unvergesslich.
-          </p>
-          <p class="text-white/50 leading-relaxed mb-6">
-            Dabei sorgen wir durch mitgelieferte Licht- und Soundtechnik dafür, dass alles reibungsfrei abläuft und ihr euren Tag und eure Hochzeitsband entspannt genießen könnt.
-          </p>
-          <a href="/die-band-fur-eure-hochzeit/" class="btn btn-outline text-sm !py-2.5 !px-5">Mehr Infos</a>
-        </div>
+      <div class="text-center mb-16" data-reveal>
+        <p class="text-primary-light font-semibold text-sm uppercase tracking-widest mb-3">Die Band</p>
+        <h2 class="text-4xl md:text-5xl font-bold">5 Rotarier, 1 Mission</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-5 relative z-10">
+        {members.map((m, i) => (
+          <div
+            class="bg-surface-card border border-border rounded-2xl p-6 text-center hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
+            data-reveal
+            data-reveal-delay={String(Math.min(i + 1, 3))}
+          >
+            <div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary-light font-bold text-xl mx-auto mb-4">
+              {m.name[0]}
+            </div>
+            <h3 class="text-white font-semibold text-sm mb-1">{m.name}</h3>
+            <p class="text-white/50 text-xs">{m.instruments}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- ============ FESTIVALS DETAIL ============ -->
+  <!-- ============ REPERTOIRE ============ -->
   <section class="py-24 md:py-32 bg-surface relative overflow-hidden">
-    <!-- Ambilight: green/lime accent from festival stage lighting, centered vertically -->
+    <!-- Ambilight: green/lime accent, centered vertically -->
     <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 45% 35% at 65% 50%, rgba(80, 200, 80, 0.14) 0%, transparent 100%);"></div>
     <div class="max-w-[1400px] mx-auto px-8">
       <div class="grid md:grid-cols-[2fr_3fr] gap-12 md:gap-16 items-center" data-reveal>
         <div>
-          <p class="text-primary-light font-semibold text-sm uppercase tracking-widest mb-3">Festivals und Stadtfeste</p>
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Let's rock!</h2>
-          <p class="text-white/60 leading-relaxed mb-4">
-            Dropzone ist der Garant für energiegeladene Auftritte auf Stadtfesten, Open Airs und Festivals! Mit einem mitreißenden Repertoire und dynamischer Bühnenpräsenz bringen wir jede Veranstaltung zum Beben.
+          <p class="text-primary-light font-semibold text-sm uppercase tracking-widest mb-3">Repertoire</p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Rock'n'Roll Klassiker</h2>
+          <p class="text-white/60 leading-relaxed mb-8">
+            Wir spielen die Songs, die jeder kennt und liebt – zeitlose Rock'n'Roll Hits, die garantiert jeden auf die Tanzfläche bringen.
           </p>
-          <p class="text-white/50 leading-relaxed mb-6">
-            Bucht uns für mitreißende Momente als perfekten musikalischen Act für euer nächstes Stadtfest, Open Air oder Festival – Let's rock the crowd together!
-          </p>
-          <a href="/festivals/" class="btn btn-outline text-sm !py-2.5 !px-5">Mehr Infos</a>
         </div>
         <div>
-          <img src="/images/wp/2024-02-DZ.001.6293-scaled.webp" alt="Dropzone live auf einem Stadtfest – Fachwerkhäuser und Publikum" class="w-full rounded-3xl shadow-2xl aspect-[16/9] object-cover" loading="lazy" />
+          <div class="grid sm:grid-cols-2 gap-3">
+            {songs.map((song, i) => (
+              <div
+                class="bg-surface-card border border-border rounded-xl px-5 py-3 hover:border-primary/30 transition-all duration-300 flex items-center gap-3"
+                data-reveal
+                data-reveal-delay={String(Math.min(i + 1, 3))}
+              >
+                <span class="text-primary-light text-lg">&#9835;</span>
+                <span class="text-white/80 text-sm">{song}</span>
+              </div>
+            ))}
+          </div>
+          <p class="text-white/40 text-sm mt-4 italic">... und viele weitere Klassiker</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ VIDEO ============ -->
-  <section class="py-24 md:py-32 bg-surface relative overflow-hidden ">
+  <!-- ============ BUCHT UNS ============ -->
+  <section class="py-24 md:py-32 bg-surface relative overflow-hidden">
     <!-- Ambilight: warm magenta accent, centered vertically -->
-    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 45% 35% at 30% 50%, rgba(180, 50, 100, 0.18) 0%, transparent 100%);"></div>
-    <div class="max-w-[1400px] mx-auto px-8">
-      <div class="text-center mb-12" data-reveal>
-        <p class="text-primary-light font-semibold text-sm uppercase tracking-widest mb-3">Live erleben</p>
-        <h2 class="text-4xl md:text-5xl font-bold">Seht selbst.</h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6" data-reveal>
-        <div class="group">
-          <div class="video-wrapper !rounded-2xl shadow-xl overflow-hidden">
-            <iframe src="https://www.youtube-nocookie.com/embed/Ju_I95kOqxU" title="Dropzone Showreel Partyband" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="mt-3 text-white font-semibold text-sm font-[Rubik]">Showreel Partyband</p>
-        </div>
-        <div class="group">
-          <div class="video-wrapper !rounded-2xl shadow-xl overflow-hidden">
-            <iframe src="https://www.youtube-nocookie.com/embed/ctPncWWIwvU" title="Dropzone Showreel Firmenevent" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="mt-3 text-white font-semibold text-sm font-[Rubik]">Showreel Firmenevent</p>
-        </div>
-        <div class="group">
-          <div class="video-wrapper !rounded-2xl shadow-xl overflow-hidden">
-            <iframe src="https://www.youtube-nocookie.com/embed/FHQzYjMm2VQ" title="Dropzone Showreel Festivals" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="mt-3 text-white font-semibold text-sm font-[Rubik]">Showreel Festivals</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ KI SONG ============ -->
-  <section class="py-24 md:py-32 bg-surface relative overflow-hidden ">
-    <!-- Ambilight: cyan/teal accent, centered vertically -->
-    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 40% 35% at 30% 50%, rgba(40, 200, 200, 0.16) 0%, transparent 100%);"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
-
-    <div class="max-w-[1400px] mx-auto px-8 relative z-10">
-      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-        <div class="order-2 md:order-1" data-reveal>
-          <img
-            src="/images/wp/2025-08-Unbenannt-1-1.webp"
-            alt="Once in a Lifetime Song"
-            class="rounded-3xl shadow-2xl w-full"
-            loading="lazy"
-          />
-        </div>
-        <div class="order-1 md:order-2" data-reveal data-reveal-delay="1">
-          <span class="inline-block px-4 py-1.5 bg-primary/15 text-primary-light rounded-full text-sm font-semibold mb-6">Neu: KI-Special</span>
-          <h2 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">Once In A<br/>Lifetime Song</h2>
-          <p class="text-primary-light font-semibold text-lg mb-4">EUER KI-SONG live gespielt. Einmal im Leben.</p>
-          <p class="text-white/55 leading-relaxed mb-8">
-            KI macht's möglich: Wir kreieren mit euch euren individuellen Song und spielen ihn
-            live auf eurer Hochzeitsfeier. Ein absolut einzigartiges Erlebnis.
-          </p>
-          <div class="space-y-3 mb-8">
-            {['Lyrics erstellen mit unserem Generator', 'Musikstil wählen & an uns senden', 'Wir spielen euren Song live'].map((step, i) => (
-              <div class="flex items-center gap-3">
-                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white text-sm font-bold flex items-center justify-center">{i + 1}</span>
-                <span class="text-white/70">{step}</span>
-              </div>
-            ))}
-          </div>
-          <a href="/once-in-a-lifetime-song/" class="btn btn-primary">Mehr erfahren</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TESTIMONIALS ============ -->
-  <section class="py-24 md:py-32 bg-surface relative overflow-hidden ">
-    <!-- Ambilight: subtle violet accent, centered vertically -->
-    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 45% 35% at 25% 50%, rgba(130, 60, 220, 0.18) 0%, transparent 100%);"></div>
-    <div class="max-w-[1400px] mx-auto px-8">
-      <div class="text-center mb-16" data-reveal>
-        <p class="text-primary-light font-semibold text-sm uppercase tracking-widest mb-3">Referenzen? Na klar!</p>
-        <h2 class="text-4xl md:text-5xl font-bold">Das sagen andere<br/>über uns.</h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {reviews.map((r, i) => (
-          <blockquote
-            class="bg-surface-card border border-border rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
-            data-reveal
-            data-reveal-delay={String(Math.min(i + 1, 3))}
-          >
-            <div class="text-gold text-sm mb-3">★★★★★</div>
-            <p class="text-white/80 leading-relaxed mb-4 text-[0.95rem]">"{r.text}"</p>
-            <footer class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary-light font-bold text-sm">
-                {r.author[0]}
-              </div>
-              <div>
-                <cite class="text-white font-semibold text-sm not-italic block">{r.author}</cite>
-                <time class="text-muted text-xs">{r.date}</time>
-              </div>
-            </footer>
-          </blockquote>
-        ))}
-      </div>
-
-      <div class="text-center mt-10" data-reveal>
-        <a href="/feedback/" class="btn btn-outline text-sm !py-2.5 !px-6">Alle Bewertungen ansehen</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ REFERENZEN ============ -->
-  <section class="py-20 md:py-28 bg-surface relative overflow-hidden ">
-    <!-- Ambilight: warm teal accent, centered vertically -->
-    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 50% 35% at 70% 50%, rgba(40, 160, 150, 0.16) 0%, transparent 100%);"></div>
-    <div class="max-w-[1400px] mx-auto px-8">
-      <div class="text-center mb-14" data-reveal>
-        <p class="text-primary-light font-semibold text-sm uppercase tracking-widest mb-3">Referenzen</p>
-        <h2 class="text-4xl md:text-5xl font-bold">Vertrauen uns</h2>
-      </div>
-
-      <!-- Carousel -->
-      <div class="relative" data-reveal>
-        <div class="overflow-hidden" id="refCarousel">
-          <div class="flex transition-transform duration-500 ease-out" id="refTrack">
-            {[
-              { text: 'Es ist euch gelungen, einen maßgeschneiderten Mix aus stilvoller Loungemusik und tanzbaren Partygrooves zu schaffen, der – gepaart mit der unterhaltsamen und gewitzten Moderation eures Frontmanns Jean-Pierre – zu dem vollen Erfolg der Veranstaltung maßgeblich beigetragen hat.', logo: '/images/logos/bayernlb.png', company: 'Bayern LB', type: 'Firmenevent' },
-              { text: 'Für Veranstalter ist Dropzone das perfekte Rundum-Sorglos-Paket: Sie buchen, die spielen, das Publikum hat Spaß.', logo: '/images/logos/motorpresse.jpg', company: 'Motor Presse Stuttgart', type: 'Firmenfeier' },
-              { text: 'WOW!!! Wie ihr es, nahezu mühelos, geschafft habt, die ca. 900 Gäste auf die Beine und die Tanzfläche zu bewegen, verdient großen Applaus, den ihr natürlich auch schon während unserer Veranstaltung immer wieder bekommen habt.', logo: '/images/logos/nintendo.jpg', company: 'Nintendo Europe GmbH', type: 'Firmenevent', logoZoom: true },
-              { text: 'Die Professionalität, mit der ihr die Anforderungen zu Musikauswahl und Logistik erfüllt habt, hat mich sehr beeindruckt. Das Können und das Engagement jedes Bandmitglieds sowie das breitgefächerte Repertoire waren die Garanten für einen gelungenen Abend.', logo: '/images/logos/telekom-round.jpg', company: 'Deutsche Telekom', type: 'Firmenevent', logoZoom: true },
-              { text: 'Wir möchten uns auf diesem Weg ganz herzlich bei euch für die professionelle Zusammenarbeit und für die sehr gelungene musikalische Untermalung an diesem Abend bedanken.', logo: '/images/logos/messe-stuttgart.jpg', company: 'Landesmesse Stuttgart GmbH', type: 'Jubiläumsfeier', logoZoom: true },
-              { text: 'Zu Beginn wurde das Gala-Dinner wunderbar durch die Band im richtigen Stil und Charme untermalt und zu späterem Zeitpunkt hatten wir alle gemeinsam eine tolle Party!', logo: '/images/logos/biosthetique.jpg', company: 'Laboratoire Biosthétique Kosmetik GmbH & Co', type: 'Firmenevent' },
-              { text: 'Ob zu Anfang etwas mehr Power, zum Abendessen dezente Hintergrundmusik oder später für die Tanzbegeisterten unter unseren Gästen – ihr habt immer den richtigen Ton getroffen.', logo: '/images/logos/mercedes-benz.jpg', company: 'Mercedes-Benz', type: 'Firmenevent' },
-              { text: 'Nochmals vielen herzlichen Dank für den fantastischen Auftritt auf den CHIP FOTO AWARDS. Ihr habt für eine top Stimmung im Saal gesorgt und unsere Gäste bestens unterhalten.', logo: '/images/logos/chip.jpg', company: 'CHIP Communications GmbH', type: 'Firmenevent' },
-              { text: 'Euer professioneller Auftritt und die tolle Stimmung, die ihr erzeugt habt, haben einen wesentlichen Teil zum Gelingen des Fests beigetragen. Ihr habt wirklich gerockt!', logo: '/images/logos/mhp.png', company: 'MHP Management- und IT-Beratung', type: 'Firmenevent' },
-            ].map((item) => (
-              <div class="ref-slide flex-shrink-0 px-3"
-                <div class="bg-surface-card border border-border rounded-2xl p-6 md:p-8 flex flex-col h-full">
-                  <div class="flex items-center gap-4 pb-5 mb-5 border-b border-border">
-                    <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center flex-shrink-0 overflow-hidden">
-                      <img src={item.logo} alt={item.company} class:list={[item.logoZoom ? 'w-full h-full object-cover' : 'w-10 h-10 object-contain']} />
-                    </div>
-                    <div>
-                      <p class="text-white font-semibold text-sm">{item.company}</p>
-                      <p class="text-muted text-xs">{item.type}</p>
-                    </div>
-                  </div>
-                  <svg class="w-8 h-8 text-primary/40 mb-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                  <p class="text-white/70 italic leading-relaxed flex-1">{item.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <!-- Navigation Arrows -->
-        <button id="refPrev" class="absolute top-1/2 -left-5 -translate-y-1/2 w-10 h-10 rounded-full bg-surface-card border border-border flex items-center justify-center text-white/60 hover:text-white hover:border-primary/50 transition-all z-10 cursor-pointer hidden md:flex" aria-label="Zurück">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button id="refNext" class="absolute top-1/2 -right-5 -translate-y-1/2 w-10 h-10 rounded-full bg-surface-card border border-border flex items-center justify-center text-white/60 hover:text-white hover:border-primary/50 transition-all z-10 cursor-pointer hidden md:flex" aria-label="Weiter">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-
-        <!-- Dots -->
-        <div class="flex justify-center gap-2 mt-8" id="refDots"></div>
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 45% 35% at 50% 50%, rgba(180, 50, 100, 0.18) 0%, transparent 100%);"></div>
+    <div class="max-w-3xl mx-auto px-8 text-center" data-reveal>
+      <p class="text-primary-light font-semibold text-sm uppercase tracking-widest mb-3">Bucht uns</p>
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Wir spielen auf eurem Event</h2>
+      <p class="text-white/60 text-lg leading-relaxed mb-4">
+        Wir spielen auf Ihrer Party, Ihrer Hochzeit, Ihrer Firmenfeier... Unsere Gage ist zwar verhandelbar, kommt aber zu 100% einem guten Zweck zugute.
+      </p>
+      <p class="text-white/50 leading-relaxed mb-10">
+        Schreibt uns einfach eine E-Mail und wir besprechen alles Weitere.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="mailto:2r2b@dierotaryband.de" class="btn btn-primary">
+          2r2b@dierotaryband.de
+        </a>
+        <a href="https://www.instagram.com/dierotaryband" target="_blank" rel="noopener noreferrer" class="btn btn-outline text-sm !py-2.5 !px-5">
+          @dierotaryband auf Instagram
+        </a>
       </div>
     </div>
   </section>
@@ -437,22 +284,6 @@ const reviews = [
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
-  }
-
-  .ref-slide {
-    width: calc(100% / 3);
-  }
-
-  @media (max-width: 1024px) {
-    .ref-slide {
-      width: calc(100% / 2);
-    }
-  }
-
-  @media (max-width: 640px) {
-    .ref-slide {
-      width: 100%;
-    }
   }
 </style>
 
@@ -471,193 +302,4 @@ const reviews = [
     { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
   );
   reveals.forEach((el) => observer.observe(el));
-
-
-  // Referenzen Carousel
-  (() => {
-    const track = document.getElementById('refTrack');
-    const prevBtn = document.getElementById('refPrev');
-    const nextBtn = document.getElementById('refNext');
-    const dotsContainer = document.getElementById('refDots');
-    if (!track || !dotsContainer) return;
-
-    const totalSlides = track.children.length;
-    const perView = () => window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
-    let current = 0; // index of the "active" card (highlighted dot)
-
-    function maxOffset() {
-      return Math.max(0, totalSlides - perView());
-    }
-
-    // The track offset ensures the active card is visible
-    function trackOffset() {
-      return Math.min(current, maxOffset());
-    }
-
-    function updateCarousel() {
-      const slideWidth = 100 / perView();
-      const pct = trackOffset() * slideWidth;
-      track.style.transform = `translateX(-${pct}%)`;
-      updateDots();
-      if (prevBtn) prevBtn.style.opacity = current === 0 ? '0.3' : '1';
-      if (nextBtn) nextBtn.style.opacity = current >= maxOffset() ? '0.3' : '1';
-    }
-
-    function buildDots() {
-      dotsContainer.innerHTML = '';
-      const numDots = maxOffset() + 1;
-      for (let i = 0; i < numDots; i++) {
-        const dot = document.createElement('button');
-        dot.className = 'w-2 h-2 rounded-full transition-all duration-300 cursor-pointer';
-        dot.setAttribute('aria-label', `Karte ${i + 1}`);
-        dot.addEventListener('click', () => { current = i; updateCarousel(); });
-        dotsContainer.appendChild(dot);
-      }
-      updateDots();
-    }
-
-    function updateDots() {
-      const dots = dotsContainer.children;
-      for (let i = 0; i < dots.length; i++) {
-        (dots[i] as HTMLElement).className = i === current
-          ? 'w-6 h-2 rounded-full bg-primary-light transition-all duration-300 cursor-pointer'
-          : 'w-2 h-2 rounded-full bg-white/20 transition-all duration-300 cursor-pointer';
-      }
-    }
-
-    prevBtn?.addEventListener('click', () => {
-      if (current > 0) { current--; updateCarousel(); }
-    });
-
-    nextBtn?.addEventListener('click', () => {
-      if (current < maxOffset()) { current++; updateCarousel(); }
-    });
-
-    // Touch/swipe support
-    let startX = 0;
-    let isDragging = false;
-    track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; isDragging = true; }, { passive: true });
-    track.addEventListener('touchend', (e) => {
-      if (!isDragging) return;
-      const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0 && current < maxOffset()) current++;
-        else if (diff < 0 && current > 0) current--;
-        updateCarousel();
-      }
-      isDragging = false;
-    });
-
-    buildDots();
-    updateCarousel();
-    window.addEventListener('resize', () => { current = Math.min(current, maxOffset()); buildDots(); updateCarousel(); });
-  })();
-
-  // Intro Carousel with Thumbs + Lightbox
-  (() => {
-    const track = document.getElementById('introTrack');
-    const carousel = document.getElementById('introCarousel');
-    const prevBtn = document.getElementById('introPrev');
-    const nextBtn = document.getElementById('introNext');
-    const thumbsContainer = document.getElementById('introThumbs');
-    if (!track || !thumbsContainer) return;
-
-    const total = track.children.length;
-    const thumbs = thumbsContainer.querySelectorAll('button');
-    let pos = 0;
-    let autoTimer: ReturnType<typeof setInterval>;
-
-    const images = Array.from(track.querySelectorAll('img')).map(img => ({
-      src: (img as HTMLImageElement).src,
-      alt: (img as HTMLImageElement).alt,
-    }));
-
-    function go(i: number) {
-      pos = ((i % total) + total) % total;
-      track.style.transform = `translateX(-${pos * 100}%)`;
-      updateThumbs();
-    }
-
-    function updateThumbs() {
-      thumbs.forEach((t, i) => {
-        if (i === pos) {
-          t.classList.add('border-primary');
-          t.classList.remove('border-transparent', 'opacity-50');
-        } else {
-          t.classList.remove('border-primary');
-          t.classList.add('border-transparent', 'opacity-50');
-        }
-      });
-    }
-
-    thumbs.forEach(t => {
-      t.addEventListener('click', () => {
-        go(Number(t.getAttribute('data-thumb')));
-        resetAuto();
-      });
-    });
-
-    prevBtn?.addEventListener('click', () => { go(pos - 1); resetAuto(); });
-    nextBtn?.addEventListener('click', () => { go(pos + 1); resetAuto(); });
-
-    let sx = 0;
-    track.addEventListener('touchstart', (e) => { sx = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend', (e) => {
-      const diff = sx - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 50) { go(pos + (diff > 0 ? 1 : -1)); resetAuto(); }
-    });
-
-    function resetAuto() {
-      clearInterval(autoTimer);
-      autoTimer = setInterval(() => go(pos + 1), 5000);
-    }
-
-    go(0);
-    resetAuto();
-
-    // Lightbox
-    const lb = document.getElementById('introLightbox');
-    const lbImg = document.getElementById('introLbImage') as HTMLImageElement;
-    const lbClose = document.getElementById('introLbClose');
-    const lbPrev = document.getElementById('introLbPrev');
-    const lbNext = document.getElementById('introLbNext');
-    if (!lb || !lbImg) return;
-
-    let lbPos = 0;
-
-    function lbShow(i: number) {
-      lbPos = ((i % total) + total) % total;
-      lbImg.src = images[lbPos].src;
-      lbImg.alt = images[lbPos].alt;
-      lb.classList.remove('hidden');
-      lb.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function lbHide() {
-      lb.classList.add('hidden');
-      lb.classList.remove('flex');
-      document.body.style.overflow = '';
-    }
-
-    carousel?.addEventListener('click', (e) => {
-      if ((e.target as HTMLElement).closest('button')) return;
-      lbShow(pos);
-    });
-
-    lbClose?.addEventListener('click', lbHide);
-    lbPrev?.addEventListener('click', () => lbShow(lbPos - 1));
-    lbNext?.addEventListener('click', () => lbShow(lbPos + 1));
-
-    lb.addEventListener('click', (e) => {
-      if (e.target === lb) lbHide();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (lb.classList.contains('hidden')) return;
-      if (e.key === 'Escape') lbHide();
-      if (e.key === 'ArrowLeft') lbShow(lbPos - 1);
-      if (e.key === 'ArrowRight') lbShow(lbPos + 1);
-    });
-  })();
 </script>
