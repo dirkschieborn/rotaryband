@@ -104,12 +104,24 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer-grid {
-    display: grid;
-    grid-template-columns: 1.6fr 1.4fr 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 2.5rem;
+    text-align: center;
   }
 
   /* Brand column */
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-brand img {
+    margin: 0 auto;
+  }
+
   .footer-tagline {
     color: rgba(255,255,255,0.4);
     font-size: 0.88rem;
@@ -122,6 +134,7 @@ const currentYear = new Date().getFullYear();
     display: flex;
     gap: 0.6rem;
     margin-top: 1.5rem;
+    justify-content: center;
   }
 
   .social-icon {
@@ -142,9 +155,16 @@ const currentYear = new Date().getFullYear();
   }
 
   /* Contact column */
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .contact-list {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.85rem;
   }
 
@@ -227,37 +247,7 @@ const currentYear = new Date().getFullYear();
     margin: 0;
   }
 
-  /* Responsive */
-  @media (max-width: 1100px) {
-    .footer-grid {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-    .footer-brand {
-      grid-column: 1 / -1;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-    .footer-brand {
-      grid-column: 1 / -1;
-    }
-    .contact-list {
-      grid-column: 1 / -1;
-    }
-  }
-
-  @media (max-width: 500px) {
-    .footer-grid {
-      grid-template-columns: 1fr;
-    }
-    .cta-btn-primary,
-    .cta-btn-outline {
-      min-width: 160px;
-      padding: 0.9rem 2rem;
-    }
+  .footer-links {
+    text-align: center;
   }
 </style>
