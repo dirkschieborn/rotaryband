@@ -35,7 +35,7 @@ const songs = [
         alt="Die Rotary Band live auf der Bühne"
         width="1920"
         height="1280"
-        class="w-full h-full object-cover object-center hero-img"
+        class="w-full h-full object-cover object-center hero-img hero-fade-in"
         style="height: 100%; max-width: none;"
       />
       <!-- Gradient bottom fade -->
@@ -291,6 +291,16 @@ const songs = [
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes heroFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .hero-fade-in {
+    opacity: 0;
+    animation: heroFadeIn 1.2s ease-out 0.1s forwards;
   }
 
   /* Desktop-only hero adjustments */
