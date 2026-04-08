@@ -33,7 +33,7 @@ const songs = [
       <img
         src="/images/rotaryband-hero.jpg"
         alt="2R2B – Die Rotary Band live"
-        class="w-full h-full object-cover object-center md:object-[center_40%]"
+        class="w-full h-full object-cover object-center hero-img"
         style="height: 100%; max-width: none;"
       />
       <!-- Gradient bottom fade -->
@@ -41,7 +41,7 @@ const songs = [
     </div>
 
     <!-- Content -->
-    <div class="relative z-10 text-center px-4 md:px-6 max-w-4xl mx-auto flex flex-col items-center justify-center flex-1 -mt-[35svh] md:mt-0 md:pt-[55svh] md:pb-8">
+    <div class="relative z-10 text-center px-4 md:px-6 max-w-4xl mx-auto flex flex-col items-center justify-center flex-1 -mt-[35svh] hero-content">
       <!-- Logo -->
       <img
         src="/images/logo_weiss.png"
@@ -287,6 +287,18 @@ const songs = [
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Desktop-only hero adjustments */
+  @media (min-width: 768px) {
+    .hero-img {
+      object-position: center 50% !important;
+    }
+    .hero-content {
+      margin-top: 0 !important;
+      padding-top: 40svh !important;
+      padding-bottom: 8px !important;
+    }
   }
 </style>
 
