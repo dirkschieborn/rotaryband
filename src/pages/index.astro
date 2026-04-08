@@ -29,7 +29,7 @@ const songs = [
   <!-- ============ HERO ============ -->
   <section class="relative min-h-[100svh] flex flex-col overflow-hidden">
     <!-- Background Image: 70svh on mobile, shifted down; full on desktop -->
-    <div class="relative h-[70svh] mt-[12svh] md:mt-0 md:absolute md:inset-0 md:h-auto">
+    <div class="relative h-[70svh] mt-[12svh] md:mt-0 md:absolute md:left-0 md:right-0 md:bottom-0 md:h-auto hero-img-container">
       <img
         src="/images/rotaryband-hero.jpg"
         alt="2R2B – Die Rotary Band live"
@@ -291,13 +291,16 @@ const songs = [
 
   /* Desktop-only hero adjustments */
   @media (min-width: 768px) {
+    .hero-img-container {
+      top: 84px !important;
+    }
     .hero-img {
       object-position: center center !important;
-      transform: scale(1.2) translateY(8%) !important;
+      transform: none !important;
     }
     .hero-content {
       margin-top: 0 !important;
-      padding-top: 40svh !important;
+      padding-top: 35svh !important;
       padding-bottom: 8px !important;
     }
   }
