@@ -172,12 +172,12 @@ if (post.raw_content) {
 <BaseLayout title={post.title} description={post.excerpt || post.text_content?.substring(0, 160) || ''} image={postImage} schema={allPageSchemas}>
 
   <!-- Hero -->
-  <section class="relative h-[35vh] flex items-end overflow-hidden">
+  <section class="relative h-[45vh] flex items-end overflow-hidden">
     <div class="absolute inset-0">
       <img src={heroImage} alt="" loading="eager" class="w-full h-full object-cover" style="object-position: center top" />
     </div>
     <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/5 via-[#0a0a0a]/35 to-[#0a0a0a]"></div>
-    <div class="relative z-10 max-w-[1400px] mx-auto px-8 pb-14 w-full">
+    <div class="relative z-10 max-w-[1400px] mx-auto px-8 pb-20 w-full">
       {post.category && <span class="text-[0.7rem] font-bold uppercase tracking-wider text-primary-light bg-primary/15 px-2.5 py-1 rounded inline-block mb-3">{post.category}</span>}
       <div class="flex items-center gap-5">
         {(post.category === 'Gigs' || post.category === 'News') && (
