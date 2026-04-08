@@ -3,29 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import posts from '../../wp-blog-posts.json';
 
-const excludeSlugs = ['festivals', 'euer-ki-song-live-auf-der-buehne', 'showreel-festivals-video', 'live-im-swr-happy', 'showreel-partyband', 'showreel-firmenevent', 'showreel-festivals', 'gewinnen-feat-cassandra-steen', 'interview', 'showreel-partyband-video', 'showreel-firmenevent-video'];
-
-const videoCutoff = new Date('2024-03-08');
-const allPosts = (posts as any[])
-  .filter((p: any) => !excludeSlugs.includes(p.slug))
-  .filter((p: any) => !(p.category === 'Videos' && new Date(p.date) < videoCutoff))
+const news = (posts as any[])
   .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-// Include the dedicated page post manually at the top
-const kiPost = {
-  slug: 'euer-ki-song-live-auf-der-buehne',
-  title: 'KI-Special: Once In A Lifetime Songs',
-  date: '2026-01-08',
-  featured_image: '/images/ki-song-hero.jpg',
-  card_image: '/images/wp/2025-08-Unbenannt-1-1.webp',
-  content_images: [],
-  excerpt: 'Kreiert euren persönlichen Hochzeits-Song mit KI – und wir spielen ihn live auf eurer Hochzeitsfeier. Once in a lifetime.',
-  category: 'Rund um Hochzeiten',
-};
-
-const news = [kiPost, ...allPosts];
-
-const categories = ['Alle', 'Gigs', 'News', 'Rund um Hochzeiten', 'Rund um Firmenevents', 'Videos'];
+const categories = ['Alle', 'Gigs', 'News'];
 
 const getImage = (post: any) => {
   if (post.card_image) return post.card_image;
