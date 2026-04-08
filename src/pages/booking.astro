@@ -5,16 +5,16 @@ import Hero from '../components/Hero.astro';
 const contactSchema = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  name: 'Dropzone Booking & Kontakt',
-  description: 'Bucht Dropzone für euer Event – Hochzeit, Firmenevent, Festival oder private Feier.',
-  url: 'https://www.dropzone-band.de/booking/',
+  name: 'Booking & Kontakt – Die Rotary Band',
+  description: 'Bucht die Rotary Band für euer Event – Benefizveranstaltung, Firmenevent oder private Feier.',
+  url: 'https://www.dierotaryband.de/booking/',
   mainEntity: {
-    '@id': 'https://www.dropzone-band.de/#organization',
+    '@id': 'https://www.dierotaryband.de/#organization',
   },
 };
 ---
 
-<BaseLayout title="Booking" description="Bucht Dropzone für euer Event – Hochzeit, Firmenevent, Festival oder private Feier." schema={contactSchema}>
+<BaseLayout title="Booking" description="Bucht die Rotary Band für euer Event – Benefizveranstaltung, Firmenevent oder private Feier." schema={contactSchema}>
 
   <Hero
     title="Booking"

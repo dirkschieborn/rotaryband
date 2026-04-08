@@ -12,12 +12,12 @@ interface Props {
 
 const {
   title,
-  description = 'Dropzone – die Eventband aus Stuttgart. Live-Musik für Hochzeiten, Firmenevents, Festivals und private Feiern.',
+  description = 'Die Rotary Band – Live-Musik für Benefizveranstaltungen, Firmenevents und private Feiern.',
   image = '/images/og-image.jpg',
   schema,
 } = Astro.props;
 
-const siteUrl = 'https://www.dropzone-band.de';
+const siteUrl = 'https://www.dierotaryband.de';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || siteUrl);
 const absoluteImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 
@@ -26,14 +26,14 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': ['MusicGroup', 'LocalBusiness'],
   '@id': `${siteUrl}/#organization`,
-  name: 'Dropzone',
-  alternateName: 'Dropzone – Die Eventband',
+  name: 'Die Rotary Band',
+  alternateName: 'Die Rotary Band',
   description: 'Professionelle Eventband aus Stuttgart für Hochzeiten, Firmenevents, Festivals und private Feiern. Seit über 20 Jahren live auf der Bühne.',
   url: siteUrl,
   logo: `${siteUrl}/images/logo_weiss.png`,
   image: '/images/wp/2024-02-DZ.074.6397-scaled.webp',
-  telephone: '+497113406789500',
-  email: 'info@dropzone-band.de',
+  telephone: '+491738583938',
+  email: 'info@dierotaryband.de',
   foundingDate: '2003',
   genre: ['Pop', 'Rock', 'Soul', 'Funk', 'Jazz', 'Party'],
   address: {
@@ -55,9 +55,7 @@ const organizationSchema = {
     { '@type': 'Country', name: 'Österreich' },
   ],
   sameAs: [
-    'https://www.instagram.com/dropzone_eventband/',
-    'https://www.youtube.com/@dropzoneband',
-    'https://www.facebook.com/dropzoneband',
+    'https://www.instagram.com/dierotaryband',
   ],
   member: [
     { '@type': 'Person', name: 'Jean-Pierre Domaniwski', roleName: 'Frontmann & Gesang' },
@@ -83,7 +81,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   '@id': `${siteUrl}/#website`,
-  name: 'Dropzone – Die Eventband',
+  name: 'Die Rotary Band',
   url: siteUrl,
   publisher: { '@id': `${siteUrl}/#organization` },
   inLanguage: 'de-DE',
@@ -100,22 +98,22 @@ const allSchemas = [organizationSchema, websiteSchema, ...(Array.isArray(schema)
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title.startsWith('Dropzone') ? title : `${title} | Dropzone – die Eventband`}</title>
+    <title>{title === 'Die Rotary Band' ? title : `${title} | Die Rotary Band`}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph -->
-    <meta property="og:title" content={title.startsWith('Dropzone') ? title : `${title} | Dropzone`} />
+    <meta property="og:title" content={title === 'Die Rotary Band' ? title : `${title} | Die Rotary Band`} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={absoluteImage} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
-    <meta property="og:site_name" content="Dropzone – Die Eventband" />
+    <meta property="og:site_name" content="Die Rotary Band" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${title} | Dropzone`} />
+    <meta name="twitter:title" content={`${title} | Die Rotary Band`} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={absoluteImage} />
 

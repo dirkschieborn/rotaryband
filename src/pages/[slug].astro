@@ -15,7 +15,7 @@ export function getStaticPaths() {
 const { post } = Astro.props;
 const allPosts = posts as any[];
 
-const siteUrl = 'https://www.dropzone-band.de';
+const siteUrl = 'https://www.dierotaryband.de';
 const postImage = post.featured_image || post.card_image || `${siteUrl}/images/og-image.jpg`;
 const blogPostingSchema = {
   '@context': 'https://schema.org',
@@ -29,12 +29,12 @@ const blogPostingSchema = {
   author: {
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
-    name: 'Dropzone',
+    name: 'Die Rotary Band',
   },
   publisher: {
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
-    name: 'Dropzone',
+    name: 'Die Rotary Band',
     logo: { '@type': 'ImageObject', url: `${siteUrl}/images/logo_weiss.png` },
   },
   mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/${post.slug}/` },

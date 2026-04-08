@@ -32,7 +32,27 @@
       "Bash(cp \"C:/Users/Dirk/AppData/Local/Packages/Microsoft.ScreenSketch_8wekyb3d8bbwe/TempState/Snips/Screenshot 2026-04-07 214258.png\" member-eckhard.jpg)",
       "Bash(cp \"C:/Users/Dirk/AppData/Local/Packages/Microsoft.ScreenSketch_8wekyb3d8bbwe/TempState/Snips/Screenshot 2026-04-07 214329.png\" member-dirk.jpg)",
       "Bash(cp \"C:/Users/Dirk/AppData/Local/Packages/Microsoft.ScreenSketch_8wekyb3d8bbwe/TempState/Snips/Screenshot 2026-04-07 214354.png\" member-oliver.jpg)",
-      "Bash(node create-favicon.mjs)"
+      "Bash(node create-favicon.mjs)",
+      "Bash(ls -lh public/images/wp/2024-08-DZ-124* public/images/wp/2025-07-Bildschirm* public/images/wp/2024-06-Beitrag*)",
+      "Read(//c/Users/Dirk/AppData/Local/Packages/Microsoft.ScreenSketch_8wekyb3d8bbwe/TempState/Snips//**)",
+      "Read(//c/Users/Dirk/AppData/Local/Packages/Microsoft.ScreenSketch_8wekyb3d8bbwe/TempState/Snips/\" 2>/dev/**)",
+      "Bash(cp '/c/Users/Dirk/AppData/Local/Packages/Microsoft.ScreenSketch_8wekyb3d8bbwe/TempState/Snips/Screenshot 2026-04-08 144406.png' /c/Users/Dirk/Coding/rotaryband/public/images/wp/charity-events-card.png)",
+      "Bash(cp '/c/Users/Dirk/AppData/Local/Packages/Microsoft.ScreenSketch_8wekyb3d8bbwe/TempState/Snips/Screenshot 2026-04-08 144500.png' /c/Users/Dirk/Coding/rotaryband/public/images/wp/private-events-card.png)",
+      "Bash(cp '/c/Users/Dirk/AppData/Local/Packages/Microsoft.ScreenSketch_8wekyb3d8bbwe/TempState/Snips/Screenshot 2026-04-08 144753.png' /c/Users/Dirk/Coding/rotaryband/public/images/wp/firmenevents-card.png)",
+      "Bash(python3)",
+      "Bash(node -e ':*)",
+      "Bash(node:*)",
+      "Read(//tmp/**)",
+      "Bash(cp wp-blog-posts-new.json wp-blog-posts.json)",
+      "Bash(rm wp-blog-posts-new.json)",
+      "Bash(npx --yes sharp-cli --version)",
+      "Bash(npx --yes sharp-cli -i public/favicon.svg -o public/favicon-32x32.png --width 32 --height 32)",
+      "Bash(npx sharp-cli:*)",
+      "Bash(npx astro:*)",
+      "Bash(xxd wp-blog-posts.json)",
+      "Bash(python3 -c \"import json; json.load\\(open\\('wp-blog-posts.json'\\)\\)\")",
+      "Bash(python -c \"import json; json.load\\(open\\('wp-blog-posts.json','encoding=utf-8'\\)\\)\")",
+      "Bash(grep -E \"^[a-z].*\\\\.astro$\")"
     ]
   }
 }
