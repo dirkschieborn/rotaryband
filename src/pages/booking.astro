@@ -136,14 +136,6 @@ const contactSchema = {
               <textarea id="message" name="message" rows="5" required placeholder="Erzählt uns von eurem Event..."></textarea>
             </div>
 
-            <label class="proberaum-option">
-              <input type="checkbox" name="proberaum" value="ja" />
-              <span class="proberaum-card">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                Ich habe Interesse, euch bei einem Proberaumkonzert kennenzulernen.
-              </span>
-            </label>
-
             <div class="form-group">
               <label class="checkbox-label">
                 <input type="checkbox" name="privacy" required />
@@ -161,27 +153,19 @@ const contactSchema = {
               <h3>Schnell-Kontakt</h3>
               <ul class="contact-list">
                 <li>
-                  <a href="tel:+497113406789500" class="contact-row">
+                  <a href="tel:+491738583938" class="contact-row">
                     <span class="contact-icon contact-icon--phone">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
                     </span>
-                    0711 340 6789 500
+                    +49 173 8583938
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:info@dropzone-band.de" class="contact-row">
+                  <a href="mailto:info@dierotaryband.de" class="contact-row">
                     <span class="contact-icon contact-icon--mail">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     </span>
-                    info@dropzone-band.de
-                  </a>
-                </li>
-                <li>
-                  <a href="https://wa.me/491703055587" target="_blank" rel="noopener" class="contact-row">
-                    <span class="contact-icon contact-icon--whatsapp">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    </span>
-                    0170 30 555 87
+                    info@dierotaryband.de
                   </a>
                 </li>
               </ul>
@@ -206,20 +190,6 @@ const contactSchema = {
               <h3>Kostenrechner</h3>
               <p class="sidebar-text">Erhaltet eine erste Preiseinschätzung für euer Event.</p>
               <a href="/kostenrechner/" class="btn btn-outline" style="width:100%;justify-content:center;">Zum Kostenrechner</a>
-            </div>
-          </div>
-
-          <!-- Proberaumkonzert -->
-          <div class="sidebar-card card">
-            <div class="card-body" style="padding:0;">
-              <div class="video-wrapper" style="border-radius:var(--radius-lg) var(--radius-lg) 0 0;">
-                <iframe src="https://www.youtube-nocookie.com/embed/fhMyjYlfbIM" title="Proberaumkonzert für unsere Brautpaare" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-              </div>
-              <div style="padding:1.25rem;">
-                <h3 style="font-size:1.1rem;margin-bottom:0.6rem;">Proberaumkonzert</h3>
-                <p class="sidebar-text">Lernt uns persönlich kennen! In entspannter Atmosphäre spielen wir ein paar Songs für euch und beantworten alle eure Fragen. Völlig unverbindlich.</p>
-                <a href="/die-band-fur-eure-hochzeit/#proberaumkonzert" class="btn btn-outline" style="width:100%;justify-content:center;">Nächster Termin</a>
-              </div>
             </div>
           </div>
 
@@ -279,20 +249,6 @@ const contactSchema = {
     .event-type-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  .proberaum-option { cursor: pointer; display: block; margin-bottom: 1.25rem; }
-  .proberaum-option input { position: absolute; opacity: 0; pointer-events: none; }
-  .proberaum-card {
-    display: flex; align-items: center; gap: 0.75rem;
-    padding: 1rem 1.25rem; border-radius: var(--radius-md);
-    border: 2px dashed var(--color-primary); background: transparent;
-    color: var(--color-text-muted); font-size: 0.95rem; font-weight: 600;
-    transition: all 0.2s ease;
-  }
-  .proberaum-card:hover { background: rgba(172, 72, 57, 0.08); color: var(--color-text); }
-  .proberaum-option input:checked + .proberaum-card {
-    border-style: solid; background: rgba(172, 72, 57, 0.15);
-    color: var(--color-primary-light);
-  }
 
   .form-group input:focus,
   .form-group select:focus,
@@ -541,7 +497,6 @@ const contactSchema = {
           location: data.get("location"),
           guests: data.get("guests"),
           message: data.get("message"),
-          proberaum: data.get("proberaum"),
         }),
       });
       if (res.ok) {
@@ -551,11 +506,11 @@ const contactSchema = {
           success.scrollIntoView({ behavior: "smooth", block: "center" });
         }
       } else {
-        alert("Fehler beim Senden. Bitte versucht es erneut oder schreibt uns direkt an info@dropzone-band.de");
+        alert("Fehler beim Senden. Bitte versucht es erneut oder schreibt uns direkt an info@dierotaryband.de");
         if (btn) { btn.disabled = false; btn.textContent = "Anfrage absenden"; }
       }
     } catch (err) {
-      alert("Verbindungsfehler. Bitte versucht es erneut oder schreibt uns direkt an info@dropzone-band.de");
+      alert("Verbindungsfehler. Bitte versucht es erneut oder schreibt uns direkt an info@dierotaryband.de");
       if (btn) { btn.disabled = false; btn.textContent = "Anfrage absenden"; }
     }
   });
