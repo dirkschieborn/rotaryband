@@ -52,7 +52,11 @@
       "Bash(xxd wp-blog-posts.json)",
       "Bash(python3 -c \"import json; json.load\\(open\\('wp-blog-posts.json'\\)\\)\")",
       "Bash(python -c \"import json; json.load\\(open\\('wp-blog-posts.json','encoding=utf-8'\\)\\)\")",
-      "Bash(grep -E \"^[a-z].*\\\\.astro$\")"
+      "Bash(grep -E \"^[a-z].*\\\\.astro$\")",
+      "Bash(xargs ls:*)",
+      "Bash(ls -lah /c/Users/Dirk/Coding/rotaryband/*.json)",
+      "Bash(grep -v -E \"^\\(charity-events-card\\\\.png|firmenevents-card\\\\.png|private-events-card\\\\.png|rotary-ball-2026-card\\\\.png|2024-02-DZ\\\\.074\\\\.6397-scaled\\\\.webp\\)$\")",
+      "Bash(npm ls:*)"
     ]
   }
 }

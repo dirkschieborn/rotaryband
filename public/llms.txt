@@ -1,27 +1,30 @@
-# Dropzone – Die Eventband aus Stuttgart
-# https://www.dropzone-band.de
+# Die Rotary Band – Live-Musik für den guten Zweck
+# https://www.dierotaryband.de
 
-> Dropzone ist eine professionelle Eventband aus Stuttgart mit über 20 Jahren Bühnenerfahrung.
-> Wir spielen auf Hochzeiten, Firmenevents, Festivals und privaten Feiern in ganz Deutschland, Österreich und der Schweiz.
-> Unsere fünfköpfige Standardbesetzung: Sängerin, Sänger, Keys, Gitarre, Drums.
-> Genre: Pop, Rock, Soul, Funk, Jazz, Party.
+> Die Rotary Band ist eine fünfköpfige Live-Band des Rotary Club Stuttgart-Remstal.
+> Wir spielen Rock'n'Roll Klassiker auf Benefizveranstaltungen, Firmenevents und privaten Feiern.
+> 100 % unserer Gage fließen an die Kinderstiftung Funke.
+> Seit 2015 live auf der Bühne – in Deutschland, Österreich und der Schweiz.
+
+## Mitglieder
+
+- Eckhard Burling: Guitar, Vocals & Ukulele
+- Rainer Grosse: Bass & Vocals
+- Oliver Boese: Saxophone, Vocals & Percussion
+- Dirk Schieborn: Keys & Cello
+- Carl-Philipp Clarenbach: Drums & Cajón
 
 ## Hauptseiten
 
-- [Startseite](https://www.dropzone-band.de/)
-- [Wer wir sind](https://www.dropzone-band.de/wer-wir-sind/)
-- [Hochzeiten](https://www.dropzone-band.de/die-band-fur-eure-hochzeit/)
-- [Firmenevents](https://www.dropzone-band.de/firmenevents/)
-- [Festivals](https://www.dropzone-band.de/festivals/)
-- [Private Events](https://www.dropzone-band.de/events/private/)
-- [Videos](https://www.dropzone-band.de/videos/)
-- [Repertoire](https://www.dropzone-band.de/repertoire/)
-- [Neuigkeiten](https://www.dropzone-band.de/news/)
-- [Booking / Anfrage](https://www.dropzone-band.de/booking/)
-- [Kostenrechner](https://www.dropzone-band.de/kostenrechner/)
-- [Feedback](https://www.dropzone-band.de/feedback/)
+- [Startseite](https://www.dierotaryband.de/)
+- [News](https://www.dierotaryband.de/news/)
+- [Booking / Anfrage](https://www.dierotaryband.de/booking/)
+- [Impressum](https://www.dierotaryband.de/impressum/)
+- [Datenschutz](https://www.dierotaryband.de/datenschutz/)
 
 ## Kontakt
 
-- E-Mail: info@dropzone-band.de
+- E-Mail: info@dierotaryband.de
+- Telefon: +49 173 8583938
+- Instagram: https://www.instagram.com/dierotaryband
 - Standort: Stuttgart, Baden-Württemberg, Deutschland
