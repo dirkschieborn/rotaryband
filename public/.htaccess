@@ -1,0 +1,60 @@
+# Automatisch generiert aus vercel.json — Redirects der alten WordPress-URLs
+
+ErrorDocument 404 /404.html
+
+# HTTPS + www erzwingen
+RewriteEngine On
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://www.rotary-band.de/$1 [R=301,L]
+
+RedirectMatch 301 ^/events/hochzeiten/?$ /die-band-fur-eure-hochzeit/
+RedirectMatch 301 ^/events/firmenevents/?$ /firmenevents/
+RedirectMatch 301 ^/events/festivals/?$ /festivals/
+RedirectMatch 301 ^/privatevents/?$ /events/private/
+RedirectMatch 301 ^/testimonials(/.*)?/?$ /feedback/
+RedirectMatch 301 ^/datenschutz-2/?$ /datenschutz/
+RedirectMatch 301 ^/gewinnen-feat-cassandra-steen-2/?$ /showreel-partyband-video/
+RedirectMatch 301 ^/gewinnen-feat-cassandra-steen-2-2/?$ /showreel-firmenevent-video/
+RedirectMatch 301 ^/gewinnen-feat-cassandra-steen-2-2-2/?$ /happy-video/
+RedirectMatch 301 ^/gewinnen-feat-cassandra-steen-3/?$ /showreel-festivals-video/
+RedirectMatch 301 ^/news-2/?$ /news/
+RedirectMatch 301 ^/showreel-firmenevent-2/?$ /showreel-firmenevent-video/
+RedirectMatch 301 ^/solitude-gymnasium-2/?$ /pausenkonzert-rutesheim/
+RedirectMatch 301 ^/die-band-fuer-ihre-firmenfeier/?$ /firmenevents/
+RedirectMatch 301 ^/videoclips/?$ /videos/
+RedirectMatch 301 ^/hoerproben/?$ /videos/
+RedirectMatch 301 ^/kundenempfehlungen-dropzone-als-band-fuer-firmenfeiern/?$ /firmenevents/
+RedirectMatch 301 ^/band-fuer-ihre-hochzeit/?$ /die-band-fur-eure-hochzeit/
+RedirectMatch 301 ^/anfragen-fuer-privatveranstaltungen/?$ /booking/
+RedirectMatch 301 ^/dropzone-showreel-2016/?$ /showreel-festivals/
+RedirectMatch 301 ^/blog/?$ /news/
+RedirectMatch 301 ^/hochzeitsblog/?$ /news/
+RedirectMatch 301 ^/anfragen-fuer-firmenveranstaltungen/?$ /booking/
+RedirectMatch 301 ^/band-coverband-kontakt/band-coverband-kontakt-privat\.html/?$ /booking/
+RedirectMatch 301 ^/band-coverband-hochzeit-special/hochzeitsrepertoire\.html/?$ /repertoire/
+RedirectMatch 301 ^/proberaumkonzert/?$ /booking/
+RedirectMatch 301 ^/showtermine/?$ /news/
+RedirectMatch 301 ^/dropzone-die-band-aus-stuttgart/?$ /coverband-aus-stuttgart/
+RedirectMatch 301 ^/profi-coverband-aus-stuttgart/?$ /coverband-aus-stuttgart/
+RedirectMatch 301 ^/19-10-2018-award-show-computacenter/?$ /news/
+RedirectMatch 301 ^/21-01-2020-mercedes-benz-museum/?$ /news/
+RedirectMatch 301 ^/21-05-2020-produktpraesentation-bender-group/?$ /news/
+RedirectMatch 301 ^/25-07-2022-open-air-mercedes-benz-museum-mit-cassandra-steen/?$ /news/
+RedirectMatch 301 ^/30-03-2019-firmenevent-wuerth/?$ /news/
+RedirectMatch 301 ^/02-02-2019-winterball-friedrich-eugens-gymnasium/?$ /news/
+RedirectMatch 301 ^/02-02-2019-winterball-friedrich-eugens-gymnasium-2/?$ /news/
+RedirectMatch 301 ^/07-12-2018-daimler-ag-jubilaeumsfeier/?$ /news/
+RedirectMatch 301 ^/08-12-2018-weihnachtsfeier-schuettler-technik/?$ /news/
+RedirectMatch 301 ^/12-01-2019-hajoona-kick-off-2019/?$ /news/
+RedirectMatch 301 ^/13-12-2019-ey-mannheim/?$ /news/
+RedirectMatch 301 ^/category/firmenfeier/?$ /firmenevents/
+RedirectMatch 301 ^/category/hochzeit/?$ /die-band-fur-eure-hochzeit/
+RedirectMatch 301 ^/category/neuigkeiten(/.*)?/?$ /news/
+RedirectMatch 301 ^/category/showtermine(/.*)?/?$ /news/
+RedirectMatch 301 ^/category/top-videos/?$ /videos/
+RedirectMatch 301 ^/category/videos(/.*)?/?$ /videos/
+RedirectMatch 301 ^/category/widget-videos/?$ /videos/
+RedirectMatch 301 ^/category/uncategorized/?$ /news/
+RedirectMatch 301 ^/b3m_testimonial_category(/.*)?/?$ /feedback/
+RedirectMatch 301 ^/2025/?$ /die-band-fur-eure-hochzeit/
