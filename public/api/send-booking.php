@@ -63,7 +63,7 @@ $headers = "From: Rotary Band Website <noreply@rotary-band.de>\r\n"
          . "Content-Type: text/plain; charset=utf-8\r\n"
          . "Content-Transfer-Encoding: 8bit";
 
-$sent = mail('info@dierotaryband.de', $subject, $body, $headers);
+$sent = mail('info@rotary-band.de', $subject, $body, $headers);
 
 if ($sent) {
     echo json_encode(['status' => 'ok']);
