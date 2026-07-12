@@ -477,7 +477,7 @@ const contactSchema = {
     if (btn) { btn.disabled = true; btn.textContent = "Wird gesendet..."; }
     try {
       const data = new FormData(form);
-      const res = await fetch("/api/send-booking", {
+      const res = await fetch("/api/send-booking.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
