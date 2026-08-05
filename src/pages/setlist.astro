@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+
+// ===== Setliste Auftritt 24.10. =====
+// Songs hier in der gewünschten Reihenfolge pflegen.
+// Optionale Felder pro Song: set, key (Tonart), tempo (BPM), lead (Lead-Gesang), note
+const songs: {
+  title: string;
+  artist?: string;
+  set?: string;
+  key?: string;
+  tempo?: string;
+  lead?: string;
+  note?: string;
+}[] = [
+  { set: 'Hauptset', title: 'Seven Nation Army', artist: 'The White Stripes' },
+  { set: 'Hauptset', title: 'Son of a Preacher Man', artist: 'Dusty Springfield' },
+  { set: 'Hauptset', title: 'Everybody Needs Somebody to Love', artist: 'The Blues Brothers' },
+  { set: 'Hauptset', title: 'Sweet Home Chicago', artist: 'The Blues Brothers' },
+  { set: 'Hauptset', title: 'Knock on Wood', artist: 'Eddie Floyd' },
+  { set: 'Hauptset', title: "Hold On, I'm Comin'", artist: 'Sam & Dave' },
+  { set: 'Hauptset', title: 'Sunny', artist: 'Bobby Hebb' },
+  { set: 'Hauptset', title: 'Mustang Sally', artist: 'Wilson Pickett' },
+  { set: 'Hauptset', title: 'Old Time Rock & Roll', artist: 'Bob Seger' },
+  { set: 'Hauptset', title: "Long Train Runnin'", artist: 'The Doobie Brothers' },
+  { set: 'Zugabe', title: 'Sexy', note: 'Titel bitte prüfen' },
+];
+
+const eventDate = 'Samstag, 24. Oktober 2026';
+
+// Gruppierung nach Sets – ohne "set"-Angabe wird eine durchgehende Liste gerendert.
+const hasSets = songs.some((s) => s.set);
+const sets = hasSets
+  ? [...new Set(songs.map((s) => s.set ?? 'Weitere Songs'))].map((name) => ({
+      name,
+      songs: songs.filter((s) => (s.set ?? 'Weitere Songs') === name),
+    }))
+  : [{ name: '', songs }];
+
+// Durchgehende Nummerierung über alle Sets hinweg
+let counter = 0;
+---
+
+<BaseLayout
+  title="Setliste 24.10."
+  description="Setliste der Rotary Band für den Auftritt am 24. Oktober."
+  noindex
+>
+  <Hero
+    title="Setliste"
+    subtitle={eventDate}
+    backgroundImage="/images/rotaryband-hero.webp"
+  />
+
+  <section class="section">
+    <div class="container setlist-container">
+      <div class="setlist-meta">
+        <span class="badge">{songs.length} {songs.length === 1 ? 'Song' : 'Songs'}</span>
+        <button type="button" class="print-btn" id="printBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Drucken
+        </button>
+      </div>
+
+      {sets.map((set) => (
+        <div class="setlist-block">
+          {set.name && <h2 class="set-title">{set.name}</h2>}
+          <ol class="setlist">
+            {set.songs.map((song) => (
+              <li class="song">
+                <span class="song-number">{String(++counter).padStart(2, '0')}</span>
+                <span class="song-main">
+                  <span class="song-title">{song.title}</span>
+                  {song.artist && <span class="song-artist">{song.artist}</span>}
+                  {song.note && <span class="song-note">{song.note}</span>}
+                </span>
+                {(song.key || song.tempo || song.lead) && (
+                  <span class="song-tags">
+                    {song.key && <span class="song-tag">{song.key}</span>}
+                    {song.tempo && <span class="song-tag">{song.tempo} BPM</span>}
+                    {song.lead && <span class="song-tag song-tag--lead">{song.lead}</span>}
+                  </span>
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .setlist-container { max-width: 800px; }
+
+  .setlist-meta {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; margin-bottom: 2rem;
+  }
+
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.5rem 1rem; background: transparent;
+    border: 1px solid var(--color-border); border-radius: 10px;
+    color: var(--color-muted); font-family: var(--font-heading);
+    font-size: 0.85rem; font-weight: 600; cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .print-btn:hover { border-color: var(--color-primary); color: var(--color-primary-light); }
+
+  .setlist-block + .setlist-block { margin-top: 2.5rem; }
+
+  .set-title {
+    font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--color-primary-light); margin-bottom: 1rem;
+    padding-bottom: 0.6rem; border-bottom: 1px solid var(--color-border);
+  }
+
+  .setlist { list-style: none; counter-reset: none; }
+
+  .song {
+    display: flex; align-items: center; gap: 1.25rem;
+    padding: 0.9rem 1.1rem;
+    background: var(--color-surface-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
+  .song + .song { margin-top: 0.6rem; }
+  .song:hover {
+    background: var(--color-surface-card-hover);
+    border-color: var(--color-primary);
+  }
+
+  .song-number {
+    font-family: var(--font-heading); font-weight: 900;
+    font-size: 1.1rem; color: var(--color-primary);
+    min-width: 2ch; text-align: right; flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .song-main { display: flex; flex-direction: column; gap: 0.15rem; flex: 1; min-width: 0; }
+
+  .song-title {
+    font-family: var(--font-heading); font-weight: 700;
+    font-size: 1.05rem; color: #fff; line-height: 1.3;
+  }
+  .song-artist { font-size: 0.85rem; color: var(--color-muted); }
+  .song-note { font-size: 0.8rem; color: var(--color-primary-light); font-style: italic; }
+
+  .song-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: flex-end; flex-shrink: 0; }
+  .song-tag {
+    padding: 0.2rem 0.6rem; border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05); color: var(--color-muted);
+    font-size: 0.75rem; font-weight: 600; white-space: nowrap;
+  }
+  .song-tag--lead { background: rgba(172, 72, 57, 0.15); color: var(--color-primary-light); }
+
+  @media (max-width: 560px) {
+    .song { gap: 0.9rem; padding: 0.8rem 0.9rem; }
+    .song-tags { flex-direction: column; align-items: flex-end; gap: 0.25rem; }
+  }
+
+  /* Druckansicht – Setliste fürs Pult */
+  @media print {
+    .setlist-meta { display: none; }
+    .song {
+      background: none; border: none; border-bottom: 1px solid #ccc;
+      border-radius: 0; padding: 0.35rem 0; page-break-inside: avoid;
+    }
+    .song + .song { margin-top: 0; }
+    .song-title { color: #000; font-size: 1.1rem; }
+    .song-artist, .song-note, .song-tag { color: #444; }
+    .set-title { color: #000; }
+    .song-number { color: #000; }
+  }
+</style>
+
+<script>
+  document.getElementById('printBtn')?.addEventListener('click', () => window.print());
+</script>
