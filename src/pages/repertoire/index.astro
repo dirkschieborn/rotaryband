@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const songs = (await getCollection('songs')).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title, 'de')
+);
+
+// Alphabetisch gruppieren
+const groups = new Map<string, typeof songs>();
+for (const song of songs) {
+  const letter = song.data.title[0].toUpperCase();
+  if (!groups.has(letter)) groups.set(letter, []);
+  groups.get(letter)!.push(song);
+}
+---
+
+<BaseLayout title="Repertoire" description="Alle Songs im Repertoire der Rotary Band." noindex>
+  <section class="section">
+    <div class="container">
+      <nav class="breadcrumb"><a href="/intern/">← Intern</a></nav>
+      <h1 class="section-title">Repertoire</h1>
+      <p class="section-subtitle">
+        {songs.length} Songs – alphabetisch sortiert. Jeder Song hat eine eigene Seite mit
+        Tempo, Tonart, Ablauf und Gesangsstimmen.
+      </p>
+
+      {[...groups.entries()].map(([letter, entries]) => (
+        <div class="letter-group">
+          <h2 class="letter">{letter}</h2>
+          <ul class="song-list">
+            {entries.map((song) => (
+              <li>
+                <a href={`/repertoire/${song.id}/`} class="song-row card">
+                  <span class="song-title">
+                    {song.data.title}
+                    {song.data.status === 'in-arbeit' && <span class="status-badge">in Arbeit</span>}
+                  </span>
+                  {song.data.artist && <span class="song-artist">{song.data.artist}</span>}
+                  <span class="song-meta">
+                    {song.data.key && <span class="chip">{song.data.key}</span>}
+                    {song.data.tempo && <span class="chip">{song.data.tempo}</span>}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    margin-bottom: 1.5rem;
+  }
+
+  .breadcrumb a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-primary-light);
+  }
+
+  .letter-group {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+  }
+
+  .letter {
+    font-size: 1.5rem;
+    color: var(--color-primary-light);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .song-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .song-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'title meta'
+      'artist meta';
+    align-items: center;
+    gap: 0.15rem 1rem;
+    padding: 0.9rem 1.25rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .song-title {
+    grid-area: title;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .song-artist {
+    grid-area: artist;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .song-meta {
+    grid-area: meta;
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .chip {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.15rem 0.6rem;
+    white-space: nowrap;
+  }
+
+  .status-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #e8b23a;
+    border: 1px solid #e8b23a;
+    border-radius: 4px;
+    padding: 0.1rem 0.4rem;
+  }
+
+  @media (max-width: 640px) {
+    .song-row {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'title'
+        'artist'
+        'meta';
+    }
+    .song-meta {
+      justify-content: flex-start;
+      margin-top: 0.4rem;
+    }
+  }
+</style>

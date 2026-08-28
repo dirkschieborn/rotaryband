@@ -94,6 +94,7 @@ const allSchemas = [organizationSchema, websiteSchema, ...(Array.isArray(schema)
 
     <title>{title === 'Die Rotary Band' ? title : `${title} | Die Rotary Band`}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonicalURL} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 

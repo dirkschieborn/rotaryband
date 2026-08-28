@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const songs = await getCollection('songs');
+const setlisten = await getCollection('setlisten');
+
+const tiles = [
+  {
+    href: '/setlisten/',
+    title: 'Setlisten',
+    text: `Die Reihenfolge für unsere Gigs – aktuell ${setlisten.length} ${setlisten.length === 1 ? 'Setliste' : 'Setlisten'}.`,
+    icon: 'list',
+  },
+  {
+    href: '/repertoire/',
+    title: 'Repertoire',
+    text: `Alle Songs mit Tempo, Tonart, Ablauf und Gesangsstimmen – aktuell ${songs.length} Songs.`,
+    icon: 'music',
+  },
+];
+---
+
+<BaseLayout title="Intern" description="Interner Bereich der Rotary Band." noindex>
+  <section class="section">
+    <div class="container">
+      <span class="intern-badge">Interner Bereich</span>
+      <h1 class="section-title">Bandintern</h1>
+      <p class="section-subtitle">
+        Setlisten, Repertoire und alles, was wir für die Proben und Gigs brauchen.
+      </p>
+
+      <div class="tile-grid">
+        {tiles.map((tile) => (
+          <a href={tile.href} class="card tile">
+            <div class="tile-icon">
+              {tile.icon === 'list' ? (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="0.5"/><circle cx="4" cy="12" r="0.5"/><circle cx="4" cy="18" r="0.5"/></svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              )}
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">{tile.title}</h2>
+              <p class="card-text">{tile.text}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .intern-badge {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-primary-light);
+    border: 1px solid var(--color-primary);
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+  }
+
+  .tile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 800px;
+    margin: 3rem auto 0;
+  }
+
+  .tile {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .tile-icon {
+    color: var(--color-primary-light);
+    padding: 0 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .tile-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

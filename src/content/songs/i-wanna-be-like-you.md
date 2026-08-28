@@ -1,0 +1,9 @@
+---
+title: I Wanna Be Like You (Jungle Book)
+---
+
+## Ablauf
+
+*Noch offen – Sheet/Infos folgen.*
+
+*Quelle: Songlist 2R2B (Foto im Band-Chat vom 5.8.2026)*

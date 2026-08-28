@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /intern/
+Disallow: /setlisten/
+Disallow: /repertoire/
 
 Sitemap: https://www.dierotaryband.de/sitemap-index.xml

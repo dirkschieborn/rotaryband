@@ -20,5 +20,12 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) =>
+        !['/intern/', '/setlisten/', '/repertoire/'].some((prefix) =>
+          new URL(page).pathname.startsWith(prefix)
+        ),
+    }),
+  ],
 });

@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const setlisten = await getCollection('setlisten');
+  return setlisten.map((liste) => ({
+    params: { slug: liste.id },
+    props: { liste },
+  }));
+}
+
+const { liste } = Astro.props;
+
+const songs = await getCollection('songs');
+const songById = new Map(songs.map((s) => [s.id, s]));
+
+const formatDate = (date?: Date) =>
+  date?.toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+
+// Durchlaufende Nummerierung über alle Sets
+let position = 0;
+const sets = liste.data.sets.map((set) => ({
+  name: set.name,
+  songs: set.songs.map((entry) => {
+    position += 1;
+    const song = entry.slug ? songById.get(entry.slug) : undefined;
+    return {
+      position,
+      note: entry.note,
+      slug: song ? entry.slug : undefined,
+      title: song?.data.title ?? entry.title ?? entry.slug ?? 'Unbekannter Song',
+      key: song?.data.key,
+      tempo: song?.data.tempo,
+    };
+  }),
+}));
+---
+
+<BaseLayout title={liste.data.title} description={`Setliste: ${liste.data.title}`} noindex>
+  <section class="section">
+    <div class="container setlist-page">
+      <nav class="breadcrumb">
+        <a href="/intern/">Intern</a> / <a href="/setlisten/">Setlisten</a>
+      </nav>
+
+      <h1 class="setlist-heading">{liste.data.title}</h1>
+      {(liste.data.date || liste.data.location) && (
+        <p class="setlist-meta">
+          {[formatDate(liste.data.date), liste.data.location].filter(Boolean).join(' · ')}
+        </p>
+      )}
+      {liste.data.notes && <p class="setlist-notes">{liste.data.notes}</p>}
+
+      {sets.map((set) => (
+        <div class="set">
+          {set.name && <h2 class="set-name">{set.name}</h2>}
+          <ol class="setlist">
+            {set.songs.map((song) => (
+              <li>
+                {song.slug ? (
+                  <a href={`/repertoire/${song.slug}/`} class="setlist-row card">
+                    <span class="pos">{song.position}</span>
+                    <span class="song-title">{song.title}</span>
+                    <span class="song-meta">
+                      {song.key && <span class="chip">{song.key}</span>}
+                      {song.tempo && <span class="chip">{song.tempo}</span>}
+                    </span>
+                    {song.note && <span class="note">{song.note}</span>}
+                  </a>
+                ) : (
+                  <div class="setlist-row card no-link">
+                    <span class="pos">{song.position}</span>
+                    <span class="song-title">{song.title}</span>
+                    {song.note && <span class="note">{song.note}</span>}
+                  </div>
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .setlist-page {
+    max-width: 800px;
+  }
+
+  .breadcrumb {
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-primary-light);
+  }
+
+  .setlist-heading {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .setlist-meta {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    margin-top: 0.25rem;
+  }
+
+  .setlist-notes {
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 0.75rem;
+  }
+
+  .set {
+    margin-top: 2.5rem;
+  }
+
+  .set-name {
+    font-size: 1.3rem;
+    color: var(--color-primary-light);
+    margin-bottom: 1rem;
+  }
+
+  .setlist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .setlist-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      'pos title meta'
+      'pos note note';
+    align-items: center;
+    gap: 0.15rem 1rem;
+    padding: 0.9rem 1.25rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .setlist-row.no-link:hover {
+    background: var(--color-surface-card);
+    transform: none;
+  }
+
+  .pos {
+    grid-area: pos;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--color-primary-light);
+    min-width: 1.8rem;
+    text-align: right;
+  }
+
+  .song-title {
+    grid-area: title;
+    font-weight: 600;
+  }
+
+  .song-meta {
+    grid-area: meta;
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .chip {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.15rem 0.6rem;
+    white-space: nowrap;
+  }
+
+  .note {
+    grid-area: note;
+    font-size: 0.85rem;
+    color: #e8b23a;
+  }
+
+  @media (max-width: 640px) {
+    .setlist-row {
+      grid-template-columns: auto 1fr;
+      grid-template-areas:
+        'pos title'
+        'pos meta'
+        'pos note';
+    }
+    .song-meta {
+      justify-content: flex-start;
+      margin-top: 0.3rem;
+    }
+  }
+</style>

@@ -1,0 +1,11 @@
+title: "Gig 2 (Platzhalter – Name/Datum folgt)"
+# date: 2026-10-24
+location: "Ort folgt"
+notes: "Platzhalter-Setliste – die echte Reihenfolge folgt noch."
+sets:
+  - name: "Set 1"
+    songs:
+      - slug: sunny
+      - slug: georgia-on-my-mind
+      - slug: mystery-train
+      - slug: i-shot-the-sheriff

@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const songs = await getCollection('songs');
+  return songs.map((song) => ({
+    params: { slug: song.id },
+    props: { song },
+  }));
+}
+
+const { song } = Astro.props;
+const { Content } = await render(song);
+
+// In welchen Setlisten kommt der Song vor?
+const setlisten = (await getCollection('setlisten')).filter((liste) =>
+  liste.data.sets.some((set) => set.songs.some((s) => s.slug === song.id))
+);
+
+const facts = [
+  { label: 'Tempo', value: song.data.tempo },
+  { label: 'Tonart', value: song.data.key },
+  { label: 'Feel', value: song.data.feel },
+].filter((f) => f.value);
+---
+
+<BaseLayout title={song.data.title} description={`Song-Infos: ${song.data.title}`} noindex>
+  <section class="section">
+    <div class="container song-page">
+      <nav class="breadcrumb">
+        <a href="/intern/">Intern</a> / <a href="/repertoire/">Repertoire</a>
+      </nav>
+
+      <h1 class="song-heading">
+        {song.data.title}
+        {song.data.status === 'in-arbeit' && <span class="status-badge">in Arbeit</span>}
+      </h1>
+      {song.data.artist && <p class="song-artist">{song.data.artist}</p>}
+
+      {facts.length > 0 && (
+        <div class="facts">
+          {facts.map((f) => (
+            <div class="fact card">
+              <span class="fact-label">{f.label}</span>
+              <span class="fact-value">{f.value}</span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {song.data.vocals && song.data.vocals.length > 0 && (
+        <div class="vocals card">
+          <h2>Gesang</h2>
+          <table>
+            <tbody>
+              {song.data.vocals.map((v) => (
+                <tr>
+                  <td class="vocals-who">{v.wer}</td>
+                  <td>{v.part}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      <article class="song-content">
+        <Content />
+      </article>
+
+      {setlisten.length > 0 && (
+        <aside class="in-setlists">
+          <h2>In diesen Setlisten</h2>
+          <ul>
+            {setlisten.map((liste) => (
+              <li><a href={`/setlisten/${liste.id}/`}>{liste.data.title}</a></li>
+            ))}
+          </ul>
+        </aside>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .song-page {
+    max-width: 800px;
+  }
+
+  .breadcrumb {
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+
+  .breadcrumb a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-primary-light);
+  }
+
+  .song-heading {
+    font-size: clamp(2rem, 5vw, 3rem);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .song-artist {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    margin-top: 0.25rem;
+  }
+
+  .status-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #e8b23a;
+    border: 1px solid #e8b23a;
+    border-radius: 4px;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .fact {
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .fact-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+  }
+
+  .fact-value {
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+
+  .vocals {
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .vocals h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .vocals table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .vocals td {
+    padding: 0.4rem 0;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.95rem;
+  }
+
+  .vocals-who {
+    font-weight: 600;
+    width: 8rem;
+    color: var(--color-primary-light);
+  }
+
+  .song-content :global(h2) {
+    font-size: 1.4rem;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .song-content :global(ol),
+  .song-content :global(ul) {
+    padding-left: 1.4rem;
+    line-height: 1.8;
+  }
+
+  .song-content :global(p) {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .song-content :global(blockquote) {
+    border-left: 3px solid #e8b23a;
+    padding: 0.5rem 1rem;
+    color: var(--color-text-muted);
+    margin: 1rem 0;
+  }
+
+  .in-setlists {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .in-setlists h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .in-setlists ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .in-setlists a {
+    color: var(--color-primary-light);
+    text-decoration: none;
+  }
+
+  .in-setlists a:hover {
+    text-decoration: underline;
+  }
+</style>

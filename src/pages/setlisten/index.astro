@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const setlisten = (await getCollection('setlisten')).sort((a, b) => {
+  const da = a.data.date?.getTime() ?? 0;
+  const db = b.data.date?.getTime() ?? 0;
+  return da - db;
+});
+
+const formatDate = (date?: Date) =>
+  date?.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const songCount = (liste: (typeof setlisten)[number]) =>
+  liste.data.sets.reduce((sum, set) => sum + set.songs.length, 0);
+---
+
+<BaseLayout title="Setlisten" description="Setlisten der Rotary Band." noindex>
+  <section class="section">
+    <div class="container">
+      <nav class="breadcrumb"><a href="/intern/">← Intern</a></nav>
+      <h1 class="section-title">Setlisten</h1>
+      <p class="section-subtitle">Die Reihenfolge für unsere Gigs – jeder Song verlinkt auf seine Repertoire-Seite.</p>
+
+      <div class="setlist-grid">
+        {setlisten.map((liste) => (
+          <a href={`/setlisten/${liste.id}/`} class="card setlist-card">
+            <div class="card-body">
+              <h2 class="card-title">{liste.data.title}</h2>
+              <p class="card-text">
+                {[formatDate(liste.data.date), liste.data.location].filter(Boolean).join(' · ')}
+              </p>
+              <p class="card-text">{songCount(liste)} Songs</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    margin-bottom: 1.5rem;
+  }
+
+  .breadcrumb a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-primary-light);
+  }
+
+  .setlist-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 800px;
+    margin: 3rem auto 0;
+  }
+
+  .setlist-card {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  @media (max-width: 640px) {
+    .setlist-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
