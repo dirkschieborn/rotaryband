@@ -13,8 +13,8 @@ vocals:
 audio:
   - src: /audio/songs/long-train-runnin-carl-und-oli.m4a
     label: Stimme Carl und Oli
-  - src: /audio/songs/long-train-runnin-durchlauf-2.m4a
-    label: Durchlauf (5:19)
+  - src: /audio/songs/long-train-runnin-durchlauf.m4a
+    label: Durchlauf
 ---
 
 ## Form / Akkorde
