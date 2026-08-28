@@ -19,6 +19,15 @@ const songs = defineCollection({
         })
       )
       .optional(),
+    // Aufnahmen/Sprachnotizen, Dateien unter public/audio/songs/
+    audio: z
+      .array(
+        z.object({
+          src: z.string(), // z.B. "/audio/songs/mustang-sally-stimmen.m4a"
+          label: z.string(),
+        })
+      )
+      .optional(),
   }),
 });
 

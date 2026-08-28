@@ -8,6 +8,11 @@ vocals:
     part: Hauptstimme bei „Ride, Sally, ride" – auf dem Grundton C
   - wer: Dirk
     part: 2. Stimme bei „Ride, Sally, ride" – Terz E über C; beim F-Akkord bleibt der Ton und wird zum Eb (Septime von F)
+audio:
+  - src: /audio/songs/mustang-sally-stimmen.m4a
+    label: Gesangsstimmen aus der Probe
+  - src: /audio/songs/probe-notiz-zuordnung-unklar.m4a
+    label: Weitere Probe-Notiz (0:35 – Zuordnung unklar, bitte prüfen)
 ---
 
 ## Form / Akkorde

@@ -6,6 +6,11 @@ feel: R&B / Soul
 vocals:
   - wer: Carl, Dirk, Rainer
     part: 2. Stimme (unisono) ab „thunder“ – Töne siehe Abschnitt Gesang
+audio:
+  - src: /audio/songs/knock-on-wood-hook-2te-stimme.m4a
+    label: 2. Stimme Hook („thunder, lightning…“)
+  - src: /audio/songs/knock-on-wood-outro-knocks.m4a
+    label: „Knock knock knock on wood“ (Outro)
 ---
 
 ## Form / Akkorde

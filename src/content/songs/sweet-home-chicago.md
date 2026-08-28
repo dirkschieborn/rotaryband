@@ -7,6 +7,9 @@ vocals:
     part: Backing-Ton F – gesungen auf „Aaaaa" (nicht „Ooo")
   - wer: Carl
     part: Backing-Ton D – gesungen auf „Aaaaa" (nicht „Ooo")
+audio:
+  - src: /audio/songs/sweet-home-chicago-backing.m4a
+    label: Backing-Stimmen („Baby vorziehen“)
 ---
 
 ## Gesang

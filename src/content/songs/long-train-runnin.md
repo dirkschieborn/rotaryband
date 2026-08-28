@@ -3,6 +3,17 @@ title: Long Train Runnin'
 artist: The Doobie Brothers
 key: G-Moll (Gm7)
 feel: Funk-Rock, treibende 16tel-Gitarre
+audio:
+  - src: /audio/songs/long-train-runnin-carl-und-eckhard.m4a
+    label: Stimme Carl und Eckhard
+  - src: /audio/songs/long-train-runnin-dirk.m4a
+    label: Stimme Dirk
+  - src: /audio/songs/long-train-runnin-unten.m4a
+    label: Untere Stimme
+  - src: /audio/songs/long-train-runnin-durchlauf-1.m4a
+    label: Durchlauf 1 (2:36)
+  - src: /audio/songs/long-train-runnin-durchlauf-2.m4a
+    label: Durchlauf 2 (5:19)
 ---
 
 ## Form / Akkorde

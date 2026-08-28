@@ -13,6 +13,9 @@ vocals:
     part: Antwort-Einwurf „someone to love"
   - wer: Carl
     part: Antwort-Einwurf „sweetheart to miss"
+audio:
+  - src: /audio/songs/everybody-needs-somebody-stimmen.m4a
+    label: Gesangsstimmen aus der Probe
 ---
 
 ## Gesang
