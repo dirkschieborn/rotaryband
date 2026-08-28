@@ -3,6 +3,13 @@ title: Long Train Runnin'
 artist: The Doobie Brothers
 key: G-Moll (Gm7)
 feel: Funk-Rock, treibende 16tel-Gitarre
+vocals:
+  - wer: Eckhard
+    part: Lead – G – G – F# – G („without love … lo-o-ove“)
+  - wer: Oli, Carl
+    part: 2. Stimme – Eb – D – D – G
+  - wer: Dirk
+    part: 3. Stimme – Bb – A – A – Bb
 audio:
   - src: /audio/songs/long-train-runnin-carl-und-eckhard.m4a
     label: Stimme Carl und Eckhard
@@ -36,7 +43,15 @@ audio:
 
 ## Gesang
 
-- Mehrstimmigkeit ist als Sprachnotizen im Band-Chat dokumentiert (12.8.2026, 09:04): eine Aufnahme „Carl und Eckhard" (0:27), eine für „Dirk" (0:20) und die tiefe Stimme „Long train running unten" (0:04), dazu zwei längere Durchläufe (2:36 und 5:19).
+Mehrstimmig **nur im Chorus**, über „Without love … lo-o-ove":
+
+| Wer | Töne |
+|---|---|
+| **Eckhard** (Lead) | G – G – F# – G |
+| **Oli + Carl** | Eb – D – D – G |
+| **Dirk** | Bb – A – A – Bb |
+
+- Die Stimmen sind zusätzlich als Aufnahmen dokumentiert (siehe oben): „Carl und Eckhard", „Dirk", „untere Stimme" plus zwei Durchläufe.
 
 ## Worauf achten
 
