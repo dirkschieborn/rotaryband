@@ -35,16 +35,6 @@ audio:
 9. Verse 5 („Well the pistons keep on turning…", mit F–Gm7-Wechseln)
 10. Chorus → Outro („Where would you be now")
 
-## Gesang
-
-Mehrstimmig **nur im Chorus**, über „Without love … lo-o-ove":
-
-| Wer | Töne |
-|---|---|
-| **Eckhard** (Lead) | G – G – F# – G |
-| **Oli + Carl** | Eb – D – D – G |
-| **Dirk** | Bb – A – A – Bb |
-
 ## Worauf achten
 
 - Der Groove lebt vom durchgehenden 16tel-Scratch der Gitarre – Tempo nicht schieben.
