@@ -19,21 +19,34 @@ audio:
 
 ## Form / Akkorde
 
-- Verse: **Gm7** (durchgehend, mit F-Einwürfen in der Pistons-Strophe)
-- Chorus: **Cm7 – Gm7 / Eb – Dsus4 – D – Gm7** („Without love…")
+**Chorus** (immer gleich):
 
-## Ablauf
+```
+Cm7                              Gm7
+Without love, where would you be now
+Eb   Dsus4  D   Gm7
+Wi - thout  lo - ove
+```
 
-1. Verse 1 („Down around the corner…")
-2. Chorus
-3. Verse 2 („You know I saw miss Lucy…")
-4. Chorus
-5. Verse 3 („Well the Illinois Central…")
-6. Chorus + Zwischenspiel (Gm7 – Cm7 – Gm7 / Eb – Dsus4 – D – Gm7)
-7. Verse 4 (= Illinois Central)
-8. Chorus
-9. Verse 5 („Well the pistons keep on turning…", mit F–Gm7-Wechseln)
-10. Chorus → Outro („Where would you be now")
+## Ablauf (nach Sheet)
+
+1. **Verse 1** – Gm7
+   „Down around the corner, half a mile from here / See them long trains run…"
+2. **Chorus**
+3. **Verse 2** – Gm7
+   „You know I saw miss Lucy down along the tracks…"
+4. **Chorus**
+5. **Verse 3** – Gm7 (4 Zeilen, je 1 Takt)
+   „Well the Illinois Central / And the Southern Central Freight / Got to keep on pushin' mama / You know they're running late"
+6. **Chorus**
+7. **Zwischenspiel** (instrumental über die Chorus-Changes):
+   `Gm7 – Cm7 – Gm7 / Eb – Dsus4 – D – Gm7`
+8. **Verse 4** = Verse 3 („Illinois Central…")
+9. **Chorus**
+10. **Verse 5** – Gm7 mit F-Einwürfen:
+    „Well the pistons keep on turning **(F)** and the wheels go round and round **(Gm7 F)** / The steel rails are cold and hard **(F)** for the miles that they go down **(Gm7)**"
+11. **Schluss-Chorus** – wie oben, dann Outro:
+    „Without lo-o-ove … **(Cm7)** ooh … Where would you be now"
 
 ## Worauf achten
 
