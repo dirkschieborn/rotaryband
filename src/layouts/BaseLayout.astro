@@ -96,7 +96,6 @@ const allSchemas = [organizationSchema, websiteSchema, ...(Array.isArray(schema)
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonicalURL} />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Open Graph -->
     <meta property="og:title" content={title === 'Die Rotary Band' ? title : `${title} | Die Rotary Band`} />

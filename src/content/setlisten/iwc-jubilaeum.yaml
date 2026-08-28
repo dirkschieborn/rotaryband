@@ -1,7 +1,8 @@
 title: "IWC Jubiläum"
 date: 2026-10-24
 sets:
-  - songs:
+  - name: "Hauptset"
+    songs:
       - slug: seven-nation-army
       - slug: son-of-a-preacher-man
       - slug: everybody-needs-somebody
@@ -12,4 +13,6 @@ sets:
       - slug: mustang-sally
       - slug: old-time-rock-and-roll
       - slug: long-train-runnin
+  - name: "Zugabe"
+    songs:
       - slug: sexy
