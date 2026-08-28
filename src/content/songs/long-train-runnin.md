@@ -24,8 +24,8 @@ audio:
 ```
 Cm7                              Gm7
 Without love, where would you be now
-Eb   Dsus4  D   Gm7
-Wi - thout  lo - ove
+        Eb    Dsus4   D    Gm
+Without love, lo    - o  - ove
 ```
 
 ## Ablauf (nach Sheet)
