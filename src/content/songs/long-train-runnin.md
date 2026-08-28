@@ -51,8 +51,6 @@ Mehrstimmig **nur im Chorus**, über „Without love … lo-o-ove":
 | **Oli + Carl** | Eb – D – D – G |
 | **Dirk** | Bb – A – A – Bb |
 
-- Die Stimmen sind zusätzlich als Aufnahmen dokumentiert (siehe oben): „Carl und Eckhard", „Dirk", „untere Stimme" plus zwei Durchläufe.
-
 ## Worauf achten
 
 - Der Groove lebt vom durchgehenden 16tel-Scratch der Gitarre – Tempo nicht schieben.
