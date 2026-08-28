@@ -6,6 +6,8 @@ feel: Soul
 audio:
   - src: /audio/songs/son-of-a-preacher-man-stimme-carl.m4a
     label: Stimme Carl
+  - src: /audio/songs/son-of-a-preacher-man-stimme-dirk.m4a
+    label: Stimme Dirk
 ---
 
 ## Ablauf (transponiert nach A – ein Zeichen = ein Takt, |D A| = zwei Akkorde im Takt)

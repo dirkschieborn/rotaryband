@@ -11,8 +11,6 @@ vocals:
   - wer: Dirk
     part: 3. Stimme – Bb – A – A – Bb
 audio:
-  - src: /audio/songs/long-train-runnin-dirk.m4a
-    label: Stimme Dirk
   - src: /audio/songs/long-train-runnin-unten.m4a
     label: Untere Stimme
   - src: /audio/songs/long-train-runnin-durchlauf-1.m4a
