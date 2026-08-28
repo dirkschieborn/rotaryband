@@ -8,6 +8,8 @@ audio:
     label: Stimme Carl
   - src: /audio/songs/son-of-a-preacher-man-stimme-dirk.m4a
     label: Stimme Dirk
+  - src: /audio/songs/son-of-a-preacher-man-durchlauf.m4a
+    label: Durchlauf
 ---
 
 ## Ablauf (transponiert nach A – ein Zeichen = ein Takt, |D A| = zwei Akkorde im Takt)
