@@ -3,6 +3,9 @@ title: Son of a Preacher Man
 artist: Dusty Springfield
 key: A-Dur (Original-Sheet in E, wir spielen transponiert in A)
 feel: Soul
+audio:
+  - src: /audio/songs/son-of-a-preacher-man-stimme-carl.m4a
+    label: Stimme Carl
 ---
 
 ## Ablauf (transponiert nach A – ein Zeichen = ein Takt, |D A| = zwei Akkorde im Takt)

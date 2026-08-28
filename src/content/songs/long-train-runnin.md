@@ -11,8 +11,6 @@ vocals:
   - wer: Dirk
     part: 3. Stimme – Bb – A – A – Bb
 audio:
-  - src: /audio/songs/long-train-runnin-carl-und-eckhard.m4a
-    label: Stimme Carl und Eckhard
   - src: /audio/songs/long-train-runnin-dirk.m4a
     label: Stimme Dirk
   - src: /audio/songs/long-train-runnin-unten.m4a
