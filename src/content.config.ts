@@ -28,6 +28,15 @@ const songs = defineCollection({
         })
       )
       .optional(),
+    // Proben-Videos, Dateien unter public/video/songs/
+    video: z
+      .array(
+        z.object({
+          src: z.string(), // z.B. "/video/songs/mustang-sally-probe.mp4"
+          label: z.string(),
+        })
+      )
+      .optional(),
   }),
 });
 

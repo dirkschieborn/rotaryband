@@ -10,6 +10,9 @@ vocals:
 audio:
   - src: /audio/songs/sweet-home-chicago-backing.m4a
     label: Backing-Stimmen („Baby vorziehen“)
+video:
+  - src: /video/songs/sweet-home-chicago-probe.mp4
+    label: Probe (3:48)
 ---
 
 ## Gesang

@@ -16,6 +16,11 @@ vocals:
 audio:
   - src: /audio/songs/everybody-needs-somebody-stimmen.m4a
     label: Gesangsstimmen aus der Probe
+video:
+  - src: /video/songs/everybody-needs-somebody-probe-1.mp4
+    label: Probe (1:38)
+  - src: /video/songs/everybody-needs-somebody-probe-2.mp4
+    label: Probe (1:42)
 ---
 
 ## Gesang

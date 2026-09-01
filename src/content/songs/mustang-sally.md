@@ -13,6 +13,9 @@ audio:
     label: Gesangsstimmen aus der Probe
   - src: /audio/songs/probe-notiz-zuordnung-unklar.m4a
     label: Weitere Probe-Notiz (0:35 – Zuordnung unklar, bitte prüfen)
+video:
+  - src: /video/songs/mustang-sally-probe.mp4
+    label: Probe (0:53)
 ---
 
 ## Form / Akkorde

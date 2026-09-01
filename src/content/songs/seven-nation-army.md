@@ -3,6 +3,13 @@ title: Seven Nation Army
 artist: Ben l'Oncle Soul
 key: E-Moll
 feel: Soul-Version
+video:
+  - src: /video/songs/seven-nation-army-probe-1.mp4
+    label: Probe (0:32)
+  - src: /video/songs/seven-nation-army-probe-2.mp4
+    label: Probe (0:29)
+  - src: /video/songs/seven-nation-army-probe-3.mp4
+    label: Probe (2:39)
 ---
 
 ## Form / Akkorde

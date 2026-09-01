@@ -15,6 +15,9 @@ audio:
     label: Stimme Carl und Oli
   - src: /audio/songs/long-train-runnin-durchlauf.m4a
     label: Durchlauf
+video:
+  - src: /video/songs/long-train-runnin-probe.mp4
+    label: Probe (1:03)
 ---
 
 ## Form / Akkorde

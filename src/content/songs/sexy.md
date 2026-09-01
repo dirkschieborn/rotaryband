@@ -2,6 +2,9 @@
 title: Sexy
 artist: Marius Müller-Westernhagen
 feel: Rock
+video:
+  - src: /video/songs/sexy-probe.mp4
+    label: Probe (3:56)
 ---
 
 ## Ablauf
