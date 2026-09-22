@@ -3,18 +3,25 @@ title: Hold On, I'm Coming
 artist: Sam & Dave
 key: Ab-Dur (Ab7)
 feel: Soul / Stax
+audio:
+  - src: /audio/songs/hold-on-im-coming-referenz.mp3
+    label: Referenz-Aufnahme (3:13)
+  - src: /audio/songs/hold-on-im-coming-backings.m4a
+    label: Backings (0:09)
 ---
 
 ## Form / Akkorde
 
-- Intro-Riff: **Ab – B – C#**
-- Strophe: Ab7 → C#
-- Chorus: **Ab7 – B / C# – Ab7** („Hold On, I'm Coming")
-- Bridge: C# („Reach out to me") – B („Call my name") – C# („For quick reaction") – **D#** („Hey hey hey"), danach Lick über Ab – F# – B – C# / Intro-Riff über Ab7 – B – C#
+- Intro-Riff: **Ab – Cb – Db**
+- Strophe: Ab7 → Db
+- Chorus: **Ab7 – Cb / Db – Ab7** („Hold On, I'm Coming")
+- Bridge: Db („Reach out to me") – Cb („Call my name") – Db („For quick reaction") – **Eb** („Hey hey hey"), danach Lick über Ab – Gb – Cb – Db / Intro-Riff über Ab7 – Cb – Db
+
+> In der As-Dur-Welt notiert, also mit b statt Kreuz: **Cb** (= B), **Db** (= C#), **Eb** (= D#), **Gb** (= F#).
 
 ## Ablauf
 
-1. Intro-Riff (Ab – B – C#)
+1. Intro-Riff (Ab – Cb – Db)
 2. Strophe 1 („Don't you ever be sad…")
 3. Chorus 1×
 4. Strophe 2 („I'm on my way your lover…")
