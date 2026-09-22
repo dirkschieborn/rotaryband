@@ -126,11 +126,34 @@ const facts = [
 </BaseLayout>
 
 <script>
-  // Notations-Blöcke (```abc im Markdown) als Notensystem rendern.
-  const blocks = document.querySelectorAll('pre[data-language="abc"]');
+  // Notations-Blöcke (```abc im Markdown) als Notensystem rendern,
+  // mit Regler zum Transponieren der ganzen Seite.
+  const blocks = [...document.querySelectorAll('pre[data-language="abc"]')];
+
   if (blocks.length > 0) {
     const abcjs = await import('abcjs');
-    blocks.forEach((pre) => {
+
+    const OPTIONS = {
+      responsive: 'resize',
+      staffwidth: 720,
+      paddingtop: 4,
+      paddingbottom: 4,
+      paddingleft: 12,
+      paddingright: 12,
+      format: {
+        stretchlast: 1,
+        titlefont: 'Helvetica bold 18',
+        composerfont: 'Helvetica 11',
+        gchordfont: 'Helvetica bold 13',
+        annotationfont: 'Helvetica bold 11',
+        textfont: 'Helvetica bold 11',
+        measurefont: 'Helvetica 9',
+        partsfont: 'Helvetica bold 13',
+        vocalfont: 'Helvetica bold 11',
+      },
+    };
+
+    const sheets = blocks.map((pre) => {
       const abc = pre.textContent ?? '';
       const sheet = document.createElement('div');
       sheet.className = 'sheet';
@@ -146,26 +169,79 @@ const facts = [
 
       const staff = document.createElement('div');
       sheet.appendChild(staff);
+      return { abc, staff, sheet };
+    });
 
-      abcjs.renderAbc(staff, abc, {
-        responsive: 'resize',
-        staffwidth: 720,
-        paddingtop: 4,
-        paddingbottom: 4,
-        paddingleft: 12,
-        paddingright: 12,
-        format: {
-          stretchlast: 1,
-          titlefont: 'Helvetica bold 18',
-          composerfont: 'Helvetica 11',
-          gchordfont: 'Helvetica bold 13',
-          annotationfont: 'Helvetica bold 11',
-          textfont: 'Helvetica bold 11',
-          measurefont: 'Helvetica 9',
-          partsfont: 'Helvetica bold 13',
-        },
+    const render = (semitones) => {
+      sheets.forEach((s) => {
+        abcjs.renderAbc(s.staff, s.abc, { ...OPTIONS, visualTranspose: semitones });
+      });
+    };
+
+    // --- Tonart-Anzeige
+    const NAMES = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
+    const BASE = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+    const keyField = sheets.map((s) => s.abc.match(/^K:\s*([A-G][b#]?)(m|min)?/m)).find(Boolean);
+
+    const keyName = (semitones) => {
+      if (!keyField) return null;
+      const [, letter, mode] = keyField;
+      const alter = letter.length > 1 ? (letter[1] === '#' ? 1 : -1) : 0;
+      const value = (((BASE[letter[0]] + alter + semitones) % 12) + 12) % 12;
+      return NAMES[value] + (mode ? '-Moll' : '-Dur');
+    };
+
+    // --- Bedienleiste
+    const bar = document.createElement('div');
+    bar.className = 'sheet-controls';
+    bar.innerHTML = `
+      <span class="sc-title">Transponieren</span>
+      <button type="button" class="sc-step" data-step="-1" aria-label="Einen Halbton tiefer">−</button>
+      <input class="sc-range" type="range" min="-12" max="12" step="1" value="0"
+             aria-label="Transposition in Halbtönen">
+      <button type="button" class="sc-step" data-step="1" aria-label="Einen Halbton höher">+</button>
+      <span class="sc-value"></span>
+      <button type="button" class="sc-reset">Original</button>`;
+    sheets[0].sheet.parentElement.insertBefore(bar, sheets[0].sheet);
+
+    const range = bar.querySelector('.sc-range');
+    const value = bar.querySelector('.sc-value');
+    const storageKey = 'transpose:' + location.pathname;
+
+    const apply = (semitones, save = true) => {
+      range.value = String(semitones);
+      const key = keyName(semitones);
+      const steps = semitones > 0 ? `+${semitones}` : String(semitones);
+      value.textContent = semitones === 0
+        ? (key ? `${key} (Original)` : 'Original')
+        : (key ? `${key} (${steps} Halbtöne)` : `${steps} Halbtöne`);
+      render(semitones);
+      if (save) {
+        try {
+          localStorage.setItem(storageKey, String(semitones));
+        } catch {
+          /* private Fenster o. ä. – Transposition gilt dann nur für diesen Besuch */
+        }
+      }
+    };
+
+    range.addEventListener('input', () => apply(Number(range.value)));
+    bar.querySelectorAll('.sc-step').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const next = Number(range.value) + Number(btn.dataset.step);
+        if (next >= -12 && next <= 12) apply(next);
       });
     });
+    bar.querySelector('.sc-reset').addEventListener('click', () => apply(0));
+
+    let start = 0;
+    try {
+      const saved = Number(localStorage.getItem(storageKey));
+      if (Number.isFinite(saved) && saved >= -12 && saved <= 12) start = saved;
+    } catch {
+      /* ohne gespeicherten Wert beim Original bleiben */
+    }
+    apply(start, false);
   }
 </script>
 
@@ -177,6 +253,71 @@ const facts = [
     padding: 0 1.25rem 0.75rem;
     margin: 1.5rem 0;
     overflow-x: auto;
+  }
+
+  .song-content .sheet-controls {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 1.5rem 0 0.75rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-surface-card, #17171a);
+    backdrop-filter: blur(6px);
+  }
+
+  .song-content .sc-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+  }
+
+  .song-content .sc-range {
+    flex: 1 1 10rem;
+    min-width: 8rem;
+    accent-color: var(--color-primary-light, #e0715a);
+  }
+
+  .song-content .sc-step,
+  .song-content .sc-reset {
+    border: 1px solid var(--color-border);
+    background: transparent;
+    color: inherit;
+    border-radius: 6px;
+    padding: 0.2rem 0.6rem;
+    font: inherit;
+    line-height: 1.4;
+    cursor: pointer;
+  }
+
+  .song-content .sc-step {
+    font-size: 1.05rem;
+    min-width: 2.1rem;
+  }
+
+  .song-content .sc-step:hover,
+  .song-content .sc-reset:hover {
+    border-color: var(--color-primary-light);
+    color: var(--color-primary-light);
+  }
+
+  .song-content .sc-value {
+    font-weight: 600;
+    font-size: 0.95rem;
+    min-width: 11rem;
+  }
+
+  @media print {
+    .song-content .sheet-controls {
+      display: none;
+    }
   }
 
   .song-content .sheet-label {

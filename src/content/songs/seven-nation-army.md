@@ -29,10 +29,10 @@ M:4/4
 L:1/8
 Q:1/4=120
 K:Em clef=bass
-|:"Em7" E,3 E, (3G,2E,2D,2 |"C" C,4 "Bm" B,,4 :|
+|:"Em7" E,3 E, (3G,2E,2D,2 |"C" C,4 "B7" B,,4 :|
 ```
 
-### Intro · Riff 4× + 1 Takt
+### Intro · langsam, 6/8-Feeling · 4× Em – Em – C – B7
 
 ```abc
 X:1
@@ -40,7 +40,7 @@ M:4/4
 L:1/4
 K:Em
 V:1 style=rhythm
-|:"Em7" "_nur Bass und Drums, dann Band dazu"B B B B|"C" B B"Bm" B B:|"Em7" B4|]
+|:"Em7" "_danach umdrehen (außer Piano), dann Intromelodie"B B B B|"C" B B"B7" B B:|"Em7" B4|]
 ```
 
 ### Strophe · 4 + 8 + 8 Takte
@@ -51,7 +51,7 @@ M:4/4
 L:1/4
 K:Em
 V:1 style=rhythm
-|:"Em7" "_Schritte · erst jede 2. Betonung, dann jede Betonung"B B B B|"C" B B"Bm" B B:|
+|:"Em7" "_Schritte · erst jede 2. Betonung, dann jede Betonung"B B B B|"C" B B"B7" B B:|
 ```
 
 ### Pre-Chorus · 2 Takte
@@ -73,7 +73,7 @@ M:4/4
 L:1/4
 K:Em
 V:1 style=rhythm
-|:"Em7" "_Bläsermelodie"B B B B|"C" B B"Bm" B B|"Em7" B B B B|"C" B B"Bm" B B:|
+|:"Em7" "_Bläsermelodie"B B B B|"C" B B"B7" B B|"Em7" B B B B|"C" B B"B7" B B:|
 ```
 
 ### Piano-Solo · 8 + 8 Takte
@@ -84,7 +84,7 @@ M:4/4
 L:1/4
 K:Em
 V:1 style=rhythm
-|:"Em7" "_Schritte · Band hält das Riff"B B B B|"C" B B"Bm" B B:|
+|:"Em7" "_Schritte · Band hält das Riff"B B B B|"C" B B"B7" B B:|
 ```
 
 ### Schluss · Stop
@@ -99,11 +99,11 @@ V:1 style=rhythm
 ```
 
 Form, Taktzahlen und Tempo nach der Bläser-Bb-Stimme (siehe Noten oben).
-Akkorde: durchgehend der Turnaround **Em7 – C – Bm**, nur im Pre-Chorus **G – A**.
+Grund-Turnaround: **Em – Em – C – B7** (in Halben gezählt, also 2 Takte: Em ganz, dann C und B7 je halb) – läuft durch die ganze Nummer, nur im Pre-Chorus **G – A**.
 
 ## Ablauf (nach der Bläserstimme)
 
-1. **Intro** – Riff 4×, dann 1 Takt Em7
+1. **Intro** – langsam, **6/8-Feeling**: 4× Em – Em – C – B7. Danach drehen sich alle außer dem Pianisten um, dann startet die **Intromelodie**.
 2. **Strophe 1** – 4 + 8 + 8 Takte, *Schritte*
 3. **Pre-Chorus** – G – A
 4. **Riff mit Bläsermelodie** – 4 Takte, 2×
@@ -116,6 +116,12 @@ Akkorde: durchgehend der Turnaround **Em7 – C – Bm**, nur im Pre-Chorus **G 
 11. **Pre-Chorus**
 12. **Riff mit Bläsermelodie** – 2×
 13. **Stop-Ende**
+
+## Dramaturgie
+
+- Am Anfang stehen **alle mit dem Rücken zum Publikum**.
+- Nach dem langsamen Intro drehen sich **alle außer dem Pianisten** um – dann geht es mit der Intromelodie los.
+- In den Strophen und im Piano-Solo: *Schritte*, vor Strophe 2: *Kopfnicken* (siehe Ablauf).
 
 ## Worauf achten
 

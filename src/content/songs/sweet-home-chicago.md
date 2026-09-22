@@ -14,15 +14,15 @@ audio:
   - src: /audio/songs/sweet-home-chicago-backing.m4a
     label: Backing-Stimmen („Baby vorziehen“)
   - src: /audio/songs/sweet-home-chicago-ausschnitt-1.m4a
-    label: Ausschnitt 1 (0:18)
+    label: Dirk Backings (0:18)
   - src: /audio/songs/sweet-home-chicago-ausschnitt-2.m4a
-    label: Ausschnitt 2 (0:46)
+    label: Dirk Backings (0:46)
   - src: /audio/songs/sweet-home-chicago-backings-2.m4a
-    label: Backings 1 (0:23)
+    label: Carl Backings (0:23)
   - src: /audio/songs/sweet-home-chicago-backings-3.m4a
-    label: Backings 2 (0:23)
+    label: Dirk Backings (0:23)
   - src: /audio/songs/sweet-home-chicago-backings-4.m4a
-    label: Backings 3 (0:33)
+    label: Dirk Backings (0:33)
 video:
   - src: /video/songs/sweet-home-chicago-probe.mp4
     label: Probe (3:48)

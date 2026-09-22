@@ -13,6 +13,8 @@ vocals:
     part: Antwort-Einwurf „someone to love"
   - wer: Carl
     part: Antwort-Einwurf „sweetheart to miss"
+  - wer: Rainer
+    part: Antwort-Einwurf „sugar to kiss"
 audio:
   - src: /audio/songs/everybody-needs-somebody-stimmen.m4a
     label: Gesangsstimmen aus der Probe
@@ -25,7 +27,7 @@ video:
 
 ## Gesang
 
-- Call-and-Response in der Strophe: Lead ruft, die Antworten sind verteilt – **Oli**: „someone to love", **Carl**: „sweetheart to miss".
+- Call-and-Response in der Strophe: Lead ruft, die Antworten sind verteilt – **Oli**: „someone to love", **Carl**: „sweetheart to miss", **Rainer**: „sugar to kiss".
 - Bei **„you, you, you"** dreistimmig:
   - **Eckhard**: Hauptstimme
   - **Dirk**: G – A – Bb
@@ -34,6 +36,8 @@ video:
 
 ## Ablauf
 
-*Noch offen – Sheet/Ablauf folgt.*
+1. **Intro mit Bläserlick**
+2. **Ecki steigt aus dem Gesang aus**: stellt die Band vor und sagt etwas zum Programm und zur Funke-Stiftung
+3. Danach **normal weiter** im Song
 
 *Quelle: Notizen aus der Probe (kein Sheet im Ordner)*
