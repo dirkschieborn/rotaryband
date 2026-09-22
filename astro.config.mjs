@@ -16,6 +16,14 @@ export default defineConfig({
 
   compressHTML: true,
 
+  markdown: {
+    shikiConfig: {
+      // Notations-Blöcke (```abc) werden im Browser als Notensystem gerendert,
+      // Shiki soll sie nur als Text durchreichen.
+      langAlias: { abc: 'text' },
+    },
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },

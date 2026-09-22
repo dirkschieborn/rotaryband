@@ -22,6 +22,7 @@ const facts = [
   { label: 'Tempo', value: song.data.tempo },
   { label: 'Tonart', value: song.data.key },
   { label: 'Feel', value: song.data.feel },
+  { label: 'Besetzung', value: song.data.besetzung },
 ].filter((f) => f.value);
 ---
 
@@ -62,6 +63,19 @@ const facts = [
               ))}
             </tbody>
           </table>
+        </div>
+      )}
+
+      {song.data.sheets && song.data.sheets.length > 0 && (
+        <div class="sheets card">
+          <h2>Noten</h2>
+          <ul>
+            {song.data.sheets.map((sheet) => (
+              <li>
+                <a href={sheet.src} target="_blank" rel="noopener">{sheet.label}</a>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
 
@@ -110,6 +124,89 @@ const facts = [
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  // Notations-Blöcke (```abc im Markdown) als Notensystem rendern.
+  const blocks = document.querySelectorAll('pre[data-language="abc"]');
+  if (blocks.length > 0) {
+    const abcjs = await import('abcjs');
+    blocks.forEach((pre) => {
+      const abc = pre.textContent ?? '';
+      const sheet = document.createElement('div');
+      sheet.className = 'sheet';
+      pre.replaceWith(sheet);
+
+      // Überschrift direkt über dem Block gehört zu diesem Notensystem:
+      // in die Karte ziehen, damit die Zuordnung eindeutig ist.
+      const heading = sheet.previousElementSibling;
+      if (heading && heading.tagName === 'H3') {
+        heading.classList.add('sheet-label');
+        sheet.appendChild(heading);
+      }
+
+      const staff = document.createElement('div');
+      sheet.appendChild(staff);
+
+      abcjs.renderAbc(staff, abc, {
+        responsive: 'resize',
+        staffwidth: 720,
+        paddingtop: 4,
+        paddingbottom: 4,
+        paddingleft: 12,
+        paddingright: 12,
+        format: {
+          stretchlast: 1,
+          titlefont: 'Helvetica bold 18',
+          composerfont: 'Helvetica 11',
+          gchordfont: 'Helvetica bold 13',
+          annotationfont: 'Helvetica bold 11',
+          textfont: 'Helvetica bold 11',
+          measurefont: 'Helvetica 9',
+          partsfont: 'Helvetica bold 13',
+        },
+      });
+    });
+  }
+</script>
+
+<style is:global>
+  .song-content .sheet {
+    background: #fff;
+    color: #000;
+    border-radius: 10px;
+    padding: 0 1.25rem 0.75rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+
+  .song-content .sheet-label {
+    margin: 0 -1.25rem 0.5rem;
+    padding: 0.6rem 1.25rem;
+    border-bottom: 1px solid #d8d8d8;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #111;
+  }
+
+  /* Überschriften ohne eigenes Notensystem bleiben im Seiten-Stil */
+  .song-content h3:not(.sheet-label) {
+    font-size: 1.1rem;
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  .song-content .sheet svg {
+    max-width: 100%;
+  }
+
+  @media print {
+    .song-content .sheet {
+      border-radius: 0;
+      padding: 0;
+    }
+  }
+</style>
 
 <style>
   .song-page {
@@ -208,6 +305,30 @@ const facts = [
     font-weight: 600;
     width: 8rem;
     color: var(--color-primary-light);
+  }
+
+  .sheets {
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .sheets h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .sheets ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sheets a {
+    color: var(--color-primary-light);
+    text-decoration: none;
+  }
+
+  .sheets a:hover {
+    text-decoration: underline;
   }
 
   .recordings {

@@ -9,6 +9,7 @@ const songs = defineCollection({
     tempo: z.string().optional(), // z.B. "ca. 168 BPM"
     key: z.string().optional(), // Tonart, z.B. "Bb-Dur"
     feel: z.string().optional(), // z.B. "Shuffle", "Straight 8th"
+    besetzung: z.string().optional(), // z.B. "nur Piano"
     status: z.enum(['aktiv', 'in-arbeit', 'archiv']).default('aktiv'),
     // Mehrstimmiger Gesang: wer singt welche Linie auf welcher Stufe
     vocals: z
@@ -24,6 +25,15 @@ const songs = defineCollection({
       .array(
         z.object({
           src: z.string(), // z.B. "/audio/songs/mustang-sally-stimmen.m4a"
+          label: z.string(),
+        })
+      )
+      .optional(),
+    // Eingescannte Sheets/Noten, Dateien unter public/sheets/
+    sheets: z
+      .array(
+        z.object({
+          src: z.string(), // z.B. "/sheets/wir-fraun-von-inner-wheel.pdf"
           label: z.string(),
         })
       )
@@ -50,6 +60,8 @@ const setlisten = defineCollection({
     sets: z.array(
       z.object({
         name: z.string().optional(), // z.B. "Set 1"
+        // Eigener Programmpunkt: zaehlt nicht in der laufenden Nummerierung mit
+        separat: z.boolean().default(false),
         songs: z.array(
           z.object({
             slug: z.string().optional(), // Datei-Name des Songs in src/content/songs (ohne .md)

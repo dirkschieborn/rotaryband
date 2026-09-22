@@ -13,6 +13,11 @@ sets:
       - slug: mustang-sally
       - slug: old-time-rock-and-roll
       - slug: long-train-runnin
+  - name: "Separater Programmpunkt"
+    separat: true
+    songs:
+      - slug: wir-fraun-von-inner-wheel
+        note: "nur Piano – läuft außerhalb der Setliste"
   - name: "Zugabe"
     songs:
       - slug: sexy

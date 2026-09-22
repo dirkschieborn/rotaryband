@@ -22,11 +22,12 @@ const formatDate = (date?: Date) =>
 let position = 0;
 const sets = liste.data.sets.map((set) => ({
   name: set.name,
+  separat: set.separat,
   songs: set.songs.map((entry) => {
-    position += 1;
+    if (!set.separat) position += 1;
     const song = entry.slug ? songById.get(entry.slug) : undefined;
     return {
-      position,
+      position: set.separat ? null : position,
       note: entry.note,
       slug: song ? entry.slug : undefined,
       title: song?.data.title ?? entry.title ?? entry.slug ?? 'Unbekannter Song',
@@ -53,14 +54,14 @@ const sets = liste.data.sets.map((set) => ({
       {liste.data.notes && <p class="setlist-notes">{liste.data.notes}</p>}
 
       {sets.map((set) => (
-        <div class="set">
+        <div class:list={['set', set.separat && 'set-separat']}>
           {set.name && <h2 class="set-name">{set.name}</h2>}
           <ol class="setlist">
             {set.songs.map((song) => (
               <li>
                 {song.slug ? (
                   <a href={`/repertoire/${song.slug}/`} class="setlist-row card">
-                    <span class="pos">{song.position}</span>
+                    <span class="pos">{song.position ?? '♪'}</span>
                     <span class="song-title">{song.title}</span>
                     <span class="song-meta">
                       {song.key && <span class="chip">{song.key}</span>}
@@ -70,7 +71,7 @@ const sets = liste.data.sets.map((set) => ({
                   </a>
                 ) : (
                   <div class="setlist-row card no-link">
-                    <span class="pos">{song.position}</span>
+                    <span class="pos">{song.position ?? '♪'}</span>
                     <span class="song-title">{song.title}</span>
                     {song.note && <span class="note">{song.note}</span>}
                   </div>
@@ -149,6 +150,15 @@ const sets = liste.data.sets.map((set) => ({
     padding: 0.9rem 1.25rem;
     text-decoration: none;
     color: inherit;
+  }
+
+  .set-separat .setlist-row {
+    border: 1px dashed var(--color-border);
+  }
+
+  .set-separat .pos {
+    font-size: 1rem;
+    opacity: 0.8;
   }
 
   .setlist-row.no-link:hover {

@@ -7,6 +7,9 @@ vocals:
     part: Backing-Ton F – gesungen auf „Aaaaa" (nicht „Ooo")
   - wer: Carl
     part: Backing-Ton D – gesungen auf „Aaaaa" (nicht „Ooo")
+sheets:
+  - src: /sheets/sweet-home-chicago-trompete-1.pdf
+    label: Referenz-Sheet Trompete 1, Bb (2 Seiten)
 audio:
   - src: /audio/songs/sweet-home-chicago-backing.m4a
     label: Backing-Stimmen („Baby vorziehen“)

@@ -29,6 +29,7 @@ Strophe und Chorus gleich: **D (2) – G (2) – A (2) – D (2)**
 
 ## Worauf achten
 
+- Die Backings singen wir **ad lib** – keine festgelegten Stimmen, jede und jeder so, wie es gerade kommt.
 - Der A-cappella-Chorus ist der Show-Moment – Tempo halten, Drums zählen innerlich weiter.
 - Sheet nennt „@ 124 BPM in ‚F'", die Akkorde stehen aber in D – wir spielen die D-Fassung.
 

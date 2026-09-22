@@ -10,6 +10,9 @@ vocals:
     part: 2. Stimme – Eb – D – D – G
   - wer: Dirk
     part: 3. Stimme – Bb – A – A – Bb
+sheets:
+  - src: /sheets/long-train-runnin-sax-tenor.pdf
+    label: Referenz-Sheet Tenorsax, Bb (Horn Band Charts, 2 Seiten)
 audio:
   - src: /audio/songs/long-train-runnin-carl-und-oli.m4a
     label: Stimme Carl und Oli
@@ -54,6 +57,7 @@ Without love, lo    - o  - ove
 ## Worauf achten
 
 - Der Groove lebt vom durchgehenden 16tel-Scratch der Gitarre – Tempo nicht schieben.
+- Das Referenz-Sheet ist eine **Bb-Stimme** (Tenorsax): Noten und Akkordsymbole darin stehen einen Ganzton höher als klingend. Probebuchstaben A–H, mit Tenor-Solo, Gitarren-Solo und Percussion-Teil.
 
 *Quelle: Sheet Nr. 66 („66_Long train running_Doobie Brothers_Songtext.pdf")*
 
