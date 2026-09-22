@@ -11,6 +11,8 @@ vocals:
 audio:
   - src: /audio/songs/mustang-sally-stimmen.m4a
     label: Gesangsstimmen aus der Probe
+  - src: /audio/songs/mustang-sally-backings.m4a
+    label: Backings (0:53)
   - src: /audio/songs/probe-notiz-zuordnung-unklar.m4a
     label: Weitere Probe-Notiz (0:35 – Zuordnung unklar, bitte prüfen)
 video:

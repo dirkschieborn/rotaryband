@@ -3,6 +3,9 @@ title: Seven Nation Army
 artist: Ben l'Oncle Soul
 key: E-Moll
 feel: Soul-Version
+audio:
+  - src: /audio/songs/seven-nation-army-ergaenzung-martina.m4a
+    label: Ergänzung von Martina (1:08)
 video:
   - src: /video/songs/seven-nation-army-probe-1.mp4
     label: Probe (0:32)
