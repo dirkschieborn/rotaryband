@@ -13,6 +13,7 @@ audio:
 ## Form / Akkorde
 
 - Intro-Riff: **Ab – Cb – Db**
+- Hookline „Hold on, I’m coming – hold on, I’m coming“: **Ab – Cb – Db – Ab**
 - Strophe: Ab7 → Db
 - Chorus: **Ab7 – Cb / Db – Ab7** („Hold On, I'm Coming")
 - Bridge: Db („Reach out to me") – Cb („Call my name") – Db („For quick reaction") – **Eb** („Hey hey hey"), danach Lick über Ab – Gb – Cb – Db / Intro-Riff über Ab7 – Cb – Db
@@ -21,13 +22,13 @@ audio:
 
 ## Ablauf
 
-1. Intro-Riff (Ab – Cb – Db)
+1. Intro: Hookline über Ab – Cb – Db – Ab **2× a cappella**, danach **2× Intro-Riff mit Sax**
 2. Strophe 1 („Don't you ever be sad…")
 3. Chorus 1×
 4. Strophe 2 („I'm on my way your lover…")
 5. Chorus 2×
 6. Bridge + Lick/Intro-Riff
 7. Strophe 3 (= Strophe 1)
-8. Chorus, mehrfach wiederholen und Fade-out bzw. Schluss abgesprochen
+8. Outro: Hookline **4× mit Band**, das **5. Mal a cappella**
 
 *Quelle: Sheet Nr. 24 („24_Hold on I am coming_Isaac Hays_David Porter_songtext.pdf")*
