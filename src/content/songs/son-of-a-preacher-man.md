@@ -82,6 +82,21 @@ V:P clef=bass name="Pos" snm="Pos"
 [V:P] !>!B,/B,/B,- B,6 |!>!D/D/D- D6 |]
 ```
 
+### D · Sechzehntel-Figur (4 Takte vor der Bridge)
+
+```abc
+X:1
+M:4/4
+L:1/8
+K:E
+V:T clef=treble name="Tpt" snm="Tpt"
+V:S clef=treble name="Sax" snm="Sax"
+V:P clef=bass name="Pos" snm="Pos"
+[V:T] z !>!=d3 d/!.!d/z/!-!d/z/!-!d/z/!-!d/ |!>!=d4 z3/2 d/z/!-!d/z/!-!d/ |!>!c8 |c4 z3/2 c/z/!-!c/z/!-!c/ |]
+[V:S] z !>!A3 A/!.!A/z/!-!A/z/!-!A/z/!-!A/ |!>!A4 z3/2 A/z/!-!A/z/!-!A/ |!>!E8 |E4 z3/2 E/z/!-!E/z/!-!E/ |]
+[V:P] !>!=D,,8 |!>!D,,4 z4 |!>!A,,8 |A,,4 z3/2 A,,/z/!-!A,,/z/!-!A,,/ |]
+```
+
 ### E · Bridge – liegende Akkorde (B7 → E7)
 
 ```abc
@@ -111,8 +126,6 @@ V:P clef=bass name="Pos" snm="Pos"
 [V:S] z4 z2 E/F/A |!>!A4 =c2 z2 |z4 z2 E/F/A |!>!A4 =c2 z2 |]
 [V:P] z4 z2 E,/F,/A, |!>!A,4 ^D2 z2 |z4 z2 E,/F,/A, |!>!A,4 ^D2 z2 |]
 ```
-
-> **Noch nicht übertragen:** der Sechzehntel-Teil **D** (4 Takte vor der Bridge) – die Figur ist im Scan zu dicht gesetzt, um sie sicher abzulesen. Dafür bitte die Original-Stimme oben verwenden.
 
 *Quelle: „Son of a Preacher Man" – Horns Trans./Arr. Ryan Gabbart (RyanGabbart.com), E Major (Concert), Light R&B Shuffle ♩ = 88. Hier klingend übertragen; die Original-Stimmen für Bb-Trompete und Tenorsax stehen im PDF.*
 
