@@ -1,6 +1,7 @@
 ---
 title: Sweet Home Chicago
 artist: Blues Brothers
+key: F-Dur (F7-Blues)
 feel: Blues
 vocals:
   - wer: Dirk
@@ -36,16 +37,15 @@ video:
 
 ## Ablauf
 
-Jeder Teil ist ein 12-Takt-Blues.
-
 1. **Gitarrenintro**
 2. Ref. 1 (Bläser pausieren)
+   - Ref. (gilt für alle Teile, 12-Takt-Blues): **F7 – F7 – F7 – F7 – Bb7 – Bb7 – F7 – F7 – C7 – Bb7 – F7 – C7**
 3. Ref. 2 (Bläser-Fills)
 4. **Stops**: Stop-Time, Bläser-Triolen im Crescendo von p bis ff
 5. Ref. 3
 6. **Gitarrensolo 2×** (Bläser nur beim 1. Mal)
-7. **Stops** nochmal (D.S.)
-8. Ref. 4, danach in die Coda
+7. **Stops** nochmal
+8. Ref. 4
 9. **Soli**: Bari, Posaune, Altsax, Piano, offen wiederholt; Backings auf Zeichen erst ab dem 2. Durchgang
 10. Letztes Mal **Tutti auf Zeichen**: Schluss-Riff
 
