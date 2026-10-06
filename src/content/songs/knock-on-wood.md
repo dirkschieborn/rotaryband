@@ -3,6 +3,9 @@ title: Knock on Wood
 artist: Eddie Floyd
 key: E-Dur (Strophen über A7/E7)
 feel: R&B / Soul
+sheets:
+  - src: /sheets/knock-on-wood-horn-section.pdf
+    label: Horn Section
 vocals:
   - wer: Carl, Dirk, Rainer
     part: 2. Stimme (unisono) ab „thunder“ – Töne siehe Abschnitt Gesang
