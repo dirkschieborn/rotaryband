@@ -11,17 +11,22 @@ video:
     label: Probe (3:56)
 ---
 
-## Ablauf (nach dem Bläser-Chart)
+## Ablauf
 
-1. 8 Takte, dann **Intro-Figur ×4**
-2. 15 Takte (Strophe) – Bläser tacet
-3. **Pre-Chorus ×2**: liegender Akkord mit Crescendo
-4. Chorus, danach **„nach Chorus“ ×2** (gleiche Figur)
-5. Strophe/Chorus, dann Figur **×4**
-6. **Gitarren-Solo** – 8 Takte Bläser tacet
-7. 15 Takte, Figur **×2**, dann **×4**
-8. **Outro** mit der Achtel-Figur bis zum **Ende**
+1. Intro: **D – C – G – F – D** 2×, dann 2× **nur Gitarre**, dann 4× alle
+2. Strophe 1 („Sexy – was hast du bloß aus diesem Mann gemacht")
+   - Strophe (gilt für alle Strophen), pro Zeile: **D – C – G F D – C G F D**
+   - Chorus („Du bist 'ne Waffe…", 2×): **Bb – C – G**
+   - Bridge („Sexy – ich würde alles für dich tun"): **G – F – C – D**
+3. Chorus
+4. Strophe 2 („Sexy – er hat sein altes Weib für dich vom Hof gejagt")
+5. Chorus
+6. Bridge **4×**
+7. **Solo** über **G** (4 Takte)
+8. Strophe 3 („Sexy – für dich ham Gott und Teufel 'nen Vertrag geschlossen")
+9. Chorus
+10. Bridge **5×**
+11. Outro **4–8×** über G – F – C – D („Sexy – Sexy – Sexy – Sexy" / „ich würde alles für dich tun")
+12. Ende
 
-*Die Taktzahlen sind die Pausentakte der Bläser, nicht die komplette Songform.*
-
-*Quellen: Bläsersatz Trompete/Posaune (siehe Noten) + IWC-Setliste*
+*Quellen: Akkord-Sheet (Ablauf), Bläsersatz Trompete/Posaune (siehe Noten) + IWC-Setliste*
