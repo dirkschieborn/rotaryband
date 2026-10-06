@@ -24,13 +24,14 @@ Strophe und Chorus gleich: **D (2) – G (2) – A (2) – D (2)**
 7. Verse 4 („Call me a relic…")
 8. Chorus
 9. Solo-Block: **1× Sax-Solo mit allen → 1× Sax-Solo mit Drums-Solo → 1× Sax-Solo mit allen**
-10. **2× Chorus alle → 2× Chorus a cappella → 2× Chorus alle**
-11. **Schluss auf D**
+10. **2× Chorus**
+11. **Schlusswendung**
+12. Carl zählt neu ein – **schnell**: **Keyboard-Solo über 4 Formen**
+13. **Schlusswendung**
 
 ## Worauf achten
 
 - Die Backings singen wir **ad lib** – keine festgelegten Stimmen, jede und jeder so, wie es gerade kommt.
-- Der A-cappella-Chorus ist der Show-Moment – Tempo halten, Drums zählen innerlich weiter.
 - Sheet nennt „@ 124 BPM in ‚F'", die Akkorde stehen aber in D – wir spielen die D-Fassung.
 
 *Quelle: Sheet Nr. 44 („44_Old time of Rock-n-Roll_Bob Seger.pdf")*
