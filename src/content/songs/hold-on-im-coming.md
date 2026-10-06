@@ -10,16 +10,6 @@ audio:
     label: Backings (0:09)
 ---
 
-## Form / Akkorde
-
-- Intro-Riff / Sax-Hook: **Ab – Cb – Db**
-- Hookline „Hold on, I’m coming – hold on, I’m coming“: **Ab – Cb – Db – Ab** (am Anfang 2× a cappella)
-- Strophe: Ab7 → Db
-- Chorus: **Ab7 – Cb / Db – Ab7** („Hold On, I'm Coming")
-- Bridge: Db („Reach out to me") – Cb („Call my name") – Db („For quick reaction") – **Eb** („Hey hey hey"), danach Lick über Ab – Gb – Cb – Db / Intro-Riff über Ab7 – Cb – Db
-
-> In der As-Dur-Welt notiert, also mit b statt Kreuz: **Cb** (= B), **Db** (= C#), **Eb** (= D#), **Gb** (= F#).
-
 ## Ablauf
 
 1. Intro: Phrase Ab – Cb – Db – Ab **2× a cappella** (Sologesang), danach **2× Sax-Hook** (Intro-Riff Ab – Cb – Db)
