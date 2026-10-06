@@ -36,8 +36,19 @@ video:
 
 ## Ablauf
 
-*Noch offen – Sheet/Ablauf folgt.*
+Jeder Teil ist ein 12-Takt-Blues.
 
-*Quelle: Notizen aus der Probe (kein Sheet im Ordner)*
+1. **Gitarrenintro**
+2. Ref. 1 (Bläser pausieren)
+3. Ref. 2 (Bläser-Fills)
+4. **Stops**: Stop-Time, Bläser-Triolen im Crescendo von p bis ff
+5. Ref. 3
+6. **Gitarrensolo 2×** (Bläser nur beim 1. Mal)
+7. **Stops** nochmal (D.S.)
+8. Ref. 4, danach in die Coda
+9. **Soli**: Bari, Posaune, Altsax, Piano, offen wiederholt; Backings auf Zeichen erst ab dem 2. Durchgang
+10. Letztes Mal **Tutti auf Zeichen**: Schluss-Riff
+
+*Quelle: Referenz-Sheet Trompete 1 (Ablauf); Gesang aus Notizen der Probe*
 
 *Akustik-Set: ja (laut Songlist 2R2B vom 5.8.2026)*
