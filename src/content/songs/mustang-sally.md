@@ -25,7 +25,7 @@ video:
 
 ## Form / Akkorde
 
-12-Takt-Blues-Schema in C: **C/C7**, **F/F7**, **G** (mit Lauf G\G\F zurück nach C).
+12-Takt-Blues-Schema in C: **C/C7**, **F/F7**, **G** (mit Lauf G – F# – F zurück nach C).
 Typische Begleitfigur: C7–C–C7-Pendel.
 
 ## Ablauf
@@ -33,7 +33,7 @@ Typische Begleitfigur: C7–C–C7-Pendel.
 1. Intro: Gitarre, dann **C – C7 – C** (2×)
 2. Strophe 1: „Mustang Sally … guess you better slow your Mustang down"
 3. Chorus: „All you wanna do is ride around Sally (Ride, Sally, ride)"
-4. „Well, listen – one of these early mornings… gonna be whipping your weeping eyes" (G – G\G\F – C), „What I said, now – Look-a-here!"
+4. „Well, listen – one of these early mornings… gonna be whipping your weeping eyes" (G – F# – F – C), „What I said, now – Look-a-here!"
 5. **Solo Sax + Piano**
 6. Strophe 2: „I bought you a brand new Mustang …", Ende „Let me say it one more time now"
 7. **1× Chorus**
@@ -44,7 +44,7 @@ Typische Begleitfigur: C7–C–C7-Pendel.
 
 - Call-and-Response im Refrain: Lead „All you wanna do is ride around Sally" – Antwort **„Ride, Sally, ride"**.
 - Bei „Ride, Sally, ride": **Carl** singt die Hauptstimme auf dem Grundton **C**, **Dirk** die **Terz E** darüber. Wechselt der Akkord nach **F**, bleibt Dirk auf dem Ton, der dann als **Eb die Septime von F** ist.
-- Bei **„Ah-Ah-Ah"**: **Ecki** singt die Hauptstimme und hält das **C**, **Dirk und Carl** singen **C – Bb – G**, das **Sax** spielt dazu klingend **E – D – Bb**.
+- Bei **„Ah-Ah-Ah"** (am Ende vom Refrain auf **C**, direkt nach dem Lauf **G – F# – F**): **Ecki** singt die Hauptstimme und hält das **C**, **Dirk und Carl** singen **C – Bb – G**, das **Sax** spielt dazu klingend **E – D – Bb**.
 
 *Quelle: Sheet Nr. 21 („21_Mustang Sally_Wilson Pickett 1966_songtext.pdf") + Notiz aus der Probe*
 
