@@ -15,6 +15,7 @@ audio:
 1. Intro: Phrase Ab – Cb – Db – Ab **2× a cappella** (Sologesang), danach **2× Sax-Hook** (Intro-Riff Ab – Cb – Db)
 2. Strophe 1 + Chorus („Don't you ever be sad…")
    - Strophe (gilt für alle Strophen): **Ab – Ab – Ab – Ab – Db – Db – Db – Db**
+   - Chorus („Hold On, I'm Coming"): **Ab7 – Cb / Db – Ab7**
 3. **1× Intro-Riff**
 4. Strophe 2 + Chorus („I'm on my way your lover…")
 5. **2× Intro-Riff**
