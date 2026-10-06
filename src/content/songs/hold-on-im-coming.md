@@ -22,13 +22,14 @@ audio:
 
 ## Ablauf
 
-1. Intro: Phrase Ab – Cb – Db – Ab **2× a cappella**, danach **2× Sax-Hook** (Intro-Riff Ab – Cb – Db)
-2. Strophe 1 („Don't you ever be sad…")
-3. Chorus 1×
-4. Strophe 2 („I'm on my way your lover…")
-5. Chorus 2×
-6. Bridge + Lick/Intro-Riff
-7. Strophe 3 (= Strophe 1)
-8. Outro: Hookline **4× mit Band**, das **5. Mal a cappella**
+1. Intro: Phrase Ab – Cb – Db – Ab **2× a cappella** (Sologesang), danach **2× Sax-Hook** (Intro-Riff Ab – Cb – Db)
+2. Strophe 1 + Chorus („Don't you ever be sad…")
+3. **1× Intro-Riff**
+4. Strophe 2 + Chorus („I'm on my way your lover…")
+5. **2× Intro-Riff**
+6. Bridge
+7. **2× Intro-Riff**
+8. Strophe 3 (= Strophe 1)
+9. Outro: Hookline **4× mit Band**, das **5. Mal a cappella** (Sologesang)
 
-*Quelle: Sheet Nr. 24 („24_Hold on I am coming_Isaac Hays_David Porter_songtext.pdf")*
+*Quelle: Sheet Nr. 24 („24_Hold on I am coming_Isaac Hays_David Porter_songtext.pdf") und handschriftlicher Ablauf*
