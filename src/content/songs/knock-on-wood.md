@@ -22,12 +22,13 @@ audio:
 
 ## Ablauf
 
-1. Auftakt-Lauf
-2. Strophe 1 („I don't wanna lose…")
-3. Auftakt-Lauf, Strophe 2 („I'm not superstitious…")
-4. Lauf mit Verlängerung (…B A G), dann Bridge-Lauf „It's no secret"
-5. Strophe 3 („…that woman fills my lovin' cup")
-6. Outro: „think I better knock (knock knock) on wood" mehrfach über E7/A7, dann Schluss-Lauf
+1. Auftakt-Lauf **E – G – A – B – D – B**, dann Vamp auf A7 (||: Ab7 – A :||)
+2. Strophe 1 („I don't wanna lose…"), bei „It's like thunder" auf **E7**; Ende „I better knock on wood, baby" mit Lauf E – G – A – B – D – B
+3. Strophe 2 („I'm not superstitious…"); Ende mit verlängertem Lauf E – G – A – B – **D – B – A – G** (**Off-Beat!**)
+4. Übergang **leiser**: „All right…" über **F# – G# – A – C – C – B – B**
+5. Strophe 3 („It's no secret, but that woman…"); Ende „on wood, baby – I better knock (knock knock)" mit Lauf E – G – A – B – D – B – A – G, „ok yeah"
+6. Outro „Knock-knock": „oh yeah, think I better knock (knock knock) on wood" über E7 – A7, **4×**
+7. Ende (Schläge): E – G – A – B – **D – B – A – G** (**Off-Beat**) – **E**
 
 ## Gesang
 
@@ -43,4 +44,4 @@ audio:
 | „on wood" | **E – unisono** (alle auf E) |
 | „knock (knock knock) on wood" (Outro) | Gis Gis Gis Gis A |
 
-*Quelle: Sheet Nr. 22 („22_Knock on wood_songtext.pdf")*
+*Quelle: Sheet Nr. 22 („22_Knock on wood_songtext.pdf") mit handschriftlichen Anmerkungen*
