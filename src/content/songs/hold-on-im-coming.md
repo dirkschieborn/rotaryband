@@ -17,7 +17,7 @@ audio:
 3. **1× Intro-Riff**
 4. Strophe 2 + Chorus („I'm on my way your lover…")
 5. **2× Intro-Riff**
-6. Bridge
+6. Bridge: Db („Reach out to me") – Cb („Call my name") – Db („For quick reaction") – **Eb** („Hey hey hey"), danach Lick über Ab – Gb – Cb – Db
 7. **2× Intro-Riff**
 8. Strophe 3 (= Strophe 1)
 9. Outro: Hookline **4× mit Band**, das **5. Mal a cappella** (Sologesang)
