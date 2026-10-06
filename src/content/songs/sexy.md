@@ -18,7 +18,7 @@ video:
 1. Intro: **D – C – G – F – D** 2×, dann 2× **nur Gitarre**, dann 4× alle
 2. Strophe 1 („Sexy – was hast du bloß aus diesem Mann gemacht")
    - Strophe (gilt für alle Strophen), pro Zeile: **D – C – G F D – C G F D**
-   - Chorus („Du bist 'ne Waffe…", 2×): **Bb – C – G**
+   - Chorus („Du bist 'ne Waffe…", 2×): **Bb – C – G**, nur das **Bb vorgezogen**, C und G auf die Eins
    - Bridge („Sexy – ich würde alles für dich tun"): **G – F – C – D**
 3. Chorus
 4. Strophe 2 („Sexy – er hat sein altes Weib für dich vom Hof gejagt")
