@@ -3,6 +3,9 @@ title: Mustang Sally
 artist: Wilson Pickett
 key: C-Dur (C7-Blues)
 feel: R&B / Soul
+sheets:
+  - src: /sheets/mustang-sally-horn-section.pdf
+    label: Horn Section
 vocals:
   - wer: Carl
     part: Hauptstimme bei „Ride, Sally, ride" – auf dem Grundton C

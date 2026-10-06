@@ -3,6 +3,9 @@ title: Hold On, I'm Coming
 artist: Sam & Dave
 key: Ab-Dur (Ab7)
 feel: Soul / Stax
+sheets:
+  - src: /sheets/hold-on-im-coming-horn-section.pdf
+    label: Horn Section
 audio:
   - src: /audio/songs/hold-on-im-coming-referenz.mp3
     label: Referenz-Aufnahme (3:13)
