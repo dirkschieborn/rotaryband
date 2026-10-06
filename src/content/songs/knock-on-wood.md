@@ -15,7 +15,7 @@ audio:
 
 ## Ablauf
 
-1. Auftakt-Lauf **E – G – A – B – D – B**, dann Vamp auf A7 (||: Ab7 – A :||)
+1. Auftakt-Lauf **E – G – A – B – D – B**
 2. Strophe 1 („I don't wanna lose…"), bei „It's like thunder" auf **E7**; Ende „I better knock on wood, baby" mit Lauf E – G – A – B – D – B
    - Strophe (gilt für alle Strophen): **A7 (4 Takte) – E7 (4 Takte) – A7** – dann E7/A7-Wechsel („It's like thunder, lightning…")
 3. Strophe 2 („I'm not superstitious…"); Ende mit verlängertem Lauf E – G – A – B – **D – B – A – G** (**Off-Beat!**)
