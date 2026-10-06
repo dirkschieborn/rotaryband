@@ -11,6 +11,10 @@ vocals:
     part: Hauptstimme bei „Ride, Sally, ride" – auf dem Grundton C
   - wer: Dirk
     part: 2. Stimme bei „Ride, Sally, ride" – Terz E über C; beim F-Akkord bleibt der Ton und wird zum Eb (Septime von F)
+  - wer: Ecki
+    part: Hauptstimme bei „Ah-Ah-Ah" – C gehalten
+  - wer: Dirk, Carl
+    part: „Ah-Ah-Ah" – C – Bb – G
 audio:
   - src: /audio/songs/mustang-sally-backings.m4a
     label: Backings (0:53)
@@ -36,6 +40,7 @@ Typische Begleitfigur: C7–C–C7-Pendel.
 
 - Call-and-Response im Refrain: Lead „All you wanna do is ride around Sally" – Antwort **„Ride, Sally, ride"**.
 - Bei „Ride, Sally, ride": **Carl** singt die Hauptstimme auf dem Grundton **C**, **Dirk** die **Terz E** darüber. Wechselt der Akkord nach **F**, bleibt Dirk auf dem Ton, der dann als **Eb die Septime von F** ist.
+- Bei **„Ah-Ah-Ah"**: **Ecki** singt die Hauptstimme und hält das **C**, **Dirk und Carl** singen **C – Bb – G**, das **Sax** spielt dazu klingend **E – D – Bb**.
 
 *Quelle: Sheet Nr. 21 („21_Mustang Sally_Wilson Pickett 1966_songtext.pdf") + Notiz aus der Probe*
 
