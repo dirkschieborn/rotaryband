@@ -12,8 +12,8 @@ audio:
 
 ## Form / Akkorde
 
-- Intro-Riff: **Ab – Cb – Db**
-- Hookline „Hold on, I’m coming – hold on, I’m coming“: **Ab – Cb – Db – Ab**
+- Intro-Riff / Sax-Hook: **Ab – Cb – Db**
+- Hookline „Hold on, I’m coming – hold on, I’m coming“: **Ab – Cb – Db – Ab** (am Anfang 2× a cappella)
 - Strophe: Ab7 → Db
 - Chorus: **Ab7 – Cb / Db – Ab7** („Hold On, I'm Coming")
 - Bridge: Db („Reach out to me") – Cb („Call my name") – Db („For quick reaction") – **Eb** („Hey hey hey"), danach Lick über Ab – Gb – Cb – Db / Intro-Riff über Ab7 – Cb – Db
@@ -22,7 +22,7 @@ audio:
 
 ## Ablauf
 
-1. Intro: Hookline über Ab – Cb – Db – Ab **2× a cappella**, danach **2× Intro-Riff mit Sax**
+1. Intro: Phrase Ab – Cb – Db – Ab **2× a cappella**, danach **2× Sax-Hook** (Intro-Riff Ab – Cb – Db)
 2. Strophe 1 („Don't you ever be sad…")
 3. Chorus 1×
 4. Strophe 2 („I'm on my way your lover…")
