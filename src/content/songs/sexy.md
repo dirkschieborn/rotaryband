@@ -6,6 +6,8 @@ key: C-Dur (Bläser-Chart in D notiert, Bb-Stimmen)
 sheets:
   - src: /sheets/sexy-blaeser-satz.pdf
     label: Bläsersatz Trompete/Posaune (1 Seite)
+  - src: /sheets/sexy-akkorde.jpg
+    label: Akkord-Sheet (Foto)
 video:
   - src: /video/songs/sexy-probe.mp4
     label: Probe (3:56)
