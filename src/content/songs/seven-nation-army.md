@@ -10,7 +10,7 @@ vocals:
   - wer: Dirk
     part: Strophe – auf H
   - wer: Carl, Dirk
-    part: Pre-Chorus („A seven nation army couldn't hold me back“ / „taking their time right behind my back“ / „every single one's got a story to tell“) – Linie G – E – E – Dis – E
+    part: Pre-Chorus – Linie G – E – E – Dis – E (Text siehe Abschnitt Gesang)
 sheets:
   - src: /sheets/seven-nation-army-blaeser-bb.pdf
     label: Bläser Bb-Stimme (2 Seiten)
@@ -123,6 +123,17 @@ Grund-Turnaround: **Em – Em – C – B7** (in Halben gezählt, also 2 Takte: 
 11. **Pre-Chorus**
 12. **Riff mit Bläsermelodie** – 2×
 13. **Stop-Ende**
+
+## Gesang
+
+**Strophe:** Carl auf **G**, Dirk auf **H**.
+
+**Pre-Chorus** (Carl und Dirk): Linie **G – E – E – Dis – E**
+
+- „A seven nation army couldn't hold me back“
+- „taking their time right behind my back“
+- „every single one's got a story to tell“
+- „from the Queen of England to the hounds of hell“
 
 ## Dramaturgie
 
