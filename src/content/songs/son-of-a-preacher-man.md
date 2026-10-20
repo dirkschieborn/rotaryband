@@ -1,6 +1,7 @@
 ---
 title: Son of a Preacher Man
 artist: Dusty Springfield
+tempo: ♩ = 88
 key: A-Dur (Original-Sheet in E, wir spielen transponiert in A)
 feel: Soul
 sheets:
