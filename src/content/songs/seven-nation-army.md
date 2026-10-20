@@ -4,6 +4,11 @@ artist: Ben l'Oncle Soul
 tempo: 120 BPM (Bläserstimme)
 key: E-Moll
 feel: Soul-Version
+vocals:
+  - wer: Carl
+    part: Strophe – auf G
+  - wer: Dirk
+    part: Strophe – auf H
 sheets:
   - src: /sheets/seven-nation-army-blaeser-bb.pdf
     label: Bläser Bb-Stimme (2 Seiten)
