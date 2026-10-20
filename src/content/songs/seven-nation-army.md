@@ -10,7 +10,7 @@ vocals:
   - wer: Dirk
     part: Strophe – auf H
   - wer: Carl, Dirk
-    part: Pre-Chorus („A seven nation army couldn't hold me back“) – Linie G – E – E – Dis – E
+    part: Pre-Chorus („A seven nation army couldn't hold me back“ / „taking their time right behind my back“) – Linie G – E – E – Dis – E
 sheets:
   - src: /sheets/seven-nation-army-blaeser-bb.pdf
     label: Bläser Bb-Stimme (2 Seiten)
