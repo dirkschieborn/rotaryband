@@ -135,6 +135,8 @@ Grund-Turnaround: **Em – Em – C – B7** (in Halben gezählt, also 2 Takte: 
 - „every single one's got a story to tell“
 - „from the Queen of England to the hounds of hell“
 
+**Über G – A – Em:** „Uh – ah – ah“
+
 ## Dramaturgie
 
 - Am Anfang stehen **alle mit dem Rücken zum Publikum**.
