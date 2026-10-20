@@ -1,6 +1,7 @@
 ---
 title: Knock on Wood
 artist: Eddie Floyd
+tempo: ♩ = 118
 key: E-Dur (Strophen über A7/E7)
 feel: R&B / Soul
 sheets:
