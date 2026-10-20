@@ -5,10 +5,8 @@ tempo: 140 BPM
 key: C-Moll
 feel: Schnell, funky
 vocals:
-  - wer: Carl
-    part: „I love you" – Töne Es – F – Es – C
-  - wer: Dirk
-    part: „I love you" – Töne C – D – C – G
+  - wer: Carl, Dirk
+    part: „I love you" unisono – Töne C – D – C – G
 audio:
   - src: /audio/songs/sunny-referenz.m4a
     label: Referenz-Aufnahme (3:44)
@@ -23,7 +21,7 @@ audio:
 - Grund-Changes pro Strophe: **Cm – Eb7 – Ab – G7**
 - Schluss-Variante (laut handschriftlicher Notiz): **Cm – Eb – Ab – Db6 – Dm7b5 (D halbvermindert) – G – Gmaj7 (G7#9)**
 - Die Schlusszeile „Sunny one so true, I love you" endet auf **G7#9**
-- „I love you" zweistimmig: **Carl** Es – F – Es – C, **Dirk** C – D – C – G
+- „I love you": **Carl und Dirk unisono** C – D – C – G
 
 ## Ablauf (laut handschriftlichem Sheet)
 
