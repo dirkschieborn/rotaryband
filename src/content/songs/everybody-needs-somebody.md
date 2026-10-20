@@ -40,5 +40,6 @@ video:
 1. **Intro mit Bläserlick**
 2. **Ecki steigt aus dem Gesang aus**: stellt die Band vor und sagt etwas zum Programm und zur Funke-Stiftung
 3. Danach **normal weiter** im Song
+4. **Ende ohne Schlusston** – der Schluss-Ton kommt **NICHT**!
 
 *Quelle: Notizen aus der Probe (kein Sheet im Ordner)*
