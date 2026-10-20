@@ -9,6 +9,8 @@ vocals:
     part: Strophe – auf G
   - wer: Dirk
     part: Strophe – auf H
+  - wer: Carl, Dirk
+    part: Pre-Chorus – Linie G – E – E – Dis – E
 sheets:
   - src: /sheets/seven-nation-army-blaeser-bb.pdf
     label: Bläser Bb-Stimme (2 Seiten)
