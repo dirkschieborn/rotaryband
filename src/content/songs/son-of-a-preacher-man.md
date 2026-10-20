@@ -5,8 +5,8 @@ tempo: ♩ = 88
 key: A-Dur (Original-Sheet in E, wir spielen transponiert in A)
 feel: Soul
 sheets:
-  - src: /sheets/son-of-a-preacher-man-blaeser-satz-a.pdf
-    label: Bläsersatz eine Quarte höher – unsere Tonart A-Dur, Schluss in D (3 Seiten)
+  - src: /sheets/son-of-a-preacher-man-tenorsax-quinte.pdf
+    label: Tenorsax-Stimme eine Quinte höher, komplett mit allen Pausen (1 Seite)
   - src: /sheets/son-of-a-preacher-man-blaeser-satz.pdf
     label: Bläsersatz Original in E, Arr. Ryan Gabbart (4 Seiten)
 audio:
