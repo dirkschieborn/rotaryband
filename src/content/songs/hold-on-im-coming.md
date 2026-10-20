@@ -1,6 +1,7 @@
 ---
 title: Hold On, I'm Coming
 artist: Sam & Dave
+tempo: ♩ = 113
 key: Ab-Dur (Ab7)
 feel: Soul / Stax
 sheets:
