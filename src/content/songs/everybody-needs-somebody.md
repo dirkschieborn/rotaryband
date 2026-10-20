@@ -1,6 +1,7 @@
 ---
 title: Everybody Needs Somebody to Love
 artist: Blues Brothers
+tempo: ♩ = 190
 feel: Soul / Rock'n'Roll
 vocals:
   - wer: Eckhard
