@@ -19,7 +19,7 @@ const {
   noindex = false,
 } = Astro.props;
 
-const siteUrl = 'https://www.dierotaryband.de';
+const siteUrl = 'https://www.rotary-band.de';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || siteUrl);
 const absoluteImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 

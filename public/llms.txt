@@ -1,5 +1,5 @@
 # Die Rotary Band – Live-Musik für den guten Zweck
-# https://www.dierotaryband.de
+# https://www.rotary-band.de
 
 > Die Rotary Band ist eine fünfköpfige Live-Band des Rotary Club Stuttgart-Remstal.
 > Wir spielen Rock'n'Roll Klassiker auf Benefizveranstaltungen, Firmenevents und privaten Feiern.
@@ -16,11 +16,11 @@
 
 ## Hauptseiten
 
-- [Startseite](https://www.dierotaryband.de/)
-- [News](https://www.dierotaryband.de/news/)
-- [Booking / Anfrage](https://www.dierotaryband.de/booking/)
-- [Impressum](https://www.dierotaryband.de/impressum/)
-- [Datenschutz](https://www.dierotaryband.de/datenschutz/)
+- [Startseite](https://www.rotary-band.de/)
+- [News](https://www.rotary-band.de/news/)
+- [Booking / Anfrage](https://www.rotary-band.de/booking/)
+- [Impressum](https://www.rotary-band.de/impressum/)
+- [Datenschutz](https://www.rotary-band.de/datenschutz/)
 
 ## Kontakt
 

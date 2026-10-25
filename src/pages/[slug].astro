@@ -15,7 +15,7 @@ export function getStaticPaths() {
 const { post } = Astro.props;
 const allPosts = posts as any[];
 
-const siteUrl = 'https://www.dierotaryband.de';
+const siteUrl = 'https://www.rotary-band.de';
 const postImage = post.featured_image || post.card_image || `${siteUrl}/images/og-image.jpg`;
 const blogPostingSchema = {
   '@context': 'https://schema.org',
