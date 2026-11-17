@@ -4,6 +4,9 @@ artist: Gerry Rafferty
 key: D-Dur (Sax-Riff) – Strophen auf A
 feel: Soft Rock, straight 8th, medium
 status: in-arbeit
+sheets:
+  - src: /sheets/baker-street-lead-sheet.pdf
+    label: Lead-Sheet – Melodie, Text & Akkorde (Real Rock Book, 2 Seiten)
 ---
 
 ## Akkorde
@@ -61,4 +64,4 @@ Beim 2. Mal im letzten Takt: Sax-Auftakt zum Outro.
 - **Refrain:** endet beim 1. Mal auf **D – D7** (zurück nach Dm), beim 2. Mal auf **G/B – A – F/G** in den Sax-Riff.
 - Nach dem 2. Refrain kommt nicht direkt das Gitarrensolo: erst Sax-Riff, dann die Intro-Akkorde (Interlude), dann die Gitarre.
 
-> **Quelle:** Lead-Sheet aus *The Real Rock Book*, Vol. 1 (Hal Leonard), S. 34–35, gekauft bei Sheet Music Direct am 17.11.2026 – Melodie, Text und Akkorde taktgenau. Gegengecheckt mit dem *Guitar Chord Songbook* (S. 70–72). Die PDFs liegen bei Dirk.
+> **Quelle:** Lead-Sheet aus *The Real Rock Book*, Vol. 1 (Hal Leonard), S. 34–35, gekauft bei Sheet Music Direct am 17.11.2026 – Melodie, Text und Akkorde taktgenau. Gegengecheckt mit dem *Guitar Chord Songbook* (S. 70–72). Das Lead-Sheet steht oben unter „Noten“.
