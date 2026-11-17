@@ -1,0 +1,28 @@
+title: "Gig SCD"
+date: 2026-12-11
+sets:
+  - name: "Hauptset"
+    songs:
+      - slug: seven-nation-army
+      - slug: son-of-a-preacher-man
+      - slug: everybody-needs-somebody
+      - slug: sweet-home-chicago
+      - slug: knock-on-wood
+      - slug: hold-on-im-coming
+      - slug: sunny
+      - slug: mustang-sally
+      - slug: old-time-rock-and-roll
+      - slug: long-train-runnin
+      - slug: mystery-train
+      - slug: lay-down-sally
+      - title: "Just a Gigolo"
+      - slug: baker-street
+      - slug: you-can-leave-your-hat-on
+  - name: "Separater Programmpunkt"
+    separat: true
+    songs:
+      - slug: wir-fraun-von-inner-wheel
+        note: "nur Piano – läuft außerhalb der Setliste"
+  - name: "Zugabe"
+    songs:
+      - slug: sexy
