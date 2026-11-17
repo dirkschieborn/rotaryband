@@ -1,47 +1,70 @@
 ---
 title: Walking by Myself
-artist: Gary Moore (Original Jimmy Rogers)
+artist: Gary Moore (1990, Original Jimmy Rogers)
 key: E-Dur
 feel: Blues-Shuffle
 status: in-arbeit
+sheets:
+  - src: /sheets/walking-by-myself-songsheet.pdf
+    label: Songsheet von Eckhard – Text & Akkorde (1 Seite)
 ---
 
 ## Akkorde
 
-Ein Feld = ein Takt, „%" = Takt wiederholen. Alles läuft über den **12-Takt-Blues in E**.
+Nach Eckhards Songsheet. In Strophe, Refrain und Outro steht eine Reihe für eine Textzeile; Intro und Instrumental sind in Takten notiert („%" = Takt wiederholen).
 
 ```chords
 key: E
-[12-Takt-Blues] Strophen, Refrains und Soli
-| E7 | A7 | E7 | % |
-| A7 | % | E7 | % |
-| B7 | A7 | E7 | B7 |
-Takt 2 = Quick Change auf A7 (bei der Probe klären, ob wir den spielen). Takt 12 (B7) ist der Turnaround in den nächsten Durchgang.
+[Intro]
+| E5 | % | Esus4 |
+In Eckhards Sheet als „E4" notiert.
 
-[Schluss] letzter Durchgang
-| B7 | A7 | E7 | E9 |
-Schlussakkord E9 auf Zeichen halten.
+[Strophe] „You know I love you…" – Stop-Time
+| E5 N.C. | „You know I love you"
+| E5 N.C. | „You know it's true"
+| E5 N.C. | „Give you all my love, babe"
+| E5 N.C. | E N.C. | „What more can I do?"
+Schlag auf E5, dann Pause (N.C.) – nur Gesang.
+
+[Refrain] „Walking by myself…"
+| E | „Walking by myself…"
+| A B7 | E A B7 | „…your lovin' man"
+| E | „I love ya, yes I love you…"
+| A | „I wouldn't mistreat you"
+| B | E A B | „…for my weight in gold"
+Die letzten drei Zeilen („I love ya…") nur im 1. Refrain.
+
+[Instrumental] „Here we go!" – 8 Takte, 2×
+| E | % | % | % |
+| A | B | E A | B |
+Vor dem 2. Durchgang: „Keep on walkin'!"
+
+[Outro] „I said I'm walking by myself…"
+| E | „I said I'm walking…"
+| A B | „I just want to be your lovin'"
+| A B | „I just want to be your lovin'"
+| A B N.C. | E A E7 | „…your lovin' man"
+
+[Coda]
+| E7 | E | „That's right."
 ```
 
 ## Ablauf
 
-Jede Strophe bzw. jedes Solo = **ein 12-Takt-Durchgang**.
-
-1. **Einstieg direkt auf E7** – kein langes Intro
-2. Strophe 1 „Walking by myself…"
-3. Refrain „You know I love you…"
-4. Strophe 2 „Walking by myself…"
-5. **Solo 1** (Gitarre)
-6. Refrain
-7. Strophe 3 „I'm walking by myself…"
-8. **Solo 2** (z. B. Sax/Bläser)
-9. Refrain
-10. Strophe 4 „I'm walking by myself…"
-11. **Schluss** „I said I'm walking by myself…" – „That's right" → E9
+1. **Intro** (E5 – E5 – Esus4)
+2. **Strophe 1** „You know I love you…" (Stop-Time)
+3. **Refrain** „Walking by myself…" – mit „I love ya, yes I love you…"
+4. **Strophe 2**
+5. **Refrain** (kurz) → „Here we go!"
+6. **Instrumental** (8 Takte, 2×) – „Keep on walkin'!"
+7. **Strophe 3**
+8. **Refrain** (kurz)
+9. **Outro** „I said I'm walking by myself…" – 3× „I just want to be your lovin'…"
+10. **Coda** E7 – E „That's right."
 
 ## Worauf achten
 
-- Treibender Shuffle, Bläser setzen Hits auf die Akzente der Gitarre.
-- Anzahl der Soli/Durchgänge bei der Probe festlegen.
+- Die Strophen sind **Stop-Time**: Band schlägt E5 an und pausiert, der Gesang steht allein.
+- Im Outro vor dem Schluss ein **Break (N.C.)**, dann E – A – E7 und „That's right" auf E.
 
-> **Entwurf vom 17.11.2026** – Form nach Online-Charts (Penultimate Guitar, GuitarTabsExplorer), Blues-Schema in E. Bei der Probe gegen die Gary-Moore-Aufnahme prüfen und hier korrigieren.
+> **Quelle:** Songsheet von Eckhard (Mail vom 15.11.2026, „Die Rotary Band_Songs + Chords", Nr. 109).
