@@ -28,9 +28,9 @@ Bläser-Riff zwischen den Gesangszeilen.
 
 [Strophe 3] „Suspicious minds…"
 | C7 | % | % | % |
-| Eb | Eb6 | Eb | Eb6 | ×2
+| C7 | % | % | % |
 | Bb | F | C7 | % |
-Eb/Eb6-Teil = „They don't know what love is", Bb – F = „I know what love is".
+„They don't know what love is" bleibt auf dem C7-Vamp (Bläser-Figur mit kleiner Terz Eb – kein Akkordwechsel), Bb – F = „I know what love is". Nach Gehör prüfen!
 
 [Schluss]
 | Bb | F | C7 | % |
