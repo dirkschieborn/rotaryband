@@ -18,9 +18,9 @@ export default defineConfig({
 
   markdown: {
     shikiConfig: {
-      // Notations-Blöcke (```abc) werden im Browser als Notensystem gerendert,
-      // Shiki soll sie nur als Text durchreichen.
-      langAlias: { abc: 'text' },
+      // Notations-Blöcke (```abc) und Akkord-Raster (```chords) werden im Browser
+      // gerendert, Shiki soll sie nur als Text durchreichen.
+      langAlias: { abc: 'text', chords: 'text' },
     },
   },
 
